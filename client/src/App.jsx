@@ -1,7 +1,8 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  return <h1>Externatic</h1>;
+  return <Outlet />;
 }
 
 export default App;
