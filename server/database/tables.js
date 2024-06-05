@@ -1,5 +1,4 @@
 // Import the repository modules responsible for handling data operations on the tables
-// const = require("./models/[...]Repository");
 
 const OfferRepository = require("./models/OfferRepository");
 
