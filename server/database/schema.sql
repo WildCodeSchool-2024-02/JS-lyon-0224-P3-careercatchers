@@ -6,7 +6,7 @@ CREATE TABLE offer(
 );
 
 CREATE TABLE company(
-  id int unsigned primary key auto_increment not null,
-  email VARCHAR(255)
+  id INT unsigned PRIMARY KEY auto_increment NOT NULL,
+  email VARCHAR(255) NOT NULL
 );
 
