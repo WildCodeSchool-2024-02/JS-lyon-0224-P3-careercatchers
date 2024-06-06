@@ -10,7 +10,7 @@ const companys = [
   },
   {
     name: "Data Analyst (H/F)",
-    email: "CDD",
+    email: "coucou@gmoul.fr",
   },
 ];
 
