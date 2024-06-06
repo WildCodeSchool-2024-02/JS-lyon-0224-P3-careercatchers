@@ -21,6 +21,7 @@ const router = createBrowserRouter([
         path: "/result-page",
         id: "resultPage",
         element: <ResultPage />,
+        loader: async () => fetch("http://localhost:3310/api/companys"),
       },
     ],
   },

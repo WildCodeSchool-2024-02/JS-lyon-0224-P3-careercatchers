@@ -9,8 +9,8 @@ const companys = [
     email: "wildcodeschool@gmail;com",
   },
   {
-    name: "Sanofi ",
-    email: "coucou@gmoul.fr",
+    name: "Sanofi",
+    email: "sanofi_pasteur_rh@gmail.fr",
   },
 ];
 
