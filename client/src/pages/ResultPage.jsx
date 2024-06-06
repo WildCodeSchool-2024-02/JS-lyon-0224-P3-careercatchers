@@ -1,3 +1,10 @@
+import BurgerMenu from "../components/BurgerMenu";
+
 export default function ResultPage() {
-  return <h1>Les Offres près de chez vous ↓↓↓</h1>;
+  return (
+    <div>
+      <BurgerMenu />
+      <h1>Les Offres près de chez vous ↓↓↓</h1>
+    </div>
+  );
 }
