@@ -10,9 +10,9 @@ const offersRouter = require("./offers/router");
 
 router.use("/offers", offersRouter);
 
-const companysRouter = require("./companys/router");
+const companiesRouter = require("./companies/router");
 
-router.use("/companys", companysRouter);
+router.use("/companies", companiesRouter);
 /* ************************************************************************* */
 
 module.exports = router;

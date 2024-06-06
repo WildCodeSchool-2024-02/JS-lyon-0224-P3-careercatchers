@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
 export default function ResultPage() {
-  const companys = useLoaderData();
+  const companies = useLoaderData();
   return (
     <>
       <h1>Les Offres près de chez vous ↓↓↓</h1>
@@ -12,7 +12,7 @@ export default function ResultPage() {
         sit maiores!
       </p>
       <div>
-        {companys.map((company) => (
+        {companies.map((company) => (
           <div key={company.name}>
             <h2>{company.name}</h2>
             <p>{company.email}</p>
