@@ -7,6 +7,8 @@ import App from "./App";
 import HomePage from "./pages/HomePage";
 import ResultPage from "./pages/ResultPage";
 
+const ApiUrl = import.meta.env.VITE_API_URL;
+
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -15,12 +17,13 @@ const router = createBrowserRouter([
         path: "/",
         id: "homePage",
         element: <HomePage />,
-        loader: async () => fetch("http://localhost:3310/api/offers"),
+        loader: async () => fetch(`${ApiUrl}/api/offers`),
       },
       {
         path: "/result-page",
         id: "resultPage",
         element: <ResultPage />,
+        loader: async () => fetch(`${ApiUrl}/api/companies`),
       },
     ],
   },
