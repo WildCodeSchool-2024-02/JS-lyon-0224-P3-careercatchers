@@ -3,10 +3,10 @@ const AbstractSeeder = require("./AbstractSeeder");
 // Import seeders that must be executed before this one
 // Follow your foreign keys to find the right order ;)
 
-const companys = [
+const companies = [
   {
     name: "Wild Code School",
-    email: "wildcodeschool@gmail;com",
+    email: "wildcodeschool@gmail.com",
   },
   {
     name: "Sanofi",
@@ -23,7 +23,7 @@ class CompanySeeder extends AbstractSeeder {
   // The run method - Populate the 'Company' table with data of jobTitles
 
   run() {
-    companys.forEach((company) => {
+    companies.forEach((company) => {
       const values = {
         name: company.name,
         email: company.email,
@@ -33,5 +33,5 @@ class CompanySeeder extends AbstractSeeder {
   }
 }
 
-// Export the CompanySeeder class
+// Export the companieseeder class
 module.exports = CompanySeeder;

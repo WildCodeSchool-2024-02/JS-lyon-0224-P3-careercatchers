@@ -5,10 +5,10 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const companys = await tables.company.readAll();
+    const companies = await tables.company.readAll();
 
     // Respond with the items in JSON format
-    res.json(companys);
+    res.json(companies);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
