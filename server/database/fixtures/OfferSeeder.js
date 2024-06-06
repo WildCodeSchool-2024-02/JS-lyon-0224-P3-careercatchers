@@ -17,7 +17,7 @@ const offers = [
 class OfferSeeder extends AbstractSeeder {
   constructor() {
     // Call the constructor of the parent class (AbstractSeeder) with appropriate options
-    super({ table: "offer", truncate: true });
+    super({ table: "offer" });
   }
 
   // The run method - Populate the 'offer' table with data of jobTitles

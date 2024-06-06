@@ -6,10 +6,10 @@ const AbstractSeeder = require("./AbstractSeeder");
 const companys = [
   {
     name: "Wild Code School",
-    email: "wildcodescholl@gmail;com",
+    email: "wildcodeschool@gmail;com",
   },
   {
-    name: "Data Analyst (H/F)",
+    name: "Sanofi ",
     email: "coucou@gmoul.fr",
   },
 ];
@@ -17,7 +17,7 @@ const companys = [
 class CompanySeeder extends AbstractSeeder {
   constructor() {
     // Call the constructor of the parent class (AbstractSeeder) with appropriate options
-    super({ table: "company", truncate: true });
+    super({ table: "company" });
   }
 
   // The run method - Populate the 'Company' table with data of jobTitles
