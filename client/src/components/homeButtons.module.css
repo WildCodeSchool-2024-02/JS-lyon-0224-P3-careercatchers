@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+.homeButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttons {
+  font-family: Jost;
+  background-color: #ca2061;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
