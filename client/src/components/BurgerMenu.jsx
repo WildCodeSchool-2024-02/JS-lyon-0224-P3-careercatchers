@@ -1,19 +1,10 @@
 import { useState } from "react";
-import "./BurgerMenu.css";
+import styles from "./BurgerMenu.module.css";
 
 export default function BurgerMenu() {
-  const [burgerClass, setBurgerClass] = useState("burger-bar unclicked");
-  const [menuClass, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   const updateMenu = () => {
-    if (!isMenuClicked) {
-      setBurgerClass("burger-bar clicked");
-      setMenuClass("menu visible");
-    } else {
-      setBurgerClass("burger-bar unclicked");
-      setMenuClass("menu hidden");
-    }
     setIsMenuClicked(!isMenuClicked);
   };
   const handleKeyDown = (e) => {
@@ -23,29 +14,31 @@ export default function BurgerMenu() {
   };
 
   return (
-    <div className="burger-container">
-      <div className="burger-flexbox">
+    <div className={styles.burgerContainer}>
+      <div className={styles.burgerFlexbox}>
         <div
-          className="burger-menu"
+          className={styles.burgerMenu}
           aria-label="Menu"
           role="button"
           tabIndex="0"
-          aria-expanded="false"
+          aria-expanded={isMenuClicked}
           onClick={updateMenu}
           onKeyDown={handleKeyDown}
         >
-          <div className={burgerClass} aria-hidden="true">
+          <div className={styles.burgerBar} aria-hidden="true">
             {}
           </div>
-          <div className={burgerClass} aria-hidden="true">
+          <div className={styles.burgerBar} aria-hidden="true">
             {}
           </div>
-          <div className={burgerClass} aria-hidden="true">
+          <div className={styles.burgerBar} aria-hidden="true">
             {}
           </div>
         </div>
       </div>
-      <div className={menuClass}>
+      <div
+        className={`${styles.menu} ${isMenuClicked ? styles.visible : styles.hidden}`}
+      >
         <ul>
           <li>Accueil</li>
         </ul>
