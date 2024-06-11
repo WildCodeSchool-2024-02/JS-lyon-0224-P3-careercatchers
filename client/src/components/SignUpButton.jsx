@@ -5,7 +5,7 @@ export default function SignUpButton() {
   return (
     <div className={styles.divLink}>
       <Link className={styles.linkSignUp} to="/sign-up-page">
-        <span className={styles.span}>Pas encore de compte ?</span>{" "}
+        Pas encore de compte ?
         <span className={styles.signUp}>Inscrivez-vous</span>
       </Link>
     </div>
