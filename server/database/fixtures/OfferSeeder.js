@@ -7,10 +7,17 @@ const offers = [
   {
     job_title: "Développeur Web (H/F)",
     job_type: "CDI",
+    company_id: "1",
   },
   {
     job_title: "Data Analyst (H/F)",
     job_type: "CDD",
+    company_id: "2",
+  },
+  {
+    job_title: "Scrum Master (H/F)",
+    job_type: "CDI",
+    company_id: "2",
   },
 ];
 
@@ -27,6 +34,7 @@ class OfferSeeder extends AbstractSeeder {
       const values = {
         job_title: offer.job_title,
         job_type: offer.job_type,
+        company_id: offer.company_id,
       };
       this.insert(values);
     });

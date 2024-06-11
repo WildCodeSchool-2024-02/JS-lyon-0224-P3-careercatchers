@@ -1,13 +1,13 @@
-
-CREATE TABLE offer(
-  id int unsigned primary key auto_increment not null,
-  job_title VARCHAR(80) NOT NULL,
-  job_type ENUM("CDD","CDI","Alternance") NOT NULL
-);
-
 CREATE TABLE company(
-  id INT unsigned PRIMARY KEY auto_increment NOT NULL,
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE offer(
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  job_title VARCHAR(80) NOT NULL,
+  job_type ENUM('CDD','CDI','Alternance') NOT NULL,
+  company_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY (company_id) REFERENCES company(id)
+);
