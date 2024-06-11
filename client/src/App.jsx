@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <Outlet />
-      <h2 className="bg-green-200">COUCOUC</h2>
+      <h2 className="bg-yellow-300 text-sky-300">COUCOUC</h2>
     </>
   );
 }
