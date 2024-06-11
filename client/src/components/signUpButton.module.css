@@ -1,0 +1,13 @@
+.linkSignUp {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  text-align: center;
+  color: var(--font-color);
+  font-family: var(--font-family-text);
+}
+
+.signUp {
+  font-weight: bold;
+  color: var(--font-color);
+}

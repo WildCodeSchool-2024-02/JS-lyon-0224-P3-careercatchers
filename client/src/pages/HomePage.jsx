@@ -5,7 +5,7 @@ import ExternaticDescription from "../components/ExternaticDescription";
 
 export default function HomePage() {
   const offers = useLoaderData();
-  // toto
+
   return (
     <>
       <LogoExternatic />
