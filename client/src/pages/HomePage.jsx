@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import LogoExternatic from "../components/LogoExternatic";
 import HomeButtons from "../components/Homebuttons";
+import ExternaticDescription from "../components/ExternaticDescription";
 
 export default function HomePage() {
   const offers = useLoaderData();
@@ -8,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <LogoExternatic />
-      <h1>Externatic</h1>
+      <ExternaticDescription />
       <p>Attrapez votre avenir</p>
       <p>{offers[0].job_title}</p>
       <HomeButtons />
