@@ -1,0 +1,6 @@
+.divJobOffer {
+  border: solid var(--font-color-black) 1px;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}

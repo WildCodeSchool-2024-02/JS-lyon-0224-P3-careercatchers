@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import JobOffer from "../components/JobOffer";
 
 export default function ResultPage() {
   const companies = useLoaderData();
@@ -19,6 +20,7 @@ export default function ResultPage() {
           </div>
         ))}
       </div>
+      <JobOffer />
     </>
   );
 }
