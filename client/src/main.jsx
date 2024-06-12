@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import HomePage from "./pages/HomePage";
 import ResultPage from "./pages/ResultPage";
+import SignUpPage from "./pages/SignUpPage";
 
 const ApiUrl = import.meta.env.VITE_API_URL;
 
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
         id: "resultPage",
         element: <ResultPage />,
         loader: async () => fetch(`${ApiUrl}/api/companies`),
+      },
+      {
+        path: "/sign-up-page",
+        id: "sign-up-page",
+        element: <SignUpPage />,
       },
     ],
   },
