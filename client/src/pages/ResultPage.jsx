@@ -1,9 +1,11 @@
 import { useLoaderData } from "react-router-dom";
+import NavBarMobile from "../components/NavBar/NavBarMobile";
 
 export default function ResultPage() {
   const companies = useLoaderData();
   return (
     <>
+      <NavBarMobile />
       <h1>Les Offres près de chez vous ↓↓↓</h1>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
