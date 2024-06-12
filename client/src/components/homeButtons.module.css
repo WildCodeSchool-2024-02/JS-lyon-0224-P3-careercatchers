@@ -1,6 +1,12 @@
 .homeButtons {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.divSignUp {
+  padding-top: 1rem;
+  width: 80%;
 }
 
 .buttons {
