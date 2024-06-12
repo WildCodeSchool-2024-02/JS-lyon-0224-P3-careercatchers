@@ -1,47 +1,56 @@
-.burgerContainer {
-  margin: 0;
-  box-sizing: border-box;
-  width: 100%;
+.menuOpen {
+  background-color: var(--primary-color);
   height: 100vh;
-}
-
-.burgerFlexbox {
-  width: 100%;
-  height: 4em;
-  display: flex;
-  justify-content: flex-start;
-  padding: 1em;
-}
-
-.burgerMenu {
-  height: 100%;
-  width: 3em;
-  cursor: pointer;
+  width: 50vw;
+  position: absolute;
+  padding-left: 15px;
+  padding-top: 15px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  gap: 30px;
 }
 
-.burgerBar {
-  width: 100%;
-  height: 2px;
-  background-color: black;
+.burger {
+  background-color: white;
+  border: none;
+  padding-left: 15px;
+  padding-top: 15px;
 }
 
-.menu {
-  width: 50%;
-  height: 100vh;
+.burger > img,
+.cross > img {
+  height: 44px;
+  width: 44px;
+}
+
+.cross {
   background-color: var(--primary-color);
-  position: absolute;
-  top: 0;
-  z-index: -1;
+  border: solid white;
+  border-radius: 5px;
+  border-width: 2px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hidden {
-  display: none;
+.ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.visible {
-  display: inherit;
+.link {
+  text-decoration: none;
+}
+
+.link > li {
+  font-size: 2rem;
+  color: white;
+  font-family: var(--font-family-text);
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
 }

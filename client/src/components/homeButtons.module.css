@@ -1,0 +1,21 @@
+.homeButtons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.divSignUp {
+  padding-top: 1rem;
+  width: 80%;
+}
+
+.buttons {
+  font-family: var(--font-family-text);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}

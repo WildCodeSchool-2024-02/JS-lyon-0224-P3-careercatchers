@@ -1,0 +1,34 @@
+.divClass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  font-family: var(--font-family-text);
+}
+
+.divP {
+  text-align: center;
+}
+
+.logoDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.spanPart {
+  color: var(--font-color);
+  font-weight: bold;
+}
+
+.logo {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.img {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}

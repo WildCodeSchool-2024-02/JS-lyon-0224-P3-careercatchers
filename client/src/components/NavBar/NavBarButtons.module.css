@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 15px;
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.signupButton {
+  background-color: black;
+  color: white;
+  border-style: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 5px 13%;
+  font-family: var(--font-family-text);
+  height: 44px;
+}
+
+.loginButton {
+  width: 54px;
+}
