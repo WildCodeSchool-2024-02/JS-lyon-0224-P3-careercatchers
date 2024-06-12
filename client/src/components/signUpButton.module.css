@@ -3,7 +3,7 @@
   flex-direction: column;
   text-decoration: none;
   text-align: center;
-  color: var(--font-color);
+  color: var(--primary-color);
   font-family: var(--font-family-text);
 }
 
