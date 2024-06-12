@@ -1,9 +1,13 @@
 .container {
-  display: inline-flex;
-  justify-content: space-around;
-  gap: 4vw;
+  display: flex;
   align-items: center;
-  padding: 0 20px;
+  gap: 20px;
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .signupButton {
@@ -11,20 +15,12 @@
   color: white;
   border-style: none;
   border-radius: 7px;
-  font-size: 1.5rem;
-  padding: 3px 13%;
+  font-size: 1rem;
+  padding: 5px 13%;
   font-family: var(--font-family-text);
+  height: 44px;
 }
 
 .loginButton {
-  background-color: white;
-  border-style: none;
-  border: solid black;
-  border-width: 1px;
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  font-size: 30px;
-  font-weight: 100;
-  flex-shrink: 0; /* so the flexbox does not modify the shape of the button */
+  width: 54px;
 }
