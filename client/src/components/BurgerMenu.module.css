@@ -17,6 +17,10 @@
   left: 0;
 }
 
+.menuOpen.hidden {
+  visibility: hidden;
+}
+
 .burger {
   background-color: white;
   border: none;
@@ -53,7 +57,7 @@
   text-decoration: none;
 }
 
-.link > li {
+.ul > li {
   font-size: 2rem;
   color: white;
   font-family: var(--font-family-text);
