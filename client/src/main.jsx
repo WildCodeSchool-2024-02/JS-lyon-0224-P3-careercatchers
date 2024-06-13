@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         path: "/result-page",
         id: "resultPage",
         element: <ResultPage />,
-        loader: async () => fetch(`${ApiUrl}/api/companies`),
+        loader: async () => fetch(`${ApiUrl}/api/offers/with-companies`),
       },
     ],
   },
