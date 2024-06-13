@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  padding-bottom: 0.75rem;
 }
 
 .divSignUp {
@@ -18,4 +19,6 @@
   padding: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  height: 44px;
+  font-size: 1.2rem;
 }

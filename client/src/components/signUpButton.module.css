@@ -1,6 +1,8 @@
-.linkSignUp {
-  display: flex;
-  flex-direction: column;
+.divLink {
+  text-align: center;
+}
+
+.signUpBlock {
   text-decoration: none;
   text-align: center;
   color: var(--primary-color);
