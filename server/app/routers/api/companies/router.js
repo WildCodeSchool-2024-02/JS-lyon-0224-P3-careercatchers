@@ -6,10 +6,10 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import item-related actions
+// Import company-related actions
 const { browse } = require("../../../controllers/CompanyActions");
 
-// Route to get a list of items
+// Route to get a list of companies
 router.get("/", browse);
 
 /* ************************************************************************* */
