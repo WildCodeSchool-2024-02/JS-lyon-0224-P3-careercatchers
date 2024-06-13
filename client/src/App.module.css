@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Jost-VariableFont_wght";
+  src: url("../src/assets/fonts/Jost-VariableFont_wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-family-text: "Jost-VariableFont_wght";
+  --font-color-black: black;
+  --font-color-white: white;
+  --primary-color: #ca2061;
+  --secondary-color: #851342;
+}
+
+*:focus-visible {
+  outline-style: dashed;
+  outline-color: var(--font-color-black);
+  outline-width: 3px;
+  outline-offset: 4px;
+}

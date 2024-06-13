@@ -1,12 +1,14 @@
-create table user (
-  id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null
+CREATE TABLE company(
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL
 );
 
-create table item (
-  id int unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
+CREATE TABLE offer(
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  job_title VARCHAR(80) NOT NULL,
+  job_type ENUM('CDD','CDI','Alternance') NOT NULL,
+  localisation VARCHAR(45) NOT NULL,
+  company_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY (company_id) REFERENCES company(id)
 );

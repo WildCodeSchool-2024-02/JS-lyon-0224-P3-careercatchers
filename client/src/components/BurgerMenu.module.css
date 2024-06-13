@@ -1,0 +1,67 @@
+.menuOpen {
+  background-color: var(--primary-color);
+  height: 100vh;
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  padding-left: 15px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  transition: left 0.3s ease;
+}
+
+.menuOpen.active {
+  left: 0;
+}
+
+.menuOpen.hidden {
+  visibility: hidden;
+}
+
+.burger {
+  background-color: white;
+  border: none;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.burger > img,
+.cross > img {
+  height: 44px;
+  width: 44px;
+}
+
+.cross {
+  background-color: var(--primary-color);
+  border: solid white;
+  border-radius: 5px;
+  border-width: 2px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.ul > li {
+  font-size: 2rem;
+  color: white;
+  font-family: var(--font-family-text);
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}

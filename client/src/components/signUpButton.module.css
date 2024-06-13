@@ -1,0 +1,15 @@
+.divLink {
+  text-align: center;
+}
+
+.signUpBlock {
+  text-decoration: none;
+  text-align: center;
+  color: var(--primary-color);
+  font-family: var(--font-family-text);
+}
+
+.signUp {
+  font-weight: bold;
+  color: var(--font-color);
+}
