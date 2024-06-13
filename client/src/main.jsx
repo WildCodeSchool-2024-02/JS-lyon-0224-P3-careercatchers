@@ -17,7 +17,6 @@ const router = createBrowserRouter([
         path: "/",
         id: "homePage",
         element: <HomePage />,
-        loader: async () => fetch(`${ApiUrl}/api/offers`),
       },
       {
         path: "/result-page",
