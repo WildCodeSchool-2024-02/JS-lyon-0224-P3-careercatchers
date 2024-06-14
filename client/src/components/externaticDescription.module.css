@@ -3,9 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 5rem;
-  margin-right: 3rem;
-  margin-left: 3rem;
+  margin: 0.8rem 3rem 2rem;
   font-family: var(--font-family-text);
 }
 
@@ -19,16 +17,23 @@
 }
 
 .spanPart {
-  color: var(--font-color);
+  color: var(--primary-color);
   font-weight: bold;
+  font-size: 2rem;
 }
 
 .logo {
   display: flex;
   margin-top: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imgBlock {
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .img {
-  margin-right: 1rem;
-  margin-left: 1rem;
+  width: 80px;
 }

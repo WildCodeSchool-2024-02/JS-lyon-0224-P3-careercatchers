@@ -3,22 +3,18 @@ import NavBarMobile from "../components/NavBar/NavBarMobile";
 import JobOffer from "../components/JobOffer";
 
 export default function ResultPage() {
-  const companies = useLoaderData();
+  const offers = useLoaderData();
   return (
     <>
       <NavBarMobile />
-      <h1>Les Offres près de chez vous ↓↓↓</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat
-        blanditiis nostrum saepe officia illo cum cupiditate repellat? Ex,
-        voluptatem sequi id et libero perferendis ducimus, fugiat laboriosam nam
-        sit maiores!
-      </p>
-      <div>
-        {companies.map((company) => (
-          <div key={company.name}>
-            <h2>{company.name}</h2>
-            <p>{company.email}</p>
+      <div className="flex flex-col gap-5 pl-9 pt-8">
+        <h1 className="text-3xl text-center pb-4">
+          Les Offres près de chez vous ↓↓↓
+        </h1>
+        {offers.map((offer) => (
+          <div key={offer.id} className="pb-4">
+            <h2>{`${offer.job_title} ${offer.localisation}`}</h2>
+            <p>{offer.name}</p>
           </div>
         ))}
       </div>

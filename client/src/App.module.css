@@ -16,3 +16,10 @@
   --primary-color: #ca2061;
   --secondary-color: #851342;
 }
+
+*:focus-visible {
+  outline-style: dashed;
+  outline-color: var(--font-color-black);
+  outline-width: 3px;
+  outline-offset: 4px;
+}

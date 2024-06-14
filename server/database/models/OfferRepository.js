@@ -16,6 +16,14 @@ class OfferRepository extends AbstractRepository {
     // Return the array of offers
     return rows;
   }
+
+  async getOffersWithCompanies() {
+    const [rows] = await this.database.query(
+      `select o.id, job_title, job_type, localisation, name, email from ${this.table} o join company c on company_id = c.id`
+    );
+
+    return rows;
+  }
 }
 
 module.exports = OfferRepository;

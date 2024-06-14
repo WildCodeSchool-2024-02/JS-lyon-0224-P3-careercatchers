@@ -11,7 +11,6 @@ const tables = {};
 /* ************************************************************************* */
 
 // Register each repository as data access point for its table
-// tables.item = new
 
 tables.offer = new OfferRepository();
 tables.company = new CompanyRepository();
