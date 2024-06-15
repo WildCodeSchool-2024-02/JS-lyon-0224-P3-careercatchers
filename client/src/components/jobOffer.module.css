@@ -3,4 +3,51 @@
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  box-shadow: 2px 2px 2px 2px grey;
+}
+
+.logoHeart {
+  height: 2rem;
+  margin: 1vh;
+}
+
+.title {
+  font-weight: bold;
+  margin-left: 1vh;
+  margin-top: 1vh;
+  font-size: larger;
+}
+.adress {
+  margin: 1vh;
+}
+
+.jobSalary {
+  background-color: var(--primary-color);
+  border-radius: 1vh;
+  margin: 1vh;
+  width: 70%;
+  padding: 0.5vh;
+  color: var(--font-color-white);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contract {
+  margin: 1vh;
+  background-color: var(--primary-color);
+  border-radius: 1vh;
+  padding: 0.5vh;
+  width: 40%;
+  color: var(--font-color-white);
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1vh;
 }
