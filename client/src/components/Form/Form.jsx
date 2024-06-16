@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 function Form() {
-  const [prenom, setPrenom] = useState("");
-  const [nom, setNom] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [dateNaissance, setDateNaissance] = useState("");
+  const [birthDay, setBirthDay] = useState("");
   const [sexe, setSexe] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -12,10 +12,10 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.info({
-      prenom,
-      nom,
+      firstName,
+      name,
       email,
-      dateNaissance,
+      birthDay,
       sexe,
       password,
       confirmPassword,
@@ -31,26 +31,29 @@ function Form() {
           <button type="button">Une Entreprise</button>
         </div>
 
-        <label htmlFor="prenom">Prénom</label>
+        <label htmlFor="firstName">Prénom</label>
         <input
+          aria-required="true"
           type="text"
-          id="prenom"
-          name="prenom"
-          value={prenom}
-          onChange={(e) => setPrenom(e.target.value)}
+          id="firstName"
+          name="firstName"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
         />
 
         <label htmlFor="nom">Nom</label>
         <input
+          aria-required="true"
           type="text"
-          id="nom"
-          name="nom"
-          value={nom}
-          onChange={(e) => setNom(e.target.value)}
+          id="name"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
 
         <label htmlFor="email">E-mail</label>
         <input
+          aria-required="true"
           type="email"
           id="email"
           name="email"
@@ -60,15 +63,17 @@ function Form() {
 
         <label htmlFor="date_naissance">Date de naissance</label>
         <input
+          aria-required="true"
           type="date"
           id="date_naissance"
           name="date_naissance"
-          value={dateNaissance}
-          onChange={(e) => setDateNaissance(e.target.value)}
+          value={birthDay}
+          onChange={(e) => setBirthDay(e.target.value)}
         />
 
         <label htmlFor="sexe">Sexe</label>
         <select
+          aria-required="true"
           id="sexe"
           name="sexe"
           value={sexe}
@@ -80,6 +85,8 @@ function Form() {
 
         <label htmlFor="password">Mot de passe</label>
         <input
+          autoComplete="new-password"
+          aria-required="true"
           type="password"
           id="password"
           name="password"
@@ -89,6 +96,7 @@ function Form() {
 
         <label htmlFor="confirmPassword">Confirmer le mot de passe</label>
         <input
+          aria-required="true"
           type="password"
           id="confirmPassword"
           name="confirmPassword"
