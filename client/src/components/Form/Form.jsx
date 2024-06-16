@@ -26,7 +26,7 @@ function Form() {
     <div className=" flex flex-col w-5/6 mx-auto max-w-sm ">
       <form onSubmit={handleSubmit} className="">
         <div className="my-4 min-w-96">
-          <h3 className="mx-6 my-3">Je suis :</h3>
+          <h3 className=" text-xl font-custom mx-2 my-6">Je suis :</h3>
           <div className="flex justify-evenly">
             <button
               type="button"
