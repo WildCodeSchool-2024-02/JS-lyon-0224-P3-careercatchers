@@ -18,18 +18,21 @@
   margin-left: 1vh;
   margin-top: 1vh;
   font-size: larger;
+  margin-left: 2vh;
 }
 .adress {
   margin: 1vh;
+  margin-left: 2vh;
 }
 
 .jobSalary {
   background-color: var(--primary-color);
   border-radius: 1vh;
   margin: 1vh;
-  width: 70%;
+  width: fit-content;
   padding: 0.5vh;
   color: var(--font-color-white);
+  margin-left: 2vh;
 }
 
 .head {
@@ -42,7 +45,8 @@
   background-color: var(--primary-color);
   border-radius: 1vh;
   padding: 0.5vh;
-  width: 40%;
+  margin-left: 2vh;
+  width: fit-content;
   color: var(--font-color-white);
 }
 
