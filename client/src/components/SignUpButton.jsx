@@ -4,10 +4,12 @@ import styles from "./signUpButton.module.css";
 export default function SignUpButton() {
   return (
     <div className={styles.divLink}>
-      <Link className={styles.linkSignUp} to="/sign-up-page">
-        Pas encore de compte ?
-        <span className={styles.signUp}>Inscrivez-vous</span>
-      </Link>
+      <p className={styles.signUpBlock}>
+        Pas encore de compte ?<br />
+        <Link className={styles.signUp} to="/sign-up-page">
+          Inscrivez-vous
+        </Link>
+      </p>
     </div>
   );
 }

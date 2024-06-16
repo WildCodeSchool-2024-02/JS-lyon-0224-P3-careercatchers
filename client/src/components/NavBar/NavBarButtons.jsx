@@ -9,6 +9,7 @@ export default function NavBarButtons() {
         to="/sign-up-page"
         className={styles.link}
         aria-label="Create a new account"
+        tabIndex="-1"
       >
         <button type="button" className={styles.signupButton}>
           S'inscrire
