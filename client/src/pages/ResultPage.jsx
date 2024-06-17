@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import NavBarMobile from "../components/NavBar/NavBarMobile";
+import JobOffer from "../components/JobOffer";
 import SearchBar from "../components/Searchbar";
 
 export default function ResultPage() {
@@ -19,6 +20,7 @@ export default function ResultPage() {
           </div>
         ))}
       </div>
+      <JobOffer />
     </>
   );
 }

@@ -12,3 +12,11 @@ CREATE TABLE offer(
   company_id INT UNSIGNED NOT NULL,
   FOREIGN KEY (company_id) REFERENCES company(id)
 );
+
+CREATE TABLE user(
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  username VARCHAR(30) NOT NULL,
+  password VARCHAR(64) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  role ENUM('company', 'candidate')
+);
