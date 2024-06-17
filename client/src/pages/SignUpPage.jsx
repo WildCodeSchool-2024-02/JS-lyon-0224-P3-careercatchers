@@ -1,13 +1,13 @@
+import Logo from "../assets/logo/EXTERNATIC-LOGO-NAME.png";
 import BurgerMenu from "../components/BurgerMenu";
 import Form from "../components/Form/Form";
-import LogoExternatic from "../components/LogoExternatic";
 
 export default function SignUpPage() {
   return (
     <>
       <BurgerMenu />
-      <div style={{ width: "120px", height: "90px" }} className="flex mx-auto">
-        <LogoExternatic style={{ width: "100%", height: "100%" }} />
+      <div className="flex justify-center">
+        <img src={Logo} alt="logo Externatic" className="  w-32" />
       </div>
       <Form />
     </>
