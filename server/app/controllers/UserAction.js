@@ -15,7 +15,7 @@ const browse = async (req, res, next) => {
   }
 };
 
-const signupUser = async (req, res, next) => {
+const add = async (req, res, next) => {
   try {
     const user = req.body;
     console.info(user);
@@ -31,5 +31,5 @@ const signupUser = async (req, res, next) => {
 // Ready to export the controller functions
 module.exports = {
   browse,
-  signupUser,
+  add,
 };

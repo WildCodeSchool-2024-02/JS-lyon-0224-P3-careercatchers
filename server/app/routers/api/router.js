@@ -16,7 +16,7 @@ router.use("/companies", companiesRouter);
 
 const usersRouter = require("./users/router");
 
-router.use("/user", usersRouter);
+router.use("/users", usersRouter);
 /* ************************************************************************* */
 
 module.exports = router;

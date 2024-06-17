@@ -7,12 +7,12 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import offer-related actions
-const { browse, signupUser } = require("../../../controllers/UserAction");
+const { browse, add } = require("../../../controllers/UserAction");
 
 // Route to get a list of offers
 router.get("/", browse);
 
-router.post("/signup", signupUser);
+router.post("/", add);
 /* ************************************************************************* */
 
 module.exports = router;

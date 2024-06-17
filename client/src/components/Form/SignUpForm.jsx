@@ -1,30 +1,19 @@
 import { useState } from "react";
+import { Form } from "react-router-dom";
 
-function Form() {
+function SignUpForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [firstName, setFirstName] = useState("");
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [birthDay, setBirthDay] = useState("");
-  const [sexe, setSexe] = useState("");
-  const [password, setPassword] = useState("");
+  const [sex, setSex] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.info({
-      firstName,
-      name,
-      email,
-      birthDay,
-      sexe,
-      password,
-      confirmPassword,
-    });
-  };
 
   return (
     <div className=" flex flex-col w-5/6 mx-auto max-w-sm ">
-      <form onSubmit={handleSubmit}>
+      <Form method="post">
         <div className="my-4 min-w-96">
           <h3 className=" text-xl font-custom mx-2 my-6">Je suis :</h3>
           <div className="flex justify-evenly">
@@ -106,8 +95,8 @@ function Form() {
             aria-required="true"
             id="sexe"
             name="sexe"
-            value={sexe}
-            onChange={(e) => setSexe(e.target.value)}
+            value={sex}
+            onChange={(e) => setSex(e.target.value)}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           >
             <option value="femme">Féminin</option>
@@ -151,9 +140,9 @@ function Form() {
             Soumettre
           </button>
         </div>
-      </form>
+      </Form>
     </div>
   );
 }
 
-export default Form;
+export default SignUpForm;

@@ -2,7 +2,7 @@
 
 const CompanyRepository = require("./models/CompanyRepository");
 const OfferRepository = require("./models/OfferRepository");
-const UserRepository = require("./models/UserRepositoty");
+const UserRepository = require("./models/UserRepository");
 
 // Create an empty object to hold data repositories for different tables
 const tables = {};

@@ -39,7 +39,7 @@ const router = createBrowserRouter([
 
             const email = formData.get("email");
             const password = formData.get("password");
-            const response = await fetch(`${ApiUrl}/api/user/signup`, {
+            const response = await fetch(`${ApiUrl}/api/users`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
