@@ -3,20 +3,16 @@ const express = require("express");
 const router = express.Router();
 
 /* ************************************************************************* */
-// Import And Use Routers Here
+// Define Your API Routes Here
 /* ************************************************************************* */
 
-const offersRouter = require("./offers/router");
+// Import offer-related actions
+const { browse, signupUser } = require("../../../controllers/UserAction");
 
-router.use("/offers", offersRouter);
+// Route to get a list of offers
+router.get("/", browse);
 
-const companiesRouter = require("./companies/router");
-
-router.use("/companies", companiesRouter);
-
-const usersRouter = require("./users/router");
-
-router.use("/user", usersRouter);
+router.post("/signup", signupUser);
 /* ************************************************************************* */
 
 module.exports = router;
