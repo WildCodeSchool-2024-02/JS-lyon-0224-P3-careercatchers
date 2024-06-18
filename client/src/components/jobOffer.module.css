@@ -1,28 +1,31 @@
 .divJobOffer {
-  border: solid var(--font-color-black) 1px;
+  border: solid rgba(174, 172, 172, 0.88) 1px;
   border-radius: 0.5rem;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  box-shadow: 2px 2px 2px 2px grey;
+  box-shadow: 5px 6px 10px -8px rgba(160, 160, 160, 0.95);
+  max-width: 384px;
+  min-width: 96px;
+  width: 90%;
 }
 
 .logoHeart {
-  height: 2rem;
-  margin: 1vh;
+  height: 1.2rem;
+  margin: 2vh;
+  margin-right: 1rem;
 }
 
 .title {
   font-weight: bold;
-  margin-left: 1vh;
-  margin-top: 1vh;
+  margin-left: 3vh;
+  margin-top: 2vh;
   font-size: larger;
-  margin-left: 2vh;
+  margin-left: 3vh;
 }
 .adress {
   margin: 1vh;
-  margin-left: 2vh;
+  margin-left: 3vh;
 }
 
 .jobSalary {
@@ -32,7 +35,7 @@
   width: fit-content;
   padding: 0.5vh;
   color: var(--font-color-white);
-  margin-left: 2vh;
+  margin-left: 3vh;
 }
 
 .head {
@@ -45,7 +48,7 @@
   background-color: var(--primary-color);
   border-radius: 1vh;
   padding: 0.5vh;
-  margin-left: 2vh;
+  margin-left: 3vh;
   width: fit-content;
   color: var(--font-color-white);
 }
