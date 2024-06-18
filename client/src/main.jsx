@@ -9,6 +9,7 @@ import {
 
 import App from "./App";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
 
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
           }
           return redirect("/result-page");
         },
+      },
+      {
+        path: "/login-page",
+        id: "login-page",
+        element: <LoginPage />,
       },
     ],
   },
