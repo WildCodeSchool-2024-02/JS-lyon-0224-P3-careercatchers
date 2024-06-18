@@ -21,7 +21,7 @@ CREATE TABLE user(
 
 CREATE TABLE candidate(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  last_name VARCHAR(100) NOT NULL,
-  first_name VARCHAR(50) NOT NULL,
+  lastname VARCHAR(100) NOT NULL,
+  firstname VARCHAR(50) NOT NULL,
   birthday DATE NOT NULL 
 ) 
