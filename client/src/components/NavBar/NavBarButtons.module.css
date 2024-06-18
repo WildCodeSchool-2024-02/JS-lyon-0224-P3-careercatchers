@@ -38,10 +38,10 @@
 }
 
 .loginButton {
-  width: 54px;
+  width: 48px;
   transition: ease-in-out 0.8s;
 }
 
 .loginButton:hover {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
