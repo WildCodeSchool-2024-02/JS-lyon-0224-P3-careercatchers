@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 
 import App from "./App";
 import HomePage from "./pages/HomePage";
@@ -29,6 +33,32 @@ const router = createBrowserRouter([
         path: "/sign-up-page",
         id: "sign-up-page",
         element: <SignUpPage />,
+        action: async ({ request }) => {
+          try {
+            const formData = await request.formData();
+
+            const email = formData.get("email");
+            const password = formData.get("password");
+            const response = await fetch(`${ApiUrl}/api/users`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email,
+                password,
+              }),
+            });
+
+            if (!response.ok) {
+              throw new Error("");
+            }
+          } catch (err) {
+            console.error("Fetch error:", err);
+            return null;
+          }
+          return redirect("/result-page");
+        },
       },
     ],
   },
