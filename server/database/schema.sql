@@ -9,7 +9,7 @@ CREATE TABLE offer(
   job_title VARCHAR(80) NOT NULL,
   job_type ENUM('CDD','CDI','Alternance') NOT NULL,
   localisation VARCHAR(45) NOT NULL,
-  company_id INT UNSIGNED NOT NULL,
+  company_id INT UNSIGNED DEFAULT '1',
   FOREIGN KEY (company_id) REFERENCES company(id)
 );
 

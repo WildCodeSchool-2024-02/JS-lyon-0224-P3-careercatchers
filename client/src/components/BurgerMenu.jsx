@@ -61,7 +61,7 @@ export default function BurgerMenu() {
           </li>
           <li>
             <Link
-              to="sign-up-page"
+              to="/sign-up-page"
               className={styles.link}
               aria-label="Create a new account"
             >
