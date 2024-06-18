@@ -43,7 +43,7 @@ export default function LoginUser() {
           Soumettre
         </button>
       </Form>
-      <p className="flex justify-end font-custom  text-gray-500">
+      <p className="flex justify-end font-custom pr-2  text-gray-500">
         Pas encore de compte ?&nbsp;
         <Link to="/sign-up-page" className="underline text-primary">
           M'inscrire
