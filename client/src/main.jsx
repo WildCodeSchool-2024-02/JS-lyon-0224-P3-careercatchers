@@ -65,6 +65,7 @@ const router = createBrowserRouter([
         path: "/post-offer",
         id: "post-offer",
         element: <PostNewOffer />,
+        loader: async () => fetch(`${ApiUrl}/api/companies`),
         action: async ({ request }) => {
           try {
             const formData = await request.formData();
@@ -74,6 +75,8 @@ const router = createBrowserRouter([
             // eslint-disable-next-line camelcase
             const job_type = formData.get("job_type");
             const localisation = formData.get("localisation");
+            // eslint-disable-next-line camelcase
+            const company_id = formData.get("company.id");
 
             const response = await fetch(`${ApiUrl}/api/offers`, {
               method: "POST",
@@ -86,6 +89,8 @@ const router = createBrowserRouter([
                 // eslint-disable-next-line camelcase
                 job_type,
                 localisation,
+                // eslint-disable-next-line camelcase
+                company_id,
               }),
             });
 
