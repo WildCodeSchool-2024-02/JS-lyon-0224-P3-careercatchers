@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./BurgerMenu.module.css";
 import Burger from "../assets/logo/burger.svg";
 import Cross from "../assets/logo/x.svg";
+import styles from "./BurgerMenu.module.css";
 
 export default function BurgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
