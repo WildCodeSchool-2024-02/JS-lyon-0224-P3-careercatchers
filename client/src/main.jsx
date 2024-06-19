@@ -71,13 +71,10 @@ const router = createBrowserRouter([
           try {
             const formData = await request.formData();
 
-            // eslint-disable-next-line camelcase
-            const job_title = formData.get("job_title");
-            // eslint-disable-next-line camelcase
-            const job_type = formData.get("job_type");
+            const jobTitle = formData.get("job_title");
+            const jobType = formData.get("job_type");
             const localisation = formData.get("localisation");
-            // eslint-disable-next-line camelcase
-            const company_id = formData.get("company.id");
+            const companyId = formData.get("company.id");
 
             const response = await fetch(`${ApiUrl}/api/offers`, {
               method: "POST",
@@ -85,13 +82,10 @@ const router = createBrowserRouter([
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                // eslint-disable-next-line camelcase
-                job_title,
-                // eslint-disable-next-line camelcase
-                job_type,
+                jobTitle,
+                jobType,
                 localisation,
-                // eslint-disable-next-line camelcase
-                company_id,
+                companyId,
               }),
             });
 

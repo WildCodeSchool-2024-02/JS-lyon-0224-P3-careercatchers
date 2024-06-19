@@ -10,7 +10,7 @@ class OfferRepository extends AbstractRepository {
   async create(offer) {
     const [result] = await this.database.query(
       `insert into ${this.table} (job_title, job_type, localisation, company_id) values (?, ?, ?, ?) `,
-      [offer.job_title, offer.job_type, offer.localisation, offer.company_id]
+      [offer.jobTitle, offer.jobType, offer.localisation, offer.companyId]
     );
 
     return result.insertId;
