@@ -25,3 +25,4 @@ CREATE TABLE offer(
   company_id INT UNSIGNED NOT NULL,
   FOREIGN KEY (company_id) REFERENCES company(id)
 );
+
