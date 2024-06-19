@@ -73,7 +73,10 @@ const router = createBrowserRouter([
 
             const jobTitle = formData.get("job_title");
             const jobType = formData.get("job_type");
+            const content = formData.get("content");
             const localisation = formData.get("localisation");
+            const minSalary = formData.get("min_salary");
+            const maxSalary = formData.get("max_salary");
             const companyId = formData.get("company.id");
 
             const response = await fetch(`${ApiUrl}/api/offers`, {
@@ -84,11 +87,13 @@ const router = createBrowserRouter([
               body: JSON.stringify({
                 jobTitle,
                 jobType,
+                content,
                 localisation,
+                minSalary,
+                maxSalary,
                 companyId,
               }),
             });
-
             if (response.ok === false) {
               throw new Error("");
             }

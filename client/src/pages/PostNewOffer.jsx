@@ -30,14 +30,23 @@ export default function PostNewOffer() {
       <br />
       <br />
 
-      <label htmlFor="job-type">Type de contrat</label>
-      <br />
-      <select id="job-type" name="job_type" required>
-        <option value="">---</option>
-        <option value="CDI">CDI</option>
-        <option value="CDD">CDD</option>
-        <option value="Alternance">Alternance</option>
-      </select>
+      <fieldset>
+        <legend>Type de contrat</legend>
+        <input type="radio" name="job_type" id="CDI" value="CDI" required />
+        <label htmlFor="CDI">CDI</label>
+        <br />
+        <input type="radio" name="job_type" id="CDD" value="CDD" required />
+        <label htmlFor="CDD">CDD</label>
+        <br />
+        <input
+          type="radio"
+          name="job_type"
+          id="Alternance"
+          value="Alternance"
+          required
+        />
+        <label htmlFor="Alternance">Alternance</label>
+      </fieldset>
       <br />
       <br />
 
@@ -50,6 +59,50 @@ export default function PostNewOffer() {
         required
         placeholder="Ex: Lyon"
       />
+      <br />
+      <br />
+
+      <label htmlFor="content">Description de l'offre</label>
+      <br />
+      <textarea
+        className="min-h-32 min-w-96"
+        id="content"
+        name="content"
+        required
+        placeholder="Décrire les missions, les prérequis, etc"
+        maxLength="500"
+      />
+      <br />
+      <br />
+
+      <fieldset>
+        <legend>Fourchette de rémunération</legend>
+        <br />
+        <label htmlFor="min_salary">Salaire minimum:</label>
+        <input
+          className="text-right"
+          type="number"
+          id="min_salary"
+          name="min_salary"
+          min="0"
+          max="999 999"
+          step="1000"
+          placeholder="Ex: 30 000"
+        />
+        €<br />
+        <label htmlFor="max_salary">Salaire maximum:</label>
+        <input
+          className="text-right"
+          type="number"
+          id="max_salary"
+          name="max_salary"
+          min="0"
+          max="999 999"
+          step="1000"
+          placeholder="Ex: 40 000"
+        />
+        €
+      </fieldset>
       <br />
       <br />
 
