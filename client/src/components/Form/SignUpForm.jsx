@@ -2,14 +2,22 @@ import { useState } from "react";
 import { Form } from "react-router-dom";
 
 function SignUpForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [registrerForm, setRegistrerForm] = useState({
+    email: "",
+    password: "",
+    lastname: "",
+    firstname: "",
+    birthday: "",
+  });
 
-  const [firstName, setFirstName] = useState("");
-  const [name, setName] = useState("");
-  const [birthDay, setBirthDay] = useState("");
-  const [sex, setSex] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const handleUpdateForm = (e) => {
+    const { name, value } = e.target;
+    setRegistrerForm({ ...registrerForm, [name]: value });
+    // console.log(registrerForm);
+  };
+  // const handleSubmitForm = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <div className=" flex flex-col w-5/6 mx-auto max-w-sm ">
@@ -32,16 +40,16 @@ function SignUpForm() {
           </div>
         </div>
         <div className="mb-4">
-          <label htmlFor="firstName" className="block text-gray-500">
+          <label htmlFor="firstname" className="block text-gray-500">
             Prénom
           </label>
           <input
             aria-required="true"
             type="text"
-            id="firstName"
-            name="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            id="firstname"
+            name="firstname"
+            value={registrerForm.firstname}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
@@ -52,10 +60,10 @@ function SignUpForm() {
           <input
             aria-required="true"
             type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            id="lastname"
+            name="lastname"
+            value={registrerForm.lastname}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
@@ -68,35 +76,35 @@ function SignUpForm() {
             type="email"
             id="email"
             name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={registrerForm.email}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="date_naissance" className="block text-gray-500">
+          <label htmlFor="birthday" className="block text-gray-500">
             Date de naissance
           </label>
           <input
             aria-required="true"
             type="date"
-            id="date_naissance"
-            name="date_naissance"
-            value={birthDay}
-            onChange={(e) => setBirthDay(e.target.value)}
+            id="birthday"
+            name="birthday"
+            value={registrerForm.birthday}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="sexe" className="block text-gray-500">
+          <label htmlFor="sex" className="block text-gray-500">
             Sexe
           </label>
           <select
             aria-required="true"
-            id="sexe"
-            name="sexe"
-            value={sex}
-            onChange={(e) => setSex(e.target.value)}
+            id="sex"
+            name="sex"
+            value={registrerForm.sex}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           >
             <option value="femme">Féminin</option>
@@ -113,8 +121,8 @@ function SignUpForm() {
             type="password"
             id="password"
             name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={registrerForm.password}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
@@ -127,8 +135,8 @@ function SignUpForm() {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={registrerForm.confirmPassword}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
