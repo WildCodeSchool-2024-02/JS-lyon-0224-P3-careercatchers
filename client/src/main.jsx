@@ -52,7 +52,7 @@ const router = createBrowserRouter([
               }),
             });
 
-            if (!response.ok) {
+            if (response.ok === false) {
               throw new Error("");
             }
           } catch (err) {
@@ -89,7 +89,7 @@ const router = createBrowserRouter([
               }),
             });
 
-            if (!response.ok) {
+            if (response.ok === false) {
               throw new Error("");
             }
           } catch (err) {
