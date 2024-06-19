@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
+import Avatar from "../../assets/logo/avatar.svg";
 import styles from "./NavBarButtons.module.css";
-import LoginSVG from "../../assets/logo/login.svg";
 
 export default function NavBarButtons() {
   return (
@@ -21,7 +21,7 @@ export default function NavBarButtons() {
         aria-label="Log in to your account"
       >
         <img
-          src={LoginSVG}
+          src={Avatar}
           alt="Log In to your account"
           className={styles.loginButton}
         />
