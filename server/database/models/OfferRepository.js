@@ -8,9 +8,24 @@ class OfferRepository extends AbstractRepository {
   }
 
   async create(offer) {
+    let minSalary = null;
+    let maxSalary = null;
+    if (offer.minSalary !== "") {
+      minSalary = offer.minSalary;
+    } else if (offer.maxSalary !== "") {
+      maxSalary = offer.maxSalary;
+    }
     const [result] = await this.database.query(
-      `insert into ${this.table} (job_title, job_type, localisation, company_id) values (?, ?, ?, ?) `,
-      [offer.jobTitle, offer.jobType, offer.localisation, offer.companyId]
+      `insert into ${this.table} (job_title, job_type, content, localisation, min_salary, max_salary, company_id) values (?, ?, ?, ?, ?, ?, ?) `,
+      [
+        offer.jobTitle,
+        offer.jobType,
+        offer.content,
+        offer.localisation,
+        minSalary,
+        maxSalary,
+        offer.companyId,
+      ]
     );
 
     return result.insertId;
