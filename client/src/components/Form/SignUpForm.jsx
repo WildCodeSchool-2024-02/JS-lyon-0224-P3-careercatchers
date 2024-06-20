@@ -39,7 +39,7 @@ function SignUpForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
+    if (validateForm() === true) {
       console.info("Formulaire soumis avec succès !", register);
     }
   };
