@@ -1,6 +1,6 @@
 import avatarUser from "../../assets/logo/avatarUser.png";
 
-export default function PAvatarUser() {
+export default function AvatarUser() {
   return (
     <div>
       <img src={avatarUser} alt="" />
