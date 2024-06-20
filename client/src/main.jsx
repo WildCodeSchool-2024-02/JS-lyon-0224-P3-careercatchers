@@ -13,6 +13,7 @@ import LoginPage from "./pages/LoginPage";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
 import PostNewOffer from "./pages/PostNewOffer";
+import ProfilPageCandidate from "./pages/ProfilPageCandidate";
 
 const ApiUrl = import.meta.env.VITE_API_URL;
 
@@ -122,6 +123,11 @@ const router = createBrowserRouter([
         path: "/login-page",
         id: "login-page",
         element: <LoginPage />,
+      },
+      {
+        path: "/profil-page-candidate",
+        id: "profil-page-candidate",
+        element: <ProfilPageCandidate />,
       },
     ],
   },
