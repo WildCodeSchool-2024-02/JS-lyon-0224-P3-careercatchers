@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Form } from "react-router-dom";
 
 function SignUpForm() {
-  const [registrerForm, setRegistrerForm] = useState({
+  const [register, setRegister] = useState({
     email: "",
     password: "",
     lastname: "",
@@ -12,7 +12,7 @@ function SignUpForm() {
 
   const handleUpdateForm = (e) => {
     const { name, value } = e.target;
-    setRegistrerForm({ ...registrerForm, [name]: value });
+    setRegister({ ...register, [name]: value });
   };
 
   return (
@@ -44,7 +44,7 @@ function SignUpForm() {
             type="text"
             id="firstname"
             name="firstname"
-            value={registrerForm.firstname}
+            value={register.firstname}
             onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
@@ -58,7 +58,7 @@ function SignUpForm() {
             type="text"
             id="lastname"
             name="lastname"
-            value={registrerForm.lastname}
+            value={register.lastname}
             onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
@@ -72,7 +72,7 @@ function SignUpForm() {
             type="email"
             id="email"
             name="email"
-            value={registrerForm.email}
+            value={register.email}
             onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
@@ -86,7 +86,7 @@ function SignUpForm() {
             type="date"
             id="birthday"
             name="birthday"
-            value={registrerForm.birthday}
+            value={register.birthday}
             onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
@@ -99,7 +99,7 @@ function SignUpForm() {
             aria-required="true"
             id="sex"
             name="sex"
-            value={registrerForm.sex}
+            value={register.sex}
             onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           >
@@ -117,7 +117,7 @@ function SignUpForm() {
             type="password"
             id="password"
             name="password"
-            value={registrerForm.password}
+            value={register.password}
             onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
@@ -131,7 +131,7 @@ function SignUpForm() {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
-            value={registrerForm.confirmPassword}
+            value={register.confirmPassword}
             onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
