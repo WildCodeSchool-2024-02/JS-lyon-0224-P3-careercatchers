@@ -76,10 +76,10 @@ function SignUpForm() {
             name="firstname"
             value={register.firstname}
             onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.firstname ? "border-red-500" : ""}`}
+            className={`${inputStyles} ${errors.firstname === true ? "border-red-500" : ""}`}
           />
 
-          {errors.firstname && (
+          {errors.firstname === true && (
             <p className="text-red-500">{errors.firstname}</p>
           )}
         </div>
@@ -96,10 +96,12 @@ function SignUpForm() {
             value={register.lastname}
             onChange={handleUpdateForm}
             className={`${inputStyles} ${
-              errors.lastname ? "border-red-500" : ""
+              errors.lastname === true ? "border-red-500" : ""
             }`}
           />
-          {errors.lastname && <p className="text-red-500">{errors.lastname}</p>}
+          {errors.lastname === true && (
+            <p className="text-red-500">{errors.lastname}</p>
+          )}
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-500">
@@ -113,9 +115,11 @@ function SignUpForm() {
             name="email"
             value={register.email}
             onChange={handleUpdateForm}
-            className={`${inputStyles}${errors.email ? "border-red-500" : ""}`}
+            className={`${inputStyles}${errors.email === true ? "border-red-500" : ""}`}
           />
-          {errors.email && <p className="text-red-500">{errors.email}</p>}
+          {errors.email === true && (
+            <p className="text-red-500">{errors.email}</p>
+          )}
         </div>
         <div className="mb-4">
           <label htmlFor="birthday" className="block text-gray-500">
@@ -130,11 +134,13 @@ function SignUpForm() {
             value={register.birthday}
             onChange={handleUpdateForm}
             className={`${inputStyles}${
-              errors.birthday ? "border-red-500" : ""
+              errors.birthday === true ? "border-red-500" : ""
             }`}
           />
         </div>
-        {errors.birthday && <p className="text-red-500">{errors.birthday}</p>}
+        {errors.birthday === true && (
+          <p className="text-red-500">{errors.birthday}</p>
+        )}
         <div className="mb-4">
           <label htmlFor="sex" className="block text-gray-500">
             Sexe
@@ -146,13 +152,13 @@ function SignUpForm() {
             name="sex"
             value={register.sex}
             onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.sex ? "border-red-500" : ""}`}
+            className={`${inputStyles} ${errors.sex === true ? "border-red-500" : ""}`}
           >
             <option value="femme">{}</option>
             <option value="femme">Féminin</option>
             <option value="homme">Masculin</option>
           </select>
-          {errors.sex && <p className="text-red-500">{errors.sex}</p>}
+          {errors.sex === true && <p className="text-red-500">{errors.sex}</p>}
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="block text-gray-500">
@@ -167,9 +173,11 @@ function SignUpForm() {
             name="password"
             value={register.password}
             onChange={handleUpdateForm}
-            className={`${inputStyles}  ${errors.password ? "border-red-500" : ""}`}
+            className={`${inputStyles}  ${errors.password === true ? "border-red-500" : ""}`}
           />
-          {errors.password && <p className="text-red-500">{errors.password}</p>}
+          {errors.password === true && (
+            <p className="text-red-500">{errors.password}</p>
+          )}
         </div>
         <div className="mb-4">
           <label htmlFor="confirmPassword" className="block text-gray-500">
@@ -184,10 +192,10 @@ function SignUpForm() {
             value={register.confirmPassword}
             onChange={handleUpdateForm}
             className={`${inputStyles}
-              ${errors.confirmPassword ? "border-red-500" : ""}`}
+              ${errors.confirmPassword === true ? "border-red-500" : ""}`}
           />
 
-          {errors.confirmPassword && (
+          {errors.confirmPassword === true && (
             <p className="text-red-500">{errors.confirmPassword}</p>
           )}
         </div>
