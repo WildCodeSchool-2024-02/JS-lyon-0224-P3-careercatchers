@@ -17,6 +17,10 @@ router.use("/companies", companiesRouter);
 const usersRouter = require("./users/router");
 
 router.use("/users", usersRouter);
+
+const candidatesRouter = require("./candidates/router");
+
+router.use("/candidates", candidatesRouter);
 /* ************************************************************************* */
 
 module.exports = router;

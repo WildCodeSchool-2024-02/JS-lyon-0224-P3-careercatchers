@@ -7,11 +7,29 @@ class OfferRepository extends AbstractRepository {
     super({ table: "offer" });
   }
 
-  // The Rs of CRUD - Read operations
+  async create(offer) {
+    const [result] = await this.database.query(
+      `insert into ${this.table} (job_title, job_type, localisation, company_id) values (?, ?, ?, ?) `,
+      [offer.jobTitle, offer.jobType, offer.localisation, offer.companyId]
+    );
+
+    return result.insertId;
+  }
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all offers from the "offer" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
+
+    // Return the array of offers
+    return rows;
+  }
+
+  async read(id) {
+    // Execute the SQL SELECT query to retrieve all offers from the "offer" table
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where id = ?`,
+      [id]
+    );
 
     // Return the array of offers
     return rows;

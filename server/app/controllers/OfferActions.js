@@ -28,8 +28,30 @@ const browseOffersWithCompanies = async (req, res, next) => {
   }
 };
 
+const read = async (req, res, next) => {
+  try {
+    const offer = await tables.offer.read(req.params.id);
+
+    res.json(offer);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const add = async (req, res, next) => {
+  try {
+    const offer = req.body;
+    const insertId = await tables.offer.create(offer);
+    res.status(201).json(insertId);
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
   browseOffersWithCompanies,
+  read,
+  add,
 };

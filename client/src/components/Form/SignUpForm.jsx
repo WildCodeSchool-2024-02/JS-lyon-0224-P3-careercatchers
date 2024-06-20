@@ -50,7 +50,7 @@ function SignUpForm() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="nom" className="block text-gray-500">
+          <label htmlFor="lastname" className="block text-gray-500">
             Nom
           </label>
           <input
