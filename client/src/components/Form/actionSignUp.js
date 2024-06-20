@@ -33,7 +33,7 @@ const signUpAction = async ({ request }) => {
       }),
     });
 
-    if (!response.ok) {
+    if (response.ok === false) {
       throw new Error("Erreur lors de l'inscription");
     }
   } catch (err) {
