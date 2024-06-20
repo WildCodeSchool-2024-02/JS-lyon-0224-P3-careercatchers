@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./signUpButton.module.css";
+import styles from "./SignUpButton.module.css";
 
 export default function SignUpButton() {
   return (

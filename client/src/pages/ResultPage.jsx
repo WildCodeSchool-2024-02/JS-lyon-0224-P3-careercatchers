@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import NavBarMobile from "../components/NavBar/NavBarMobile";
-import JobOffer from "../components/JobOffer";
-import SearchBar from "../components/Searchbar";
+import JobOffer from "../components/JobOffer/JobOffer";
+import SearchBar from "../components/SearchBar/Searchbar";
 
 export default function ResultPage() {
   const offers = useLoaderData();
