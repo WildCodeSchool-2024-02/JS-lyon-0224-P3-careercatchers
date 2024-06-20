@@ -1,4 +1,4 @@
-import BurgerMenu from "../components/BurgerMenu";
+import BurgerMenu from "../components/NavBar/BurgerMenu";
 import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
 import NavBarButtons from "../components/NavBar/NavBarButtons";
 import AvatarUser from "../components/AvatarUser/AvatarUser";
