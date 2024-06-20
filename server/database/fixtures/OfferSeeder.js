@@ -9,8 +9,8 @@ const offers = [
     job_type: "CDI",
     content: "We need your help",
     localisation: "Lyon",
-    min_salary: "100",
-    max_salary: "10000",
+    min_salary: "30000",
+    max_salary: "35000",
     company_id: "1",
   },
   {
@@ -18,6 +18,8 @@ const offers = [
     job_type: "CDD",
     content: "Please come",
     localisation: "Lyon",
+    min_salary: "28000",
+    max_salary: "32000",
     company_id: "2",
   },
   {
@@ -25,6 +27,8 @@ const offers = [
     job_type: "CDI",
     content: "We'll treat you well",
     localisation: "Paris",
+    min_salary: null,
+    max_salary: null,
     company_id: "2",
   },
 ];

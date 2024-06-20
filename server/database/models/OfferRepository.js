@@ -12,7 +12,8 @@ class OfferRepository extends AbstractRepository {
     let maxSalary = null;
     if (offer.minSalary !== "") {
       minSalary = offer.minSalary;
-    } else if (offer.maxSalary !== "") {
+    }
+    if (offer.maxSalary !== "") {
       maxSalary = offer.maxSalary;
     }
     const [result] = await this.database.query(
