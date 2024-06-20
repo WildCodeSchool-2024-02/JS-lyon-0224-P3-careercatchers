@@ -39,21 +39,21 @@ function SignUpForm() {
             aria-required="true"
             type="text"
             id="firstName"
-            name="firstName"
+            name="firstname"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="nom" className="block text-gray-500">
+          <label htmlFor="lastname" className="block text-gray-500">
             Nom
           </label>
           <input
             aria-required="true"
             type="text"
-            id="name"
-            name="name"
+            id="lastname"
+            name="lastname"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
@@ -80,21 +80,21 @@ function SignUpForm() {
           <input
             aria-required="true"
             type="date"
-            id="date_naissance"
-            name="date_naissance"
+            id="birthday"
+            name="birthday"
             value={birthDay}
             onChange={(e) => setBirthDay(e.target.value)}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="sexe" className="block text-gray-500">
+          <label htmlFor="sex" className="block text-gray-500">
             Sexe
           </label>
           <select
             aria-required="true"
-            id="sexe"
-            name="sexe"
+            id="sex"
+            name="sex"
             value={sex}
             onChange={(e) => setSex(e.target.value)}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
