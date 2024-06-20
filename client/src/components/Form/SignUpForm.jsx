@@ -76,10 +76,10 @@ function SignUpForm() {
             name="firstname"
             value={register.firstname}
             onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.firstname === true ? "border-red-500" : ""}`}
+            className={`${inputStyles} ${errors.firstname !== false ? "border-red-500" : ""}`}
           />
 
-          {errors.firstname === true && (
+          {errors.firstname !== false && (
             <p className="text-red-500">{errors.firstname}</p>
           )}
         </div>
@@ -96,10 +96,10 @@ function SignUpForm() {
             value={register.lastname}
             onChange={handleUpdateForm}
             className={`${inputStyles} ${
-              errors.lastname === true ? "border-red-500" : ""
+              errors.lastname !== false ? "border-red-500" : ""
             }`}
           />
-          {errors.lastname === true && (
+          {errors.lastname !== false && (
             <p className="text-red-500">{errors.lastname}</p>
           )}
         </div>
@@ -115,9 +115,9 @@ function SignUpForm() {
             name="email"
             value={register.email}
             onChange={handleUpdateForm}
-            className={`${inputStyles}${errors.email === true ? "border-red-500" : ""}`}
+            className={`${inputStyles}${errors.email !== false ? "border-red-500" : ""}`}
           />
-          {errors.email === true && (
+          {errors.email !== false && (
             <p className="text-red-500">{errors.email}</p>
           )}
         </div>
@@ -134,11 +134,11 @@ function SignUpForm() {
             value={register.birthday}
             onChange={handleUpdateForm}
             className={`${inputStyles}${
-              errors.birthday === true ? "border-red-500" : ""
+              errors.birthday !== false ? "border-red-500" : ""
             }`}
           />
         </div>
-        {errors.birthday === true && (
+        {errors.birthday !== false && (
           <p className="text-red-500">{errors.birthday}</p>
         )}
         <div className="mb-4">
@@ -152,13 +152,13 @@ function SignUpForm() {
             name="sex"
             value={register.sex}
             onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.sex === true ? "border-red-500" : ""}`}
+            className={`${inputStyles} ${errors.sex !== false ? "border-red-500" : ""}`}
           >
             <option value="femme">{}</option>
             <option value="femme">Féminin</option>
             <option value="homme">Masculin</option>
           </select>
-          {errors.sex === true && <p className="text-red-500">{errors.sex}</p>}
+          {errors.sex !== false && <p className="text-red-500">{errors.sex}</p>}
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="block text-gray-500">
@@ -173,9 +173,9 @@ function SignUpForm() {
             name="password"
             value={register.password}
             onChange={handleUpdateForm}
-            className={`${inputStyles}  ${errors.password === true ? "border-red-500" : ""}`}
+            className={`${inputStyles}  ${errors.password !== false ? "border-red-500" : ""}`}
           />
-          {errors.password === true && (
+          {errors.password !== false && (
             <p className="text-red-500">{errors.password}</p>
           )}
         </div>
@@ -192,10 +192,10 @@ function SignUpForm() {
             value={register.confirmPassword}
             onChange={handleUpdateForm}
             className={`${inputStyles}
-              ${errors.confirmPassword === true ? "border-red-500" : ""}`}
+              ${errors.confirmPassword !== false ? "border-red-500" : ""}`}
           />
 
-          {errors.confirmPassword === true && (
+          {errors.confirmPassword !== false && (
             <p className="text-red-500">{errors.confirmPassword}</p>
           )}
         </div>
