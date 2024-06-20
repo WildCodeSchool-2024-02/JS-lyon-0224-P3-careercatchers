@@ -30,7 +30,6 @@ export default function NewOfferForm() {
         max_salary: temp,
       }));
     }
-    console.info(offerForm);
   };
 
   return (
