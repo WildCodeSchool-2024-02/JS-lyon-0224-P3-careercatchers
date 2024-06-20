@@ -7,11 +7,15 @@ import ButtonsProfileCandidate from "../components/ButtonsProfileCandidate/Butto
 export default function ProfilPageCandidate() {
   return (
     <div>
-      <BurgerMenu />
-      <NavBarButtons />
+      <div className="flex justify-between">
+        <BurgerMenu />
+        <NavBarButtons />
+      </div>
       <AvatarUser />
       <ButtonsProfileCandidate />
-      <LogoExternatic />
+      <div className="flex w-32 mx-auto">
+        <LogoExternatic />
+      </div>
     </div>
   );
 }
