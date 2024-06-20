@@ -1,8 +1,8 @@
-import BurgerMenu from "../components/BurgerMenu";
-import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
-import NavBarButtons from "../components/NavBar/NavBarButtons";
 import AvatarUser from "../components/AvatarUser/AvatarUser";
 import ButtonsProfileCandidate from "../components/ButtonsProfileCandidate/ButtonsProfileCandidate";
+import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
+import BurgerMenu from "../components/NavBar/BurgerMenu";
+import NavBarButtons from "../components/NavBar/NavBarButtons";
 
 export default function ProfilPageCandidate() {
   return (
