@@ -39,9 +39,7 @@ function SignUpForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm() === true) {
-      console.info("Formulaire soumis avec succès !", register);
-    }
+    validateForm();
   };
 
   const inputStyles =
