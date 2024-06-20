@@ -4,8 +4,13 @@ import { Form, useLoaderData } from "react-router-dom";
 export default function NewOfferForm() {
   const companies = useLoaderData();
   const [offerForm, setOfferForm] = useState({
+    job_title: "",
+    job_type: "",
+    content: "",
+    localisation: "",
     min_salary: "",
     max_salary: "",
+    company_id: "",
   });
 
   const handleSalaryChange = (e) => {
@@ -14,6 +19,18 @@ export default function NewOfferForm() {
     } else {
       setOfferForm({ ...offerForm, [e.target.name]: "" });
     }
+  };
+
+  const handleSubmit = () => {
+    if (offerForm.min_salary >= offerForm.max_salary) {
+      const temp = offerForm.min_salary;
+      setOfferForm((prevOfferForm) => ({
+        ...prevOfferForm,
+        min_salary: offerForm.max_salary,
+        max_salary: temp,
+      }));
+    }
+    console.info(offerForm);
   };
 
   return (
@@ -122,7 +139,7 @@ export default function NewOfferForm() {
       <br />
       <br />
 
-      <button type="submit" className="pb-5">
+      <button type="submit" className="pb-5" onClick={handleSubmit}>
         Poster l'offre
       </button>
     </Form>
