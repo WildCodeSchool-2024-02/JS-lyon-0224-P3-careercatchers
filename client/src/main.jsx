@@ -7,10 +7,10 @@ import App from "./App";
 import signUpAction from "./components/Form/actionSignUp";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import ResultPage from "./pages/ResultPage";
-import SignUpPage from "./pages/SignUpPage";
 import PostNewOffer from "./pages/PostNewOffer";
 import ProfilPageCandidate from "./pages/ProfilPageCandidate";
+import ResultPage from "./pages/ResultPage";
+import SignUpPage from "./pages/SignUpPage";
 
 import PostOfferAction from "./actions/PostOfferAction";
 
