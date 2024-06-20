@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import styles from "./homeButtons.module.css";
+import styles from "./HomeButtons.module.css";
 
-import SignUpButton from "./SignUpButton";
+import SignUpButton from "../SignUpButton/SignUpButton";
 
 export default function HomeButtons() {
   return (

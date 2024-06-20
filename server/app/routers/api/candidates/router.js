@@ -7,19 +7,12 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import offer-related actions
-const {
-  browse,
-  browseOffersWithCompanies,
-  read,
-  add,
-} = require("../../../controllers/OfferActions");
+const { browse, add } = require("../../../controllers/CandidateActions");
 
 // Route to get a list of offers
 router.get("/", browse);
-router.get("/with-companies", browseOffersWithCompanies);
-router.get("/:id", read);
-router.post("/", add);
 
+router.post("/", add);
 /* ************************************************************************* */
 
 module.exports = router;

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Burger from "../../assets/logo/burger.svg";
+import Cross from "../../assets/logo/x.svg";
 import styles from "./BurgerMenu.module.css";
-import Burger from "../assets/logo/burger.svg";
-import Cross from "../assets/logo/x.svg";
 
 export default function BurgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +61,7 @@ export default function BurgerMenu() {
           </li>
           <li>
             <Link
-              to="sign-up-page"
+              to="/sign-up-page"
               className={styles.link}
               aria-label="Create a new account"
             >

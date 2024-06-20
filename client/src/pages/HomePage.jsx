@@ -1,11 +1,13 @@
-import LogoExternatic from "../components/LogoExternatic";
-import HomeButtons from "../components/Homebuttons";
-import ExternaticDescription from "../components/ExternaticDescription";
+import ExternaticDescription from "../components/ExternaticDescription/ExternaticDescription";
+import HomeButtons from "../components/HomeButtons/HomeButtons";
+import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
 
 export default function HomePage() {
   return (
     <div className="pt-5">
-      <LogoExternatic />
+      <div className="flex justify-center w-36 mx-auto">
+        <LogoExternatic />
+      </div>
       <ExternaticDescription />
       <HomeButtons />
     </div>

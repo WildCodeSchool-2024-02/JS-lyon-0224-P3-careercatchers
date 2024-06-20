@@ -13,6 +13,14 @@ router.use("/offers", offersRouter);
 const companiesRouter = require("./companies/router");
 
 router.use("/companies", companiesRouter);
+
+const usersRouter = require("./users/router");
+
+router.use("/users", usersRouter);
+
+const candidatesRouter = require("./candidates/router");
+
+router.use("/candidates", candidatesRouter);
 /* ************************************************************************* */
 
 module.exports = router;

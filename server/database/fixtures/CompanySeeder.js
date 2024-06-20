@@ -10,7 +10,7 @@ const companies = [
   },
   {
     name: "Sanofi",
-    email: "sanofi_pasteur_rh@gmail.fr",
+    email: "sanofi-pasteur.rh@gmail.fr",
   },
 ];
 

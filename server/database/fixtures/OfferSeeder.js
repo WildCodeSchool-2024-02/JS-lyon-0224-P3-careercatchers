@@ -7,20 +7,29 @@ const offers = [
   {
     job_title: "Développeur Web (H/F)",
     job_type: "CDI",
-    company_id: "1",
+    content: "We need your help",
     localisation: "Lyon",
+    min_salary: "30000",
+    max_salary: "35000",
+    company_id: "1",
   },
   {
     job_title: "Data Analyst (H/F)",
     job_type: "CDD",
-    company_id: "2",
+    content: "Please come",
     localisation: "Lyon",
+    min_salary: "28000",
+    max_salary: "32000",
+    company_id: "2",
   },
   {
     job_title: "Scrum Master (H/F)",
     job_type: "CDI",
-    company_id: "2",
+    content: "We'll treat you well",
     localisation: "Paris",
+    min_salary: null,
+    max_salary: null,
+    company_id: "2",
   },
 ];
 
@@ -37,8 +46,11 @@ class OfferSeeder extends AbstractSeeder {
       const values = {
         job_title: offer.job_title,
         job_type: offer.job_type,
-        company_id: offer.company_id,
+        content: offer.content,
         localisation: offer.localisation,
+        min_salary: offer.min_salary,
+        max_salary: offer.max_salary,
+        company_id: offer.company_id,
       };
       this.insert(values);
     });
