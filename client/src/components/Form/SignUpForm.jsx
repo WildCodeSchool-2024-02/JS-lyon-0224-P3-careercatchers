@@ -2,14 +2,18 @@ import { useState } from "react";
 import { Form } from "react-router-dom";
 
 function SignUpForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [register, setRegister] = useState({
+    email: "",
+    password: "",
+    lastname: "",
+    firstname: "",
+    birthday: "",
+  });
 
-  const [firstName, setFirstName] = useState("");
-  const [name, setName] = useState("");
-  const [birthDay, setBirthDay] = useState("");
-  const [sex, setSex] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const handleUpdateForm = (e) => {
+    const { name, value } = e.target;
+    setRegister({ ...register, [name]: value });
+  };
 
   return (
     <div className=" flex flex-col w-5/6 mx-auto max-w-sm ">
@@ -32,16 +36,16 @@ function SignUpForm() {
           </div>
         </div>
         <div className="mb-4">
-          <label htmlFor="firstName" className="block text-gray-500">
+          <label htmlFor="firstname" className="block text-gray-500">
             Prénom
           </label>
           <input
             aria-required="true"
             type="text"
-            id="firstName"
+            id="firstname"
             name="firstname"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={register.firstname}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
@@ -54,8 +58,8 @@ function SignUpForm() {
             type="text"
             id="lastname"
             name="lastname"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={register.lastname}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
@@ -68,13 +72,13 @@ function SignUpForm() {
             type="email"
             id="email"
             name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={register.email}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="date_naissance" className="block text-gray-500">
+          <label htmlFor="birthday" className="block text-gray-500">
             Date de naissance
           </label>
           <input
@@ -82,8 +86,8 @@ function SignUpForm() {
             type="date"
             id="birthday"
             name="birthday"
-            value={birthDay}
-            onChange={(e) => setBirthDay(e.target.value)}
+            value={register.birthday}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
@@ -95,8 +99,8 @@ function SignUpForm() {
             aria-required="true"
             id="sex"
             name="sex"
-            value={sex}
-            onChange={(e) => setSex(e.target.value)}
+            value={register.sex}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           >
             <option value="femme">Féminin</option>
@@ -113,8 +117,8 @@ function SignUpForm() {
             type="password"
             id="password"
             name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={register.password}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
@@ -127,8 +131,8 @@ function SignUpForm() {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={register.confirmPassword}
+            onChange={handleUpdateForm}
             className="w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>

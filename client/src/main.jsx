@@ -8,11 +8,13 @@ import {
 } from "react-router-dom";
 
 import App from "./App";
+import signUpAction from "./components/Form/actionSignUp";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
 import PostNewOffer from "./pages/PostNewOffer";
+import ProfilPageCandidate from "./pages/ProfilPageCandidate";
 
 import PostOfferAction from "./actions/PostOfferAction";
 
@@ -37,51 +39,7 @@ const router = createBrowserRouter([
         path: "/sign-up-page",
         id: "sign-up-page",
         element: <SignUpPage />,
-        action: async ({ request }) => {
-          try {
-            const formData = await request.formData();
-
-            const email = formData.get("email");
-            const password = formData.get("password");
-            const firstname = formData.get("firstname");
-            const lastname = formData.get("lastname");
-            const birthday = formData.get("birthday");
-
-            const response = await fetch(`${ApiUrl}/api/users`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email,
-                password,
-              }),
-            });
-
-            if (response.ok === false) {
-              throw new Error("");
-            }
-            const responseCandidate = await fetch(`${ApiUrl}/api/candidates`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-
-              body: JSON.stringify({
-                firstname,
-                lastname,
-                birthday,
-              }),
-            });
-            if (!responseCandidate.ok) {
-              throw new Error("");
-            }
-          } catch (err) {
-            console.error("Fetch error:", err);
-            return null;
-          }
-          return redirect("/result-page");
-        },
+        action: signUpAction,
       },
       {
         path: "/post-offer",
@@ -94,6 +52,11 @@ const router = createBrowserRouter([
         path: "/login-page",
         id: "login-page",
         element: <LoginPage />,
+      },
+      {
+        path: "/profil-page-candidate",
+        id: "profil-page-candidate",
+        element: <ProfilPageCandidate />,
       },
     ],
   },

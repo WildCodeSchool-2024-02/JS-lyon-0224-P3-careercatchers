@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Burger from "../assets/logo/burger.svg";
-import Cross from "../assets/logo/x.svg";
+import Burger from "../../assets/logo/burger.svg";
+import Cross from "../../assets/logo/x.svg";
 import styles from "./BurgerMenu.module.css";
 
 export default function BurgerMenu() {

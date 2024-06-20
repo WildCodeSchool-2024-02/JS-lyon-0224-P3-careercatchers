@@ -1,8 +1,8 @@
-import building from "../assets/logo/building.svg";
-import handShake from "../assets/logo/handshake.svg";
-import note from "../assets/logo/note.svg";
+import building from "../../assets/logo/building.svg";
+import handShake from "../../assets/logo/handshake.svg";
+import note from "../../assets/logo/note.svg";
 
-import styles from "./externaticDescription.module.css";
+import styles from "./ExternaticDescription.module.css";
 
 export default function ExternaticDescription() {
   return (
