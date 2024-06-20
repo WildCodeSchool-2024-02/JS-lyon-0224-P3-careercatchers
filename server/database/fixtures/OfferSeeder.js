@@ -9,6 +9,8 @@ const offers = [
     job_type: "CDI",
     content: "We need your help",
     localisation: "Lyon",
+    min_salary: "100",
+    max_salary: "10000",
     company_id: "1",
   },
   {
@@ -42,6 +44,8 @@ class OfferSeeder extends AbstractSeeder {
         job_type: offer.job_type,
         content: offer.content,
         localisation: offer.localisation,
+        min_salary: offer.min_salary,
+        max_salary: offer.max_salary,
         company_id: offer.company_id,
       };
       this.insert(values);

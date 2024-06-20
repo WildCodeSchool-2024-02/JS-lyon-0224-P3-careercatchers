@@ -17,14 +17,15 @@ export default function JobOffer() {
               alt="Ajouter l'offre aux favoris"
             />
           </div>
-          <p className={styles.adress}>
-            {offer.localisation} {offer.name}
-          </p>
-          <p className={styles.jobSalary}>coucou</p>
+          <p className={styles.name}>{offer.name}</p>
+          <p className={styles.adress}>{offer.localisation}</p>
+          {offer.min}
+          {(offer.min_salary || offer.max_salary) && (
+            <p className={styles.jobSalary}>
+              {offer.min_salary} - {offer.max_salary}
+            </p>
+          )}
           <p className={styles.contract}>{offer.job_type}</p>
-          <div className={styles.date}>
-            <p>Date de mise en ligne de l'offre</p>
-          </div>
         </div>
       ))}
     </div>
