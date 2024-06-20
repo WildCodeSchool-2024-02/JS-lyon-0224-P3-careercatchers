@@ -7,20 +7,23 @@ const offers = [
   {
     job_title: "Développeur Web (H/F)",
     job_type: "CDI",
-    company_id: "1",
+    content: "We need your help",
     localisation: "Lyon",
+    company_id: "1",
   },
   {
     job_title: "Data Analyst (H/F)",
     job_type: "CDD",
-    company_id: "2",
+    content: "Please come",
     localisation: "Lyon",
+    company_id: "2",
   },
   {
     job_title: "Scrum Master (H/F)",
     job_type: "CDI",
-    company_id: "2",
+    content: "We'll treat you well",
     localisation: "Paris",
+    company_id: "2",
   },
 ];
 
@@ -37,8 +40,9 @@ class OfferSeeder extends AbstractSeeder {
       const values = {
         job_title: offer.job_title,
         job_type: offer.job_type,
-        company_id: offer.company_id,
+        content: offer.content,
         localisation: offer.localisation,
+        company_id: offer.company_id,
       };
       this.insert(values);
     });
