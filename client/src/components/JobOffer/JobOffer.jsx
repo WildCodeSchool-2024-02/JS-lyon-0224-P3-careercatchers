@@ -1,5 +1,5 @@
-import Heart from "../assets/logo/heart.svg";
-import styles from "./jobOffer.module.css";
+import Heart from "../../assets/logo/heart.svg";
+import styles from "./JobOffer.module.css";
 
 export default function JobOffer() {
   return (
