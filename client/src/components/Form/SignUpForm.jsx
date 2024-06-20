@@ -13,11 +13,7 @@ function SignUpForm() {
   const handleUpdateForm = (e) => {
     const { name, value } = e.target;
     setRegistrerForm({ ...registrerForm, [name]: value });
-    // console.log(registrerForm);
   };
-  // const handleSubmitForm = (e) => {
-  //   e.preventDefault();
-  // };
 
   return (
     <div className=" flex flex-col w-5/6 mx-auto max-w-sm ">
