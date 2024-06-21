@@ -255,7 +255,7 @@ function SignUpForm() {
 
     setErrors(newErrors);
     console.info(newErrors);
-    // return Object.keys(newErrors).length === 0;
+    return Object.keys(newErrors).length === 0;
   };
 
   const inputStyles =
@@ -264,14 +264,14 @@ function SignUpForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
+    if (validateForm() === true) {
       console.info("Formulaire soumis avec succès !", register);
     }
   };
 
   return (
     <div className="flex flex-col w-5/6 mx-auto max-w-sm">
-      <Form method="post" onSubmit={handleSubmit}>
+      <Form method="post">
         <div className="my-4 min-w-96">
           <h3 className="text-xl font-custom mx-2 my-6">Je suis :</h3>
           <div className="flex justify-evenly">
@@ -412,6 +412,7 @@ function SignUpForm() {
           <button
             type="submit"
             className="bg-primary font-custom text-white px-3 py-2 rounded"
+            onSubmit={handleSubmit}
           >
             Soumettre
           </button>
