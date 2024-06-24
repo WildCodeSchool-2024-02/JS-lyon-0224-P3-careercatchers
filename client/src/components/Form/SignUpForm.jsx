@@ -83,9 +83,9 @@ function SignUpForm() {
             value={register.firstname}
             required
             onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.firstname ? errorClass : ""}`}
+            className={`${inputStyles} ${errors.firstname !== undefined ? errorClass : ""}`}
           />
-          {errors.firstname && (
+          {errors.firstname !== undefined && (
             <p className="text-red-500">{errors.firstname}</p>
           )}
         </div>
