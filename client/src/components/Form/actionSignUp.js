@@ -8,15 +8,9 @@ const signUpAction = async ({ request }) => {
 
     const email = formData.get("email");
     const password = formData.get("password");
-    const lastname = formData.get("lastname");
     const firstname = formData.get("firstname");
+    const lastname = formData.get("lastname");
     const birthday = formData.get("birthday");
-    // const sex = formData.get("sex");
-    const confirmPassword = formData.get("confirmPassword");
-
-    if (password !== confirmPassword) {
-      throw new Error("Les mots de passe ne correspondent pas.");
-    }
 
     const response = await fetch(`${ApiUrl}/api/users`, {
       method: "POST",
@@ -26,15 +20,26 @@ const signUpAction = async ({ request }) => {
       body: JSON.stringify({
         email,
         password,
-        lastname,
-        firstname,
-        birthday,
-        // sex,
       }),
     });
 
-    if (response.ok === false) {
-      throw new Error("Erreur lors de l'inscription");
+    if (!response.ok) {
+      throw new Error("Failed to create user");
+    }
+    const responseCandidate = await fetch(`${ApiUrl}/api/candidates`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        firstname,
+        lastname,
+        birthday,
+      }),
+    });
+    if (!responseCandidate.ok) {
+      throw new Error("Failed to create candidate");
     }
   } catch (err) {
     console.error("Fetch error:", err);
@@ -44,3 +49,53 @@ const signUpAction = async ({ request }) => {
 };
 
 export default signUpAction;
+
+// {
+//   path: "/sign-up-page",
+//   id: "sign-up-page",
+//   element: <SignUpPage />,
+//   action: async ({ request }) => {
+//     try {
+//       const formData = await request.formData();
+
+//       const email = formData.get("email");
+//       const password = formData.get("password");
+//       const firstname = formData.get("firstname");
+//       const lastname = formData.get("lastname");
+//       const birthday = formData.get("birthday");
+
+//       const response = await fetch(`${ApiUrl}/api/users`, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//           email,
+//           password,
+//         }),
+//       });
+
+//       if (response.ok === false) {
+//         throw new Error("");
+//       }
+//       const responseCandidate = await fetch(`${ApiUrl}/api/candidates`, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+
+//         body: JSON.stringify({
+//           firstname,
+//           lastname,
+//           birthday,
+//         }),
+//       });
+//       if (!responseCandidate.ok) {
+//         throw new Error("");
+//       }
+//     } catch (err) {
+//       console.error("Fetch error:", err);
+//       return null;
+//     }
+//     return redirect("/result-page");
+//   },
