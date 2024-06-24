@@ -9,7 +9,7 @@ export default async function PostOfferAction({ request }) {
     const jobTitle = formData.get("job_title");
     const jobType = formData.get("job_type");
     const content = formData.get("content");
-    const localisation = formData.get("localisation");
+    const location = formData.get("location");
     const minSalary = formData.get("min_salary");
     const maxSalary = formData.get("max_salary");
     const companyId = formData.get("company.id");
@@ -23,7 +23,7 @@ export default async function PostOfferAction({ request }) {
         jobTitle,
         jobType,
         content,
-        localisation,
+        location,
         minSalary,
         maxSalary,
         companyId,

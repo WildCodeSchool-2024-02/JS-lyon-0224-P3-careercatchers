@@ -17,12 +17,13 @@ class OfferRepository extends AbstractRepository {
       maxSalary = offer.maxSalary;
     }
     const [result] = await this.database.query(
-      `insert into ${this.table} (job_title, job_type, content, localisation, min_salary, max_salary, company_id) values (?, ?, ?, ?, ?, ?, ?) `,
+      `insert into ${this.table} (job_title, job_type, content, location, salary_type, min_salary, max_salary, company_id) values (?, ?, ?, ?, ?, ?, ?, ?) `,
       [
         offer.jobTitle,
         offer.jobType,
         offer.content,
-        offer.localisation,
+        offer.location,
+        offer.salary_type,
         minSalary,
         maxSalary,
         offer.companyId,
@@ -53,7 +54,7 @@ class OfferRepository extends AbstractRepository {
 
   async getOffersWithCompanies() {
     const [rows] = await this.database.query(
-      `select o.id, job_title, job_type, localisation, min_salary, max_salary, name, email from ${this.table} o join company c on company_id = c.id`
+      `select o.id, job_title, job_type, location, min_salary, max_salary, name, email from ${this.table} o join company c on company_id = c.id`
     );
 
     return rows;

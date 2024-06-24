@@ -18,7 +18,7 @@ export default function JobOffer() {
             />
           </div>
           <p className={styles.name}>{offer.name}</p>
-          <p className={styles.adress}>{offer.localisation}</p>
+          <p className={styles.adress}>{offer.location}</p>
           {(offer.min_salary !== null || offer.max_salary !== null) && (
             <p className={styles.jobSalary}>
               {offer.min_salary} - {offer.max_salary}
