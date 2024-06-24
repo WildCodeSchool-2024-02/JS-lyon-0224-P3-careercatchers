@@ -23,7 +23,7 @@ CREATE TABLE offer(
   job_type ENUM('CDD','CDI','Apprentissage','Professionnalisation') NOT NULL,
   content TEXT NOT NULL,
   location VARCHAR(45) NOT NULL,
-  salary_type ENUM('annuel','mensuel','horaire'),
+  salary_rate ENUM('annuel','mensuel','horaire'),
   min_salary INT UNSIGNED,
   max_salary INT UNSIGNED,
   publish_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

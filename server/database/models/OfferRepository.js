@@ -17,13 +17,13 @@ class OfferRepository extends AbstractRepository {
       maxSalary = offer.maxSalary;
     }
     const [result] = await this.database.query(
-      `insert into ${this.table} (job_title, job_type, content, location, salary_type, min_salary, max_salary, company_id) values (?, ?, ?, ?, ?, ?, ?, ?) `,
+      `insert into ${this.table} (job_title, job_type, content, location, salary_rate, min_salary, max_salary, company_id) values (?, ?, ?, ?, ?, ?, ?, ?) `,
       [
         offer.jobTitle,
         offer.jobType,
         offer.content,
         offer.location,
-        offer.salary_type,
+        offer.salary_rate,
         minSalary,
         maxSalary,
         offer.companyId,
