@@ -8,10 +8,10 @@ const signUpAction = async ({ request }) => {
 
     const email = formData.get("email");
     const password = formData.get("password");
-    const firstname = formData.get("firstname");
     const lastname = formData.get("lastname");
-    const birthDay = formData.get("birthDay");
-    const sex = formData.get("sex");
+    const firstname = formData.get("firstname");
+    const birthday = formData.get("birthday");
+    // const sex = formData.get("sex");
     const confirmPassword = formData.get("confirmPassword");
 
     if (password !== confirmPassword) {
@@ -26,10 +26,10 @@ const signUpAction = async ({ request }) => {
       body: JSON.stringify({
         email,
         password,
-        firstname,
         lastname,
-        birthDay,
-        sex,
+        firstname,
+        birthday,
+        // sex,
       }),
     });
 

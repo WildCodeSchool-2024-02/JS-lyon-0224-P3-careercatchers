@@ -22,6 +22,14 @@ class UserRepository extends AbstractRepository {
     // Execute the query and return the result
     return result.insertId;
   }
+
+  async readAll() {
+    // Execute the SQL SELECT query to retrieve all companys from the "company" table
+    const [rows] = await this.database.query(`select * from ${this.table}`);
+
+    // Return the array of companys
+    return rows;
+  }
 }
 
 // Ajoutez d'autres méthodes CRUD selon vos besoins

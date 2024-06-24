@@ -223,7 +223,7 @@ function SignUpForm() {
     firstname: "",
     email: "",
     birthday: "",
-    sex: "",
+    // sex: "",
     password: "",
     confirmPassword: "",
   });
@@ -246,7 +246,7 @@ function SignUpForm() {
     if (register.birthday === "")
       newErrors.birthday = "La date de naissance est requise.";
 
-    if (register.sex === "") newErrors.sex = "Le sexe est requis.";
+    // if (register.sex === "") newErrors.sex = "Le sexe est requis.";
 
     if (register.password === "")
       newErrors.password = "Le mot de passe est requis.";
@@ -355,7 +355,7 @@ function SignUpForm() {
           />
           {errors.birthday && <p className="text-red-500">{errors.birthday}</p>}
         </div>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label htmlFor="sex" className="block text-gray-500">
             Sexe
           </label>
@@ -372,7 +372,7 @@ function SignUpForm() {
             <option value="homme">Masculin</option>
           </select>
           {errors.sex && <p className="text-red-500">{errors.sex}</p>}
-        </div>
+        </div> */}
         <div className="mb-4">
           <label htmlFor="password" className="block text-gray-500">
             Mot de passe
