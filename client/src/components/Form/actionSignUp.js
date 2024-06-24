@@ -8,6 +8,7 @@ const signUpAction = async ({ request }) => {
 
     const email = formData.get("email");
     const password = formData.get("password");
+
     const firstname = formData.get("firstname");
     const lastname = formData.get("lastname");
     const birthday = formData.get("birthday");
@@ -49,53 +50,3 @@ const signUpAction = async ({ request }) => {
 };
 
 export default signUpAction;
-
-// {
-//   path: "/sign-up-page",
-//   id: "sign-up-page",
-//   element: <SignUpPage />,
-//   action: async ({ request }) => {
-//     try {
-//       const formData = await request.formData();
-
-//       const email = formData.get("email");
-//       const password = formData.get("password");
-//       const firstname = formData.get("firstname");
-//       const lastname = formData.get("lastname");
-//       const birthday = formData.get("birthday");
-
-//       const response = await fetch(`${ApiUrl}/api/users`, {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           email,
-//           password,
-//         }),
-//       });
-
-//       if (response.ok === false) {
-//         throw new Error("");
-//       }
-//       const responseCandidate = await fetch(`${ApiUrl}/api/candidates`, {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-
-//         body: JSON.stringify({
-//           firstname,
-//           lastname,
-//           birthday,
-//         }),
-//       });
-//       if (!responseCandidate.ok) {
-//         throw new Error("");
-//       }
-//     } catch (err) {
-//       console.error("Fetch error:", err);
-//       return null;
-//     }
-//     return redirect("/result-page");
-//   },

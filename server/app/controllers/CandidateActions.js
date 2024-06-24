@@ -18,7 +18,7 @@ const browse = async (req, res, next) => {
 const add = async (req, res, next) => {
   try {
     const candidate = req.body;
-    console.info(candidate);
+
     // Créer un nouvel utilisateur
     const insertId = await tables.candidate.create(candidate);
 
