@@ -322,7 +322,7 @@ export default function NewOfferForm() {
       </span>
       <br />
 
-      <button type="submit" className="pb-5" onClick={handleSubmit}>
+      <button type="submit" className="pb-5">
         Poster l'offre
       </button>
     </form>
