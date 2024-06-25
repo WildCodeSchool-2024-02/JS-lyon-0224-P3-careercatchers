@@ -2,41 +2,22 @@ import { redirect } from "react-router-dom";
 
 const ApiUrl = import.meta.env.VITE_API_URL;
 
-export default async function PostOfferAction({ request }) {
+export default async function PostOfferAction(offerForm) {
   try {
-    const formData = await request.formData();
-
-    const jobTitle = formData.get("job_title");
-    const jobType = formData.get("job_type");
-    const content = formData.get("content");
-    const location = formData.get("location");
-    const salaryType = formData.get("salary_rate");
-    const minSalary = formData.get("min_salary");
-    const maxSalary = formData.get("max_salary");
-    const companyId = formData.get("company.id");
-
     const response = await fetch(`${ApiUrl}/api/offers`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        jobTitle,
-        jobType,
-        content,
-        location,
-        salaryType,
-        minSalary,
-        maxSalary,
-        companyId,
-      }),
+      body: JSON.stringify(offerForm),
     });
-    if (response.ok === false) {
-      throw new Error("");
+    if (response.ok !== true) {
+      // response.status !== 201
+      throw new Error("Erreur lors de l'inscription");
     }
+    return redirect("/result-page");
   } catch (err) {
     console.error("Fetch error:", err);
     return null;
   }
-  return redirect(`/result-page`);
 }

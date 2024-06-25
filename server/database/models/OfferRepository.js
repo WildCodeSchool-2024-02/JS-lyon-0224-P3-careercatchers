@@ -8,25 +8,29 @@ class OfferRepository extends AbstractRepository {
   }
 
   async create(offer) {
+    let salaryRate = null;
     let minSalary = null;
     let maxSalary = null;
-    if (offer.minSalary !== "") {
-      minSalary = offer.minSalary;
+    if (offer.salary_rate !== "") {
+      salaryRate = offer.salary_rate;
     }
-    if (offer.maxSalary !== "") {
-      maxSalary = offer.maxSalary;
+    if (offer.min_salary !== "") {
+      minSalary = offer.min_salary;
+    }
+    if (offer.max_salary !== "") {
+      maxSalary = offer.max_salary;
     }
     const [result] = await this.database.query(
       `insert into ${this.table} (job_title, job_type, content, location, salary_rate, min_salary, max_salary, company_id) values (?, ?, ?, ?, ?, ?, ?, ?) `,
       [
-        offer.jobTitle,
-        offer.jobType,
+        offer.job_title,
+        offer.job_type,
         offer.content,
         offer.location,
-        offer.salary_rate,
+        salaryRate,
         minSalary,
         maxSalary,
-        offer.companyId,
+        offer.company_id,
       ]
     );
 

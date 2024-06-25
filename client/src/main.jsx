@@ -12,8 +12,6 @@ import ProfilPageCandidate from "./pages/ProfilPageCandidate";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
 
-import PostOfferAction from "./actions/PostOfferAction";
-
 const ApiUrl = import.meta.env.VITE_API_URL;
 
 const router = createBrowserRouter([
@@ -42,7 +40,6 @@ const router = createBrowserRouter([
         id: "post-offer",
         element: <PostNewOffer />,
         loader: async () => fetch(`${ApiUrl}/api/companies`),
-        action: PostOfferAction,
       },
       {
         path: "/login-page",

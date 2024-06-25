@@ -26,7 +26,7 @@ CREATE TABLE offer(
   salary_rate ENUM('annuel','mensuel','horaire'),
   min_salary INT UNSIGNED,
   max_salary INT UNSIGNED,
-  publish_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  publish_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   company_id INT UNSIGNED NOT NULL,
   FOREIGN KEY (company_id) REFERENCES company(id)
 );

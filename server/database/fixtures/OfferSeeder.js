@@ -29,6 +29,7 @@ const offers = [
     job_type: "CDI",
     content: "We'll treat you well",
     location: "Paris",
+    salary_rate: null,
     min_salary: null,
     max_salary: null,
     company_id: "2",
