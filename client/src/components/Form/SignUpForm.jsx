@@ -120,7 +120,9 @@ function SignUpForm() {
             onChange={handleUpdateForm}
             className={`${inputStyles} ${errors.email ? errorClass : ""}`}
           />
-          {errors.email && <p className="text-red-500">{errors.email}</p>}
+          {errors.email !== undefined && (
+            <p className="text-red-500">{errors.email}</p>
+          )}
         </div>
         <div className="mb-4">
           <label htmlFor="birthday" className="block text-gray-500">
