@@ -6,11 +6,11 @@ const AbstractSeeder = require("./AbstractSeeder");
 const companies = [
   {
     name: "Wild Code School",
-    email: "wildcodeschool@gmail.com",
+    // email: "wildcodeschool@gmail.com",
   },
   {
     name: "Sanofi",
-    email: "sanofi-pasteur.rh@gmail.fr",
+    // email: "sanofi-pasteur.rh@gmail.fr",
   },
 ];
 
@@ -26,7 +26,7 @@ class CompanySeeder extends AbstractSeeder {
     companies.forEach((company) => {
       const values = {
         name: company.name,
-        email: company.email,
+        // email: company.email,
       };
       this.insert(values);
     });
