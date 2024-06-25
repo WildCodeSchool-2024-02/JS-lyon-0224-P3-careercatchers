@@ -5,10 +5,10 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all offers from the database
-    const users = await tables.candidate.readAll();
+    const candidates = await tables.candidate.readAll();
 
     // Respond with the offers in JSON format
-    res.json(users);
+    res.json(candidates);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -18,7 +18,7 @@ const browse = async (req, res, next) => {
 const add = async (req, res, next) => {
   try {
     const candidate = req.body;
-    console.info(candidate);
+
     // Créer un nouvel utilisateur
     const insertId = await tables.candidate.create(candidate);
 

@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import signUpAction from "./components/Form/actionSignUp";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import PostNewOffer from "./pages/PostNewOffer";
@@ -35,7 +34,6 @@ const router = createBrowserRouter([
         path: "/sign-up-page",
         id: "sign-up-page",
         element: <SignUpPage />,
-        action: signUpAction,
       },
       {
         path: "/post-offer",

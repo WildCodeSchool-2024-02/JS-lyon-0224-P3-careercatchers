@@ -10,13 +10,14 @@ const signUpAction = async ({ request }) => {
     const password = formData.get("password");
     const firstname = formData.get("firstname");
     const lastname = formData.get("lastname");
-    const birthDay = formData.get("birthDay");
-    const sex = formData.get("sex");
-    const confirmPassword = formData.get("confirmPassword");
+    const birthday = formData.get("birthday");
 
-    if (password !== confirmPassword) {
-      throw new Error("Les mots de passe ne correspondent pas.");
-    }
+    console.info("Sending data for user:", { email, password });
+    console.info("Sending data for candidate:", {
+      firstname,
+      lastname,
+      birthday,
+    });
 
     const response = await fetch(`${ApiUrl}/api/users`, {
       method: "POST",
@@ -26,15 +27,26 @@ const signUpAction = async ({ request }) => {
       body: JSON.stringify({
         email,
         password,
-        firstname,
-        lastname,
-        birthDay,
-        sex,
       }),
     });
 
-    if (response.ok === false) {
-      throw new Error("Erreur lors de l'inscription");
+    if (response.ok !== true) {
+      throw new Error("Failed to create user");
+    }
+    const responseCandidate = await fetch(`${ApiUrl}/api/candidates`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        firstname,
+        lastname,
+        birthday,
+      }),
+    });
+    if (responseCandidate.ok !== true) {
+      throw new Error("Failed to create candidate");
     }
   } catch (err) {
     console.error("Fetch error:", err);
