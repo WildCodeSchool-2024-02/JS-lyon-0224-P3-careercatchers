@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import signUpAction from "./actionSignUp";
 
 function SignUpForm() {
+  const navigate = useNavigate();
   const [register, setRegister] = useState({
     lastname: "",
     firstname: "",
@@ -52,6 +54,7 @@ function SignUpForm() {
     };
 
     await signUpAction({ request });
+    navigate("/");
   };
 
   const inputStyles =
