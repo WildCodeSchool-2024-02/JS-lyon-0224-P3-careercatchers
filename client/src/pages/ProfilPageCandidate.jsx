@@ -7,11 +7,15 @@ import NavBarButtons from "../components/NavBar/NavBarButtons";
 export default function ProfilPageCandidate() {
   return (
     <div>
-      <BurgerMenu />
-      <NavBarButtons />
+      <div className="flex justify-between">
+        <BurgerMenu />
+        <NavBarButtons />
+      </div>
       <AvatarUser />
       <ButtonsProfileCandidate />
-      <LogoExternatic />
+      <div className="flex w-24 mx-auto pt-16 ml-2 ">
+        <LogoExternatic />
+      </div>
     </div>
   );
 }
