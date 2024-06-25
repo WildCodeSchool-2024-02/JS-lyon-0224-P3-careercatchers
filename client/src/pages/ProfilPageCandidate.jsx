@@ -13,7 +13,7 @@ export default function ProfilPageCandidate() {
       </div>
       <AvatarUser />
       <ButtonsProfileCandidate />
-      <div className="flex w-32 mx-auto">
+      <div className="flex w-32 mx-auto pt-14 ml-2 ">
         <LogoExternatic />
       </div>
     </div>
