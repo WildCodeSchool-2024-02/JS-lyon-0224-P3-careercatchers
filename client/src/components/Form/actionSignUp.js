@@ -8,10 +8,16 @@ const signUpAction = async ({ request }) => {
 
     const email = formData.get("email");
     const password = formData.get("password");
-
     const firstname = formData.get("firstname");
     const lastname = formData.get("lastname");
     const birthday = formData.get("birthday");
+
+    console.info("Sending data for user:", { email, password });
+    console.info("Sending data for candidate:", {
+      firstname,
+      lastname,
+      birthday,
+    });
 
     const response = await fetch(`${ApiUrl}/api/users`, {
       method: "POST",
@@ -24,7 +30,7 @@ const signUpAction = async ({ request }) => {
       }),
     });
 
-    if (response.status !== 200) {
+    if (!response.ok) {
       throw new Error("Failed to create user");
     }
     const responseCandidate = await fetch(`${ApiUrl}/api/candidates`, {
@@ -39,7 +45,7 @@ const signUpAction = async ({ request }) => {
         birthday,
       }),
     });
-    if (responseCandidate.status !== 200) {
+    if (!responseCandidate.ok) {
       throw new Error("Failed to create candidate");
     }
   } catch (err) {

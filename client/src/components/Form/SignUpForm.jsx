@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Form } from "react-router-dom";
+
+import signUpAction from "./actionSignUp";
 
 function SignUpForm() {
   const [register, setRegister] = useState({
@@ -20,7 +21,6 @@ function SignUpForm() {
 
   const validateForm = () => {
     const newErrors = {};
-
     if (register.firstname === "")
       newErrors.firstname = "Le prénom est requis.";
     if (register.lastname === "") newErrors.lastname = "Le nom est requis.";
@@ -33,22 +33,34 @@ function SignUpForm() {
       newErrors.confirmPassword = "Les mots de passe ne correspondent pas.";
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+
+    if (Object.keys(newErrors).length === 0) {
+      return true;
+    }
+    return false;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm() !== undefined) {
-      console.info("Formulaire soumis avec succès!", register);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const validation = validateForm();
+    if (validation !== true) {
+      return;
     }
+    const formData = new FormData(event.target);
+    const request = {
+      formData: async () => formData,
+    };
+
+    await signUpAction({ request });
   };
+
   const inputStyles =
     "w-full px-3 py-2 border rounded focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20";
   const errorClass = "border-red-500";
 
   return (
     <div className="flex flex-col w-5/6 mx-auto max-w-sm">
-      <Form method="post" action="/sign-up-page">
+      <form onSubmit={handleSubmit}>
         <div className="my-4 min-w-96">
           <h3 className="text-xl font-custom mx-2 my-6">Je suis :</h3>
           <div className="flex justify-evenly">
@@ -77,7 +89,6 @@ function SignUpForm() {
             id="firstname"
             name="firstname"
             value={register.firstname}
-            required
             onChange={handleUpdateForm}
             className={`${inputStyles} ${errors.firstname !== undefined ? errorClass : ""}`}
           />
@@ -96,7 +107,6 @@ function SignUpForm() {
             id="lastname"
             name="lastname"
             value={register.lastname}
-            required
             onChange={handleUpdateForm}
             className={`${inputStyles} ${errors.lastname !== undefined ? errorClass : ""}`}
           />
@@ -116,9 +126,8 @@ function SignUpForm() {
             id="email"
             name="email"
             value={register.email}
-            required
             onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.email ? errorClass : ""}`}
+            className={`${inputStyles} ${errors.email !== undefined ? errorClass : ""}`}
           />
           {errors.email !== undefined && (
             <p className="text-red-500">{errors.email}</p>
@@ -135,7 +144,6 @@ function SignUpForm() {
             id="birthday"
             name="birthday"
             value={register.birthday}
-            required
             onChange={handleUpdateForm}
             className={`${inputStyles} ${errors.birthday !== undefined ? errorClass : ""}`}
           />
@@ -156,7 +164,6 @@ function SignUpForm() {
             id="password"
             name="password"
             value={register.password}
-            required
             onChange={handleUpdateForm}
             className={`${inputStyles} ${errors.password !== undefined ? errorClass : ""}`}
           />
@@ -175,7 +182,6 @@ function SignUpForm() {
             id="confirmPassword"
             name="confirmPassword"
             value={register.confirmPassword}
-            required
             onChange={handleUpdateForm}
             className={`${inputStyles} ${errors.confirmPassword !== undefined ? errorClass : ""}`}
           />
@@ -187,12 +193,11 @@ function SignUpForm() {
           <button
             type="submit"
             className="bg-primary font-custom text-white px-3 py-2 rounded"
-            onClick={handleSubmit}
           >
             Soumettre
           </button>
         </div>
-      </Form>
+      </form>
     </div>
   );
 }
