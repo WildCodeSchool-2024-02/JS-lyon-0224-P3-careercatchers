@@ -6,17 +6,8 @@ import styles from "./JobOffer.module.css";
 export default function JobOffer() {
   const offers = useLoaderData();
 
-  if (offers !== undefined) {
-    return <p>Chargement en cours...</p>;
-  }
-
-  // Vérifie si offers n'est pas un tableau
-  if (Array.isArray(offers) !== undefined) {
-    return <p>Erreur : les données d'offres ne sont pas valides.</p>;
-  }
-
   return (
-    <div className="flex  ">
+    <div className="flex-col ">
       {offers.map((offer) => (
         <div key={offer.id} className={styles.divJobOffer}>
           <div className={styles.head}>

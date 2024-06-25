@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 import PostOfferAction from "../../actions/PostOfferAction";
 
 export default function NewOfferForm() {
+  const navigate = useNavigate();
   const companies = useLoaderData();
   const [errors, setErrors] = useState({});
   const [offerForm, setOfferForm] = useState({
@@ -61,7 +62,7 @@ export default function NewOfferForm() {
     if (offerForm.content === "")
       newErrors.content = "Renseignez des informations à propos de l'offre.";
 
-    if (hasRead === false)
+    if (hasRead !== true)
       newErrors.disclaimer_checkbox =
         "Confirmez avoir pris en compte la clause de non-responsabilité";
 
@@ -72,7 +73,7 @@ export default function NewOfferForm() {
     return false;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (offerForm.min_salary >= offerForm.max_salary) {
       // Makes sure the highest value is always asigned to 'max_salary'
@@ -84,7 +85,8 @@ export default function NewOfferForm() {
       }));
     }
     if (validateForm() === true) {
-      PostOfferAction(offerForm);
+      await PostOfferAction(offerForm);
+      navigate("/result-page");
     }
   };
 
@@ -312,7 +314,9 @@ export default function NewOfferForm() {
         />{" "}
         J'ai lu et j'accepte
       </label>
-      <span className={`${hasRead === false ? "text-red-500" : "text-black"}`}>
+      <span
+        className={`${errors.disclaimer_checkbox !== undefined ? "text-red-500" : "text-black"}`}
+      >
         <br />
         Confirmez avoir pris en compte la clause de non-responsabilité
       </span>
