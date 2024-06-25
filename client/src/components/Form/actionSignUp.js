@@ -1,5 +1,3 @@
-import { redirect } from "react-router-dom";
-
 const ApiUrl = import.meta.env.VITE_API_URL;
 
 const signUpAction = async ({ request }) => {
@@ -52,7 +50,7 @@ const signUpAction = async ({ request }) => {
     console.error("Fetch error:", err);
     return null;
   }
-  return redirect("/result-page");
+  return true;
 };
 
 export default signUpAction;
