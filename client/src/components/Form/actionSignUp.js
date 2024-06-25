@@ -30,7 +30,7 @@ const signUpAction = async ({ request }) => {
       }),
     });
 
-    if (!response.ok) {
+    if (response.ok !== true) {
       throw new Error("Failed to create user");
     }
     const responseCandidate = await fetch(`${ApiUrl}/api/candidates`, {
@@ -45,7 +45,7 @@ const signUpAction = async ({ request }) => {
         birthday,
       }),
     });
-    if (!responseCandidate.ok) {
+    if (responseCandidate.ok !== true) {
       throw new Error("Failed to create candidate");
     }
   } catch (err) {
