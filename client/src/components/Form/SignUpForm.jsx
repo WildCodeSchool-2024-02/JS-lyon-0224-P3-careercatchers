@@ -54,7 +54,7 @@ function SignUpForm() {
     };
 
     await signUpAction({ request });
-    navigate("/");
+    navigate("/login-page");
   };
 
   const inputStyles =
