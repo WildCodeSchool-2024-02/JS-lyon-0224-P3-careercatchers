@@ -27,12 +27,9 @@ class UserRepository extends AbstractRepository {
     // Execute the SQL SELECT query to retrieve all users from the "users" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
-    // Return the array of users
     return rows;
   }
 }
-
-// Ajoutez d'autres méthodes CRUD selon vos besoins
 
 // Exporte une instance unique du UserRepository
 module.exports = UserRepository;

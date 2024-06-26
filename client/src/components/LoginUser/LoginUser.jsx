@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 export default function LoginUser() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState(null);
-
   const [loginInfos, setLoginInfos] = useState({
     email: "",
     password: "",
@@ -12,8 +11,6 @@ export default function LoginUser() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // Validation rapide des champs
 
     try {
       const response = await fetch("http://localhost:3310/api/users/login", {
@@ -24,12 +21,10 @@ export default function LoginUser() {
         body: JSON.stringify(loginInfos),
       });
 
-      if (!response.ok) {
+      if (response.ok !== true) {
         const errorText = await response.text();
-        // console.log(response.text());
         throw new Error(`Error: ${errorText}`);
       }
-
       const data = await response.json();
       console.info("Login successful:", data);
       // Redirection vers la page d'accueil après la connexion réussie

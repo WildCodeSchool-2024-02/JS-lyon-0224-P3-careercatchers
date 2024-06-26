@@ -18,7 +18,6 @@ const browse = async (req, res, next) => {
 const add = async (req, res, next) => {
   try {
     const user = req.body;
-    // console.log(user);
 
     // Créer un nouvel utilisateur
     const insertUserId = await tables.user.create(user);
@@ -30,7 +29,6 @@ const add = async (req, res, next) => {
   }
 };
 
-// Ready to export the controller functions
 module.exports = {
   browse,
   add,
