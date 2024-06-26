@@ -19,6 +19,10 @@ export default function NewOfferForm() {
   });
   const regularPattern = /^[a-zA-ZÀ-ÿ0-9\s,'-]*$/;
   const [hasRead, setHasRead] = useState(null);
+  const minSalaryTernary =
+    offerForm.salary_rate === "mensuel" ? "Ex: 2500" : "Ex: 12";
+  const maxSalaryTernary =
+    offerForm.salary_rate === "mensuel" ? "Ex: 3000" : "Ex: 16";
 
   const handleUpdateForm = (e) => {
     const { name, value } = e.target;
@@ -249,12 +253,7 @@ export default function NewOfferForm() {
           max="999 999"
           step="1000"
           placeholder={
-            // eslint-disable-next-line no-nested-ternary
-            offerForm.salary_rate === "annuel"
-              ? "Ex: 30000"
-              : offerForm.salary_rate === "mensuel"
-                ? "Ex: 2500"
-                : "Ex: 12"
+            offerForm.salary_rate === "annuel" ? "Ex: 30000" : minSalaryTernary
           }
           value={offerForm.min_salary}
           onChange={handleUpdateForm}
@@ -270,12 +269,7 @@ export default function NewOfferForm() {
           max="999 999"
           step="1000"
           placeholder={
-            // eslint-disable-next-line no-nested-ternary
-            offerForm.salary_rate === "annuel"
-              ? "Ex: 40000"
-              : offerForm.salary_rate === "mensuel"
-                ? "Ex: 3000"
-                : "Ex: 16"
+            offerForm.salary_rate === "annuel" ? "Ex: 40000" : maxSalaryTernary
           }
           value={offerForm.max_salary}
           onChange={handleUpdateForm}
