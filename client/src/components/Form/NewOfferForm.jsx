@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import PostOfferAction from "../../actions/PostOfferAction";
 
@@ -23,6 +24,8 @@ export default function NewOfferForm() {
     offerForm.salary_rate === "mensuel" ? "Ex: 2500" : "Ex: 12";
   const maxSalaryTernary =
     offerForm.salary_rate === "mensuel" ? "Ex: 3000" : "Ex: 16";
+  const notifySuccess = (text) => toast.success(text);
+  const notifyFail = (text) => toast.error(text);
 
   const handleUpdateForm = (e) => {
     const { name, value } = e.target;
@@ -91,6 +94,10 @@ export default function NewOfferForm() {
     if (validateForm() === true) {
       await PostOfferAction(offerForm);
       navigate("/result-page");
+      notifySuccess("Offre postée avec succès");
+    } else {
+      notifyFail("Veuillez remplir correctement les champs requis");
+      toast.clearWaitingQueue();
     }
   };
 
