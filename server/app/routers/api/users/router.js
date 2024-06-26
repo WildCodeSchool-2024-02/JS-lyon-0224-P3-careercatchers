@@ -9,13 +9,13 @@ const router = express.Router();
 // Import offer-related actions
 
 // Route to get a list of offers
-// const { browse, add } = require("../../../controllers/UserAction");
+const { browse, add } = require("../../../controllers/UserAction");
 // const { login } = require("../../../controllers/AuthAction");
-// const { hashPassword } = require("../../../services/auth");
+const { hashPassword } = require("../../../services/auth");
 // Route to get a list of offers
-// router.get("/", browse);
+router.get("/", browse);
 
-// router.post("/", hashPassword, add);
+router.post("/", hashPassword, add);
 /* ************************************************************************* */
 
 // router.post("/login", login);
