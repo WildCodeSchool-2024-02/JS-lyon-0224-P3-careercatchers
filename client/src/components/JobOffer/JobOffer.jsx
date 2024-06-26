@@ -6,17 +6,8 @@ import styles from "./JobOffer.module.css";
 export default function JobOffer() {
   const offers = useLoaderData();
 
-  if (offers !== undefined) {
-    return <p>Chargement en cours...</p>;
-  }
-
-  // Vérifie si offers n'est pas un tableau
-  if (Array.isArray(offers) !== undefined) {
-    return <p>Erreur : les données d'offres ne sont pas valides.</p>;
-  }
-
   return (
-    <div className="flex  ">
+    <div className="flex-col ">
       {offers.map((offer) => (
         <div key={offer.id} className={styles.divJobOffer}>
           <div className={styles.head}>
@@ -28,7 +19,7 @@ export default function JobOffer() {
             />
           </div>
           <p className={styles.name}>{offer.name}</p>
-          <p className={styles.adress}>{offer.localisation}</p>
+          <p className={styles.adress}>{offer.location}</p>
           {(offer.min_salary !== null || offer.max_salary !== null) && (
             <p className={styles.jobSalary}>
               {offer.min_salary} - {offer.max_salary}

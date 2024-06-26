@@ -2,36 +2,37 @@ const AbstractSeeder = require("./AbstractSeeder");
 
 // Import seeders that must be executed before this one
 // Follow your foreign keys to find the right order ;)
+const UserSeeder = require("./UserSeeder");
 
 const companies = [
   {
     name: "Wild Code School",
-    // email: "wildcodeschool@gmail.com",
+    user_id: 1,
   },
   {
     name: "Sanofi",
-    // email: "sanofi-pasteur.rh@gmail.fr",
+    user_id: 2,
   },
 ];
 
 class CompanySeeder extends AbstractSeeder {
   constructor() {
     // Call the constructor of the parent class (AbstractSeeder) with appropriate options
-    super({ table: "company" });
+    super({ table: "company", dependencies: [UserSeeder] });
   }
 
-  // The run method - Populate the 'Company' table with data of jobTitles
+  // The run method - Populate the 'company' table with data of companies
 
   run() {
     companies.forEach((company) => {
       const values = {
         name: company.name,
-        // email: company.email,
+        user_id: company.user_id,
       };
       this.insert(values);
     });
   }
 }
 
-// Export the companieseeder class
+// Export the company seeder class
 module.exports = CompanySeeder;

@@ -8,24 +8,29 @@ class OfferRepository extends AbstractRepository {
   }
 
   async create(offer) {
+    let salaryRate = null;
     let minSalary = null;
     let maxSalary = null;
-    if (offer.minSalary !== "") {
-      minSalary = offer.minSalary;
+    if (offer.salary_rate !== "") {
+      salaryRate = offer.salary_rate;
     }
-    if (offer.maxSalary !== "") {
-      maxSalary = offer.maxSalary;
+    if (offer.min_salary !== "") {
+      minSalary = offer.min_salary;
+    }
+    if (offer.max_salary !== "") {
+      maxSalary = offer.max_salary;
     }
     const [result] = await this.database.query(
-      `insert into ${this.table} (job_title, job_type, content, localisation, min_salary, max_salary, company_id) values (?, ?, ?, ?, ?, ?, ?) `,
+      `insert into ${this.table} (job_title, job_type, content, location, salary_rate, min_salary, max_salary, company_id) values (?, ?, ?, ?, ?, ?, ?, ?) `,
       [
-        offer.jobTitle,
-        offer.jobType,
+        offer.job_title,
+        offer.job_type,
         offer.content,
-        offer.localisation,
+        offer.location,
+        salaryRate,
         minSalary,
         maxSalary,
-        offer.companyId,
+        offer.company_id,
       ]
     );
 
@@ -53,7 +58,7 @@ class OfferRepository extends AbstractRepository {
 
   async getOffersWithCompanies() {
     const [rows] = await this.database.query(
-      `select o.id, job_title, job_type, localisation, min_salary, max_salary, name, email from ${this.table} o join company c on company_id = c.id`
+      `select o.id, job_title, job_type, location, min_salary, max_salary, name, email from ${this.table} as o inner join company as c on company_id = c.id inner join user as u on user_id=u.id`
     );
 
     return rows;

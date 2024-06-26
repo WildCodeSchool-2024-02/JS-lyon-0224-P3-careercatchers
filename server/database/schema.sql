@@ -6,8 +6,9 @@ CREATE TABLE user(
 
 CREATE TABLE company(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  name VARCHAR(100) NOT NULL
-
+  name VARCHAR(100) NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 CREATE TABLE candidate(
@@ -20,12 +21,13 @@ CREATE TABLE candidate(
 CREATE TABLE offer(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   job_title VARCHAR(80) NOT NULL,
-  job_type ENUM('CDD','CDI','Alternance') NOT NULL,
+  job_type ENUM('CDD','CDI','Apprentissage','Professionnalisation') NOT NULL,
   content TEXT NOT NULL,
-  localisation VARCHAR(45) NOT NULL,
+  location VARCHAR(45) NOT NULL,
+  salary_rate ENUM('annuel','mensuel','horaire'),
   min_salary INT UNSIGNED,
   max_salary INT UNSIGNED,
-  publish_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  publish_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   company_id INT UNSIGNED NOT NULL,
   FOREIGN KEY (company_id) REFERENCES company(id)
 );
