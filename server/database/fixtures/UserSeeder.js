@@ -1,37 +1,28 @@
 const AbstractSeeder = require("./AbstractSeeder");
 
-// Import seeders that must be executed before this one
-// Follow your foreign keys to find the right order ;)
-
-const users = [
-  {
-    email: "wildcodeschool@gmail.com",
-    password: "123",
-  },
-  {
-    email: "sanofi-pasteur.rh@gmail.fr",
-    password: "abc",
-  },
-];
-
 class UserSeeder extends AbstractSeeder {
   constructor() {
     // Call the constructor of the parent class (AbstractSeeder) with appropriate options
-    super({ table: "user" });
+    super({ table: "user", truncate: true });
   }
 
-  // The run method - Populate the 'user' table with data of users
+  // The run method - Populate the 'user' table with fake data
 
   run() {
-    users.forEach((user) => {
-      const values = {
-        email: user.email,
-        password: user.password,
+    // Generate and insert fake data into the 'user' table
+    for (let i = 0; i < 10; i += 1) {
+      // Generate fake user data
+      const fakeUser = {
+        email: this.faker.internet.email(), // Generate a fake email using faker library
+        hashed_password: this.faker.internet.password(), // Generate a fake password using faker library
+        refName: `user_${i}`, // Create a reference name for the user
       };
-      this.insert(values);
-    });
+
+      // Insert the fakeUser data into the 'user' table
+      this.insert(fakeUser); // insert into user(email, password) values (?, ?)
+    }
   }
 }
 
-// Export the user seeder class
+// Export the UserSeeder class
 module.exports = UserSeeder;
