@@ -172,10 +172,10 @@ export default function NewOfferForm() {
         <br />
         <br />
 
-        <fieldset className={styles.radioToolbar}>
+        <fieldset className={styles.radioToolbar} aria-required>
           <legend>Type de contrat</legend>
           <div>
-            <label htmlFor="CDI">
+            <label htmlFor="CDI" aria-checked={isChosen === "CDI"}>
               <button
                 type="button"
                 name="job_type"
@@ -188,7 +188,7 @@ export default function NewOfferForm() {
               </button>
             </label>
             <br />
-            <label htmlFor="CDD">
+            <label htmlFor="CDD" aria-checked={isChosen === "CDD"}>
               <button
                 type="button"
                 name="job_type"
@@ -203,7 +203,10 @@ export default function NewOfferForm() {
           </div>
           <br />
           <div>
-            <label htmlFor="Apprentissage">
+            <label
+              htmlFor="Apprentissage"
+              aria-checked={isChosen === "Apprentissage"}
+            >
               <button
                 type="button"
                 name="job_type"
@@ -217,7 +220,10 @@ export default function NewOfferForm() {
                 Apprentissage
               </button>
             </label>
-            <label htmlFor="Professionnalisation">
+            <label
+              htmlFor="Professionnalisation"
+              aria-checked={isChosen === "Professionnalisation"}
+            >
               <br />
               <button
                 type="button"
