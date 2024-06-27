@@ -7,12 +7,19 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import offer-related actions
-const { browse, add } = require("../../../controllers/UserAction");
 
+// Route to get a list of offers
+const { browse, add } = require("../../../controllers/UserAction");
+// const { login } = require("../../../controllers/AuthAction");
+const { hashPassword } = require("../../../services/auth");
 // Route to get a list of offers
 router.get("/", browse);
 
-router.post("/", add);
+router.post("/", hashPassword, add);
 /* ************************************************************************* */
+
+// router.post("/login", login);
+
+// router.get("/:id", read);
 
 module.exports = router;

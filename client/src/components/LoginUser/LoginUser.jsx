@@ -1,23 +1,55 @@
 import { useState } from "react";
-import { Form, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginUser() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [errors, setErrors] = useState(null);
+  const [loginInfos, setLoginInfos] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3310/api/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginInfos),
+      });
+
+      if (response.ok !== true) {
+        const errorText = await response.text();
+        throw new Error(`Error: ${errorText}`);
+      }
+      const data = await response.json();
+      console.info("Login successful:", data);
+      // Redirection vers la page d'accueil après la connexion réussie
+      navigate("/result-page");
+    } catch (error) {
+      console.error("Login failed:", error);
+      setErrors("Connexion échouée. Vérifiez vos identifiants.");
+    }
+  };
   return (
     <div className=" flex flex-col  mx-auto max-w-sm   ">
       <div className="flex justify-center mb-20">
         <p className="font-custom text-2xl">Me connecter</p>
       </div>
-      <Form method="post" className="min-w-96">
+      <form method="post" onSubmit={handleSubmit} className="min-w-96">
         <div className="mb-4">
           <input
             aria-required="true"
             type="email"
             id="email"
             name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={loginInfos.email}
+            onChange={(e) =>
+              setLoginInfos({ ...loginInfos, email: e.target.value })
+            }
             placeholder="Email"
             className="w-full px-3 py-2 border rounded-md font-custom focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
@@ -29,20 +61,22 @@ export default function LoginUser() {
             type="password"
             id="password"
             name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={loginInfos.password}
+            onChange={(e) =>
+              setLoginInfos({ ...loginInfos, password: e.target.value })
+            }
             placeholder="Mot de passe"
             className="w-full px-3 py-2 border font-custom rounded-md focus:outline-none focus:border-secondary focus:ring focus:ring-primary focus:ring-opacity-20"
           />
         </div>
-
+        {errors && <div className="mb-4 text-red-600">{errors}</div>}
         <button
           type="submit"
           className="bg-primary font-custom text-white  rounded-md w-full px-3 py-2 mb-1 border"
         >
           Soumettre
         </button>
-      </Form>
+      </form>
       <p className="flex justify-end font-custom pr-2  text-gray-500">
         Pas encore de compte ?&nbsp;
         <Link to="/sign-up-page" className="underline text-primary">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import PostOfferAction from "../../actions/PostOfferAction";
 import styles from "./NewOfferForm.module.css";
@@ -21,6 +22,8 @@ export default function NewOfferForm() {
   const regularPattern = /^[a-zA-ZÀ-ÿ0-9\s,'-]*$/;
   const [isChosen, setIsChosen] = useState(null);
   const [hasRead, setHasRead] = useState(false);
+  const notifySuccess = (text) => toast.success(text);
+  const notifyFail = (text) => toast.error(text);
 
   const handleUpdateForm = (e) => {
     const { name, value } = e.target;
@@ -98,6 +101,10 @@ export default function NewOfferForm() {
     if (validateForm() === true) {
       await PostOfferAction(offerForm);
       navigate("/result-page");
+      notifySuccess("Offre postée avec succès");
+    } else {
+      notifyFail("Veuillez remplir correctement les champs requis");
+      toast.clearWaitingQueue();
     }
   };
 
