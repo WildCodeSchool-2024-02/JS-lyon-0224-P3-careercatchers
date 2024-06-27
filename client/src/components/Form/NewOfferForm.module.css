@@ -1,0 +1,60 @@
+.radioToolbar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.radioToolbar > legend {
+  padding-bottom: 20px;
+}
+
+.radioToolbar button {
+  display: flex;
+  font-family: var(--font-family-text);
+  color: white;
+  border-radius: 6px;
+  height: 44px;
+  width: 190px;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  padding: 0 15px;
+  margin-bottom: 5px;
+}
+
+.form {
+  max-width: 700px;
+}
+
+.form > label {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.salaryHeader {
+  display: flex;
+  align-items: center;
+}
+
+.salaryLabel {
+  line-height: 50px;
+}
+
+@media (max-width: 474px) {
+  .salaryHeader {
+    font-size: 12px;
+  }
+  .radioToolbar button {
+    font-size: 16px;
+    width: 160px;
+  }
+  .salaryLabel {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 413px) {
+  .radioToolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -4,15 +4,12 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
-import signUpAction from "./components/Form/actionSignUp";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import PostNewOffer from "./pages/PostNewOffer";
 import ProfilPageCandidate from "./pages/ProfilPageCandidate";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
-
-import PostOfferAction from "./actions/PostOfferAction";
 
 const ApiUrl = import.meta.env.VITE_API_URL;
 
@@ -35,14 +32,12 @@ const router = createBrowserRouter([
         path: "/sign-up-page",
         id: "sign-up-page",
         element: <SignUpPage />,
-        action: signUpAction,
       },
       {
         path: "/post-offer",
         id: "post-offer",
         element: <PostNewOffer />,
         loader: async () => fetch(`${ApiUrl}/api/companies`),
-        action: PostOfferAction,
       },
       {
         path: "/login-page",

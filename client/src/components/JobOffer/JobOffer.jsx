@@ -5,8 +5,9 @@ import styles from "./JobOffer.module.css";
 
 export default function JobOffer() {
   const offers = useLoaderData();
+
   return (
-    <div className="flex  ">
+    <div className="flex-col ">
       {offers.map((offer) => (
         <div key={offer.id} className={styles.divJobOffer}>
           <div className={styles.head}>
@@ -18,7 +19,7 @@ export default function JobOffer() {
             />
           </div>
           <p className={styles.name}>{offer.name}</p>
-          <p className={styles.adress}>{offer.localisation}</p>
+          <p className={styles.adress}>{offer.location}</p>
           {(offer.min_salary !== null || offer.max_salary !== null) && (
             <p className={styles.jobSalary}>
               {offer.min_salary} - {offer.max_salary}

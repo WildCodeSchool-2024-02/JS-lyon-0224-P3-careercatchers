@@ -13,18 +13,23 @@ class UserRepository extends AbstractRepository {
   async create(user) {
     const [result] = await this.database.query(
       `
-      INSERT INTO ${this.table} (email, password)
+      INSERT INTO ${this.table} (email, hashed_password)
       VALUES (?, ?)
     `,
-      [user.email, user.password]
+      [user.email, user.hashedPassword]
     );
 
     // Execute the query and return the result
     return result.insertId;
   }
-}
 
-// Ajoutez d'autres méthodes CRUD selon vos besoins
+  async readAll() {
+    // Execute the SQL SELECT query to retrieve all users from the "users" table
+    const [rows] = await this.database.query(`select * from ${this.table}`);
+
+    return rows;
+  }
+}
 
 // Exporte une instance unique du UserRepository
 module.exports = UserRepository;
