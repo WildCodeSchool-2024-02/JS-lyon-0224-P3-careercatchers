@@ -1,7 +1,7 @@
 CREATE TABLE user(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
-  hashed_password VARCHAR(150) 
+  hashed_password VARCHAR(150) NOT NULL
 );
 
 CREATE TABLE company(
