@@ -15,6 +15,16 @@ const browse = async (req, res, next) => {
   }
 };
 
+const read = async (req, res, next) => {
+  try {
+    const user = await tables.user.read(req.params.id);
+
+    res.json(user);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
   try {
     const user = req.body;
@@ -32,4 +42,5 @@ const add = async (req, res, next) => {
 module.exports = {
   browse,
   add,
+  read,
 };
