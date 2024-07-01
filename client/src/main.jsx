@@ -11,6 +11,7 @@ import ProfilPageCandidate from "./pages/ProfilPageCandidate";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
 import MyApplication from "./pages/MyApplication";
+import FavoritePage from "./pages/FavoritePage";
 
 const ApiUrl = import.meta.env.VITE_API_URL;
 
@@ -54,6 +55,12 @@ const router = createBrowserRouter([
         path: "/page-my-application",
         id: "page-my-application",
         element: <MyApplication />,
+        loader: async () => fetch(`${ApiUrl}/api/offers/with-companies`),
+      },
+      {
+        path: "/my-favorite-offer",
+        id: "my-favorite-offer",
+        element: <FavoritePage />,
         loader: async () => fetch(`${ApiUrl}/api/offers/with-companies`),
       },
     ],
