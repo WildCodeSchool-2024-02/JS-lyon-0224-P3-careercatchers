@@ -61,6 +61,7 @@ const router = createBrowserRouter([
         path: "/my-favorite-offer",
         id: "my-favorite-offer",
         element: <FavoritePage />,
+        loader: async () => fetch(`${ApiUrl}/api/offers/with-companies`),
       },
     ],
   },
