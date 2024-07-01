@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import PostNewOffer from "./pages/PostNewOffer";
 import ProfilPageCandidate from "./pages/ProfilPageCandidate";
+import ProfilPageCompany from "./pages/ProfilPageCompany";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
 
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
         path: "/profil-page-candidate",
         id: "profil-page-candidate",
         element: <ProfilPageCandidate />,
+      },
+      {
+        path: "/profil-page-company",
+        id: "profil-page-company",
+        element: <ProfilPageCompany />,
       },
     ],
   },
