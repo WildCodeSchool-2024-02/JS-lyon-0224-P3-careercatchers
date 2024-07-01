@@ -7,6 +7,7 @@ export default function LoginUser() {
   const notifySuccess = (text) => toast.success(text);
   const notifyFail = (text) => toast.error(text);
   const { setCurrentUser } = useUserContext();
+  console.info(setCurrentUser);
   const navigate = useNavigate();
   const [errors, setErrors] = useState(null);
   const [loginInfos, setLoginInfos] = useState({
@@ -20,10 +21,12 @@ export default function LoginUser() {
     try {
       const response = await fetch("http://localhost:3310/api/users/login", {
         method: "POST",
+
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(loginInfos),
+        credentials: "include",
       });
 
       if (response.status === 200) {
