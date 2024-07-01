@@ -10,6 +10,7 @@ import PostNewOffer from "./pages/PostNewOffer";
 import ProfilPageCandidate from "./pages/ProfilPageCandidate";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
+import FavoritePage from "./pages/FavoritePage";
 
 const ApiUrl = import.meta.env.VITE_API_URL;
 
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
         path: "/profil-page-candidate",
         id: "profil-page-candidate",
         element: <ProfilPageCandidate />,
+      },
+      {
+        path: "/my-favorite-offer",
+        id: "my-favorite-offer",
+        element: <FavoritePage />,
       },
     ],
   },
