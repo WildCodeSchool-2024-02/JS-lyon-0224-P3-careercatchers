@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.signupButton {
+  background-color: black;
+  color: white;
+  border-style: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 5px 25%;
+  font-family: var(--font-family-text);
+  height: 44px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.04em;
+  transition: 0.5s;
+}
+
+.signupButton:hover {
+  color: black;
+  background-color: white;
+  border: solid black;
+  border-width: 2px;
+  transition: 0.5s;
+}
+
+.loginButton {
+  width: 48px;
+  transition: ease-in-out 0.8s;
+}
+
+.loginButton:hover {
+  transform: rotate(360deg);
+}
