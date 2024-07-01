@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import MyApplication from "./pages/MyApplication";
 import PostNewOffer from "./pages/PostNewOffer";
 import ProfilPageCandidate from "./pages/ProfilPageCandidate";
 import ProfilPageCompany from "./pages/ProfilPageCompany";
@@ -49,6 +50,12 @@ const router = createBrowserRouter([
         path: "/profil-page-candidate",
         id: "profil-page-candidate",
         element: <ProfilPageCandidate />,
+      },
+      {
+        path: "/page-my-application",
+        id: "page-my-application",
+        element: <MyApplication />,
+        loader: async () => fetch(`${ApiUrl}/api/offers/with-companies`),
       },
       {
         path: "/profil-page-company",
