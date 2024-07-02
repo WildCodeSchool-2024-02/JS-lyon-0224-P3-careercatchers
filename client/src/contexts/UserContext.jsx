@@ -1,41 +1,26 @@
 import PropTypes from "prop-types";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import useLocalStorage from "../components/hooks/useLocalStorage";
 
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
-  console.info(currentUser);
-  const isUserConnected = async () => {
-    try {
-      // Appel à l'API pour demander une connexion
-      const response = await fetch(
-        `http://localhost:3310/api/users/is-connected`,
-        {
-          credentials: "include", // envoyer / recevoir le cookie à chaque requête
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+  const ApiUrl = import.meta.env.VITE_API_URL;
+  const navigate = useNavigate();
+  const notifyFail = (text) => toast.error(text);
 
-      if (response.status === 200) {
-        setCurrentUser(true);
-      } else {
-        // Log des détails de la réponse en cas d'échec
-        console.info(response);
-        setCurrentUser(null);
-      }
-    } catch (err) {
-      // Log des erreurs possibles
-      console.error(err);
-    }
+  const [user, setUser] = useLocalStorage("user", null);
+
+  const login = (userData) => {
+    setUser(userData);
+    console.info(userData);
   };
 
-  const logout = async () => {
+  const logout = async (sessionExpired) => {
     try {
-      // Appel à l'API pour demander une connexion
-      const response = await fetch(`http://localhost:3310/api/users/logout`, {
+      const response = await fetch(`${ApiUrl}/api/users/logout`, {
         credentials: "include", // envoyer / recevoir le cookie à chaque requête
         headers: {
           "Content-Type": "application/json",
@@ -43,22 +28,23 @@ export function UserProvider({ children }) {
       });
 
       if (response.status === 200) {
-        setCurrentUser(null);
+        setUser(null);
+        navigate(sessionExpired === true ? "/connexion" : "/");
+        if (sessionExpired === true) {
+          notifyFail("Votre session a expiré. Veuillez vous reconnecter.");
+        }
       }
     } catch (err) {
       // Log des erreurs possibles
       console.error(err);
+      notifyFail("Une erreur est survenu !");
     }
   };
 
-  useEffect(() => {
-    isUserConnected();
-  }, []);
-
   const memo = useMemo(
-    () => ({ currentUser, setCurrentUser, logout }),
-
-    [currentUser]
+    () => ({ user, setUser, login, logout }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [user]
   );
 
   return <UserContext.Provider value={memo}>{children}</UserContext.Provider>;

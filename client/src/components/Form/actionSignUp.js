@@ -17,7 +17,7 @@ const signUpAction = async ({ request }) => {
       birthday,
     });
 
-    const response = await fetch(`${ApiUrl}/api/users`, {
+    const response = await fetch(`${ApiUrl}/api/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

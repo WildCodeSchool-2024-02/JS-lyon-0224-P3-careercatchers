@@ -19,18 +19,11 @@ const { hashPassword, verifyCookie } = require("../../../services/auth");
 // Route to get a list of offers
 router.post("/login", login);
 router.get("/logout", logout);
-// router.get("/:id", validatecookie, read);
+router.post("/register", hashPassword, add);
 
-router.post("/", hashPassword, add);
-
-// router.get("/profile", verifyCookie, getProfile);
-
-router.get("/is-connected", verifyCookie, getProfile);
-/* ************************************************************************* */
+/* ***********************Route Protégé ************************************************** */
+router.get("/profil-connected", verifyCookie, getProfile);
 
 // router.use(verifyToken);
-// router.get("/:id", verifyToken, read);
-
-// router.get("/:id", read);
 
 module.exports = router;
