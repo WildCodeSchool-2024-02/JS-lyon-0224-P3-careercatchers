@@ -7,7 +7,7 @@ export default function JobOffer() {
   const offers = useLoaderData();
 
   return (
-    <div className="flex-col ">
+    <div className="flex flex-col items-center mt-20">
       {offers.map((offer) => (
         <div key={offer.id} className={styles.divJobOffer}>
           <div className={styles.head}>
