@@ -6,31 +6,26 @@ import Folder from "../../assets/logo/folder.svg";
 export default function ProfilPageCandidate() {
   return (
     <div className="flex flex-col  items-center gap-5 pt-14 ">
-      {/* <Link to="/mes-favoris">
-        <button
-          className=" flex items-center bg-primary justify-between font-custom text-white  rounded-md mx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border"
-          type="button"
-        >
-          <img className="w-6 flex " src={HeartWhite} alt="Logo favoris" />
-          Mes favoris
-        </button>
-      </Link> */}
       <Link to="/mes-offres">
         <button
-          className=" flex items-center bg-primary justify-between font-custom text-white  rounded-md mx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border"
+          className="flex items-center bg-primary font-custom text-white rounded-md mx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border relative"
           type="button"
         >
-          <img className="w-6 flex " src={Folder} alt="Logo favoris" />
-          Mes infos
+          <img className="w-6 mr-3" src={Folder} alt="Logo favoris" />
+          <span className="absolute left-1/2 transform -translate-x-1/2">
+            Mes infos
+          </span>
         </button>
       </Link>
       <Link to="/mes-candidats">
         <button
-          className="flex items-center bg-primary justify-between font-custom text-white  rounded-md mmx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border"
+          className="flex items-center bg-primary font-custom text-white rounded-md mx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border relative"
           type="button"
         >
-          <img className="w-6 flex " src={Briefcase} alt="Logo favoris" />
-          Mes candidatures
+          <img className="w-6 mr-3" src={Briefcase} alt="Logo favoris" />
+          <span className="absolute left-1/2 transform -translate-x-1/2">
+            Mes candidatures
+          </span>
         </button>
       </Link>
     </div>
