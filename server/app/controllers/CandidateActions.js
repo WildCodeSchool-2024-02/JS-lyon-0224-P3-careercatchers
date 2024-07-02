@@ -19,10 +19,10 @@ const add = async (req, res, next) => {
   try {
     const candidate = req.body;
 
-    // Créer un nouvel utilisateur
+    // Créer un nouveau candidat
     const insertId = await tables.candidate.create(candidate);
 
-    res.status(201).json(insertId); // Répondre avec l'utilisateur créé
+    res.status(201).json(insertId); // Répondre avec l'id du candidat créé
   } catch (err) {
     next(err);
   }
