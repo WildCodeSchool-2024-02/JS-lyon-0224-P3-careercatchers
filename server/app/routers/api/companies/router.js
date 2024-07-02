@@ -12,7 +12,7 @@ const { browse, add } = require("../../../controllers/CompanyActions");
 // Route to get a list of companies
 router.get("/", browse);
 
-router.post("/", add);
+router.post("/register", add);
 
 /* ************************************************************************* */
 

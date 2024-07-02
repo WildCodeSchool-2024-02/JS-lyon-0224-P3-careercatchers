@@ -15,7 +15,7 @@ const { hashPassword } = require("../../../services/auth");
 // Route to get a list of offers
 router.get("/", browse);
 
-router.post("/", hashPassword, add);
+router.post("/register", hashPassword, add);
 /* ************************************************************************* */
 
 // router.post("/login", login);

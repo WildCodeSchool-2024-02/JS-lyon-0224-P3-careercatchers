@@ -19,7 +19,7 @@ const signUpAction = async ({ request }) => {
 
     console.info("Sending data for user:", { email, password, role });
 
-    const response = await fetch(`${ApiUrl}/api/users`, {
+    const response = await fetch(`${ApiUrl}/api/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,19 +44,22 @@ const signUpAction = async ({ request }) => {
         birthday,
         user_id: insertId,
       });
-      const responseCandidate = await fetch(`${ApiUrl}/api/candidates`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const responseCandidate = await fetch(
+        `${ApiUrl}/api/candidates/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-        body: JSON.stringify({
-          firstname,
-          lastname,
-          birthday,
-          user_id: insertId,
-        }),
-      });
+          body: JSON.stringify({
+            firstname,
+            lastname,
+            birthday,
+            user_id: insertId,
+          }),
+        }
+      );
       if (responseCandidate.ok !== true) {
         throw new Error("Failed to create candidate");
       }
@@ -65,7 +68,7 @@ const signUpAction = async ({ request }) => {
         name,
         user_id: insertId,
       });
-      const responseCompany = await fetch(`${ApiUrl}/api/companies`, {
+      const responseCompany = await fetch(`${ApiUrl}/api/companies/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
