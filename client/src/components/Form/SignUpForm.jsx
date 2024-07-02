@@ -5,12 +5,15 @@ import signUpAction from "./actionSignUp";
 
 function SignUpForm() {
   const navigate = useNavigate();
+  const [role, setRole] = useState("candidate");
   const [register, setRegister] = useState({
+    email: "",
+    password: "",
+    role: "candidate",
     lastname: "",
     firstname: "",
-    email: "",
     birthday: "",
-    password: "",
+    name: "",
     confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
@@ -21,7 +24,7 @@ function SignUpForm() {
     setErrors({ ...errors, [name]: "" });
   };
 
-  const validateForm = () => {
+  const validateFormCandidate = () => {
     const newErrors = {};
     if (register.firstname === "")
       newErrors.firstname = "Le prénom est requis.";
@@ -42,19 +45,54 @@ function SignUpForm() {
     return false;
   };
 
+  const validateFormCompany = () => {
+    const newErrors = {};
+    if (register.name === "") newErrors.name = "Le nom est requis.";
+    if (register.email === "") newErrors.email = "L'e-mail est requis.";
+    if (register.password === "")
+      newErrors.password = "Le mot de passe est requis.";
+    if (register.password !== register.confirmPassword)
+      newErrors.confirmPassword = "Les mots de passe ne correspondent pas.";
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      return true;
+    }
+    return false;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const validation = validateForm();
-    if (validation !== true) {
-      return;
-    }
-    const formData = new FormData(event.target);
-    const request = {
-      formData: async () => formData,
-    };
+    if (register.role === "candidate") {
+      const validation = validateFormCandidate();
+      if (validation === true) {
+        const formData = new FormData(event.target);
+        const request = {
+          formData: async () => formData,
+        };
 
-    await signUpAction({ request });
-    navigate("/login-page");
+        await signUpAction({ request });
+        navigate("/login-page");
+      }
+    } else {
+      const validation = validateFormCompany();
+      if (validation === true) {
+        const formData = new FormData(event.target);
+        const request = {
+          formData: async () => formData,
+        };
+
+        await signUpAction({ request });
+        navigate("/login-page");
+      }
+    }
+  };
+
+  const handleClick = (e) => {
+    const { name, value } = e.target;
+    setRole(value);
+    setRegister({ ...register, [name]: value });
   };
 
   const inputStyles =
@@ -66,57 +104,114 @@ function SignUpForm() {
       <form onSubmit={handleSubmit}>
         <div className="my-4 min-w-96">
           <h3 className="text-xl font-custom mx-2 my-6">Je suis :</h3>
-          <div className="flex justify-evenly">
-            <button
-              type="button"
-              className="bg-primary font-custom text-white px-4 py-2 rounded w-32"
-            >
-              Candidat
-            </button>
-            <button
-              type="button"
-              className="bg-primary font-custom text-white rounded w-32"
-            >
-              Une Entreprise
-            </button>
+          <div>
+            <fieldset className="flex justify-evenly">
+              <input type="hidden" name="role" value={role} />
+              <label htmlFor="candidate">
+                <button
+                  type="button"
+                  name="role"
+                  value="candidate"
+                  id="candidate"
+                  className={`${role === "candidate" ? "bg-primary" : "bg-secondary"} font-custom text-white px-4 py-2 rounded w-32`}
+                  onClick={handleClick}
+                >
+                  Candidat
+                </button>
+              </label>
+              <label htmlFor="company">
+                <button
+                  type="button"
+                  name="role"
+                  value="company"
+                  id="company"
+                  className={`${role === "company" ? "bg-primary" : "bg-secondary"} font-custom text-white px-4 py-2 rounded w-32`}
+                  onClick={handleClick}
+                >
+                  Entreprise
+                </button>
+              </label>
+            </fieldset>
           </div>
         </div>
-        <div className="mb-4">
-          <label htmlFor="firstname" className="block text-gray-500">
-            Prénom
-          </label>
-          <input
-            aria-required="true"
-            aria-describedby="firstNameDescribe"
-            type="text"
-            id="firstname"
-            name="firstname"
-            value={register.firstname}
-            onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.firstname !== undefined ? errorClass : ""}`}
-          />
-          {errors.firstname !== undefined && (
-            <p className="text-red-500">{errors.firstname}</p>
-          )}
-        </div>
-        <div className="mb-4">
-          <label htmlFor="lastname" className="block text-gray-500">
-            Nom
-          </label>
-          <input
-            aria-required="true"
-            aria-describedby="lastnameDescribe"
-            type="text"
-            id="lastname"
-            name="lastname"
-            value={register.lastname}
-            onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.lastname !== undefined ? errorClass : ""}`}
-          />
-          {errors.lastname !== undefined && (
-            <p className="text-red-500">{errors.lastname}</p>
-          )}
-        </div>
+        {register.role === "candidate" ? (
+          <div>
+            <div className="mb-4">
+              <label htmlFor="firstname" className="block text-gray-500">
+                Prénom
+              </label>
+              <input
+                aria-required="true"
+                aria-describedby="firstNameDescribe"
+                type="text"
+                id="firstname"
+                name="firstname"
+                value={register.firstname}
+                onChange={handleUpdateForm}
+                className={`${inputStyles} ${errors.firstname !== undefined ? errorClass : ""}`}
+              />
+              {errors.firstname !== undefined && (
+                <p className="text-red-500">{errors.firstname}</p>
+              )}
+            </div>
+            <div className="mb-4">
+              <label htmlFor="lastname" className="block text-gray-500">
+                Nom
+              </label>
+              <input
+                aria-required="true"
+                aria-describedby="lastnameDescribe"
+                type="text"
+                id="lastname"
+                name="lastname"
+                value={register.lastname}
+                onChange={handleUpdateForm}
+                className={`${inputStyles} ${errors.lastname !== undefined ? errorClass : ""}`}
+              />
+              {errors.lastname !== undefined && (
+                <p className="text-red-500">{errors.lastname}</p>
+              )}
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="birthday" className="block text-gray-500">
+                Date de naissance
+              </label>
+              <input
+                aria-required="true"
+                aria-describedby="birthdayDescribe"
+                type="date"
+                id="birthday"
+                name="birthday"
+                value={register.birthday}
+                onChange={handleUpdateForm}
+                className={`${inputStyles} ${errors.birthday !== undefined ? errorClass : ""}`}
+              />
+              {errors.birthday !== undefined && (
+                <p className="text-red-500">{errors.birthday}</p>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-gray-500">
+              Nom
+            </label>
+            <input
+              aria-required="true"
+              aria-describedby="nameDescribe"
+              type="text"
+              id="name"
+              name="name"
+              value={register.name}
+              onChange={handleUpdateForm}
+              className={`${inputStyles} ${errors.name !== undefined ? errorClass : ""}`}
+            />
+            {errors.name !== undefined && (
+              <p className="text-red-500">{errors.name}</p>
+            )}
+          </div>
+        )}
 
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-500">
@@ -134,24 +229,6 @@ function SignUpForm() {
           />
           {errors.email !== undefined && (
             <p className="text-red-500">{errors.email}</p>
-          )}
-        </div>
-        <div className="mb-4">
-          <label htmlFor="birthday" className="block text-gray-500">
-            Date de naissance
-          </label>
-          <input
-            aria-required="true"
-            aria-describedby="birthdayDescribe"
-            type="date"
-            id="birthday"
-            name="birthday"
-            value={register.birthday}
-            onChange={handleUpdateForm}
-            className={`${inputStyles} ${errors.birthday !== undefined ? errorClass : ""}`}
-          />
-          {errors.birthday !== undefined && (
-            <p className="text-red-500">{errors.birthday}</p>
           )}
         </div>
 
