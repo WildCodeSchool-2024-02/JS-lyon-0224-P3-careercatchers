@@ -11,7 +11,7 @@ export default function PostNewOffer() {
           <LogoExternatic />
         </div>
       </div>
-      <h2 className="text-center text-4xl">
+      <h2 className="text-center text-3xl py-6">
         Poster une nouvelle offre d'emploi
       </h2>
       <NewOfferForm />
