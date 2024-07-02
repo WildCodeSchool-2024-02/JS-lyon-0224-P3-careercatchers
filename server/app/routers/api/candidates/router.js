@@ -12,7 +12,7 @@ const { browse, add } = require("../../../controllers/CandidateActions");
 // Route to get a list of offers
 router.get("/", browse);
 
-router.post("/", add);
+router.post("/register", add);
 /* ************************************************************************* */
 
 module.exports = router;

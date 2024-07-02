@@ -1,21 +1,24 @@
 CREATE TABLE user(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
-  hashed_password VARCHAR(150) NOT NULL
+  hashed_password VARCHAR(150) NOT NULL,
+  role ENUM ('candidate','company') NOT NULL
 );
 
 CREATE TABLE company(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name VARCHAR(100) NOT NULL,
   user_id INT UNSIGNED NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES user(id)
+  CONSTRAINT fk_user_company FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE candidate(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   lastname VARCHAR(100) NOT NULL,
   firstname VARCHAR(50) NOT NULL,
-  birthday DATE NOT NULL 
+  birthday DATE NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  CONSTRAINT fk_user_candidate FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE offer(
@@ -29,6 +32,6 @@ CREATE TABLE offer(
   max_salary INT UNSIGNED,
   publish_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   company_id INT UNSIGNED NOT NULL,
-  FOREIGN KEY (company_id) REFERENCES company(id)
+  CONSTRAINT fk_company_offer FOREIGN KEY (company_id) REFERENCES company(id) ON DELETE CASCADE
 );
 

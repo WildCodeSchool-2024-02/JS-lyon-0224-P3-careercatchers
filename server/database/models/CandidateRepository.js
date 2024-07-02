@@ -9,14 +9,19 @@ class CandidateRepository extends AbstractRepository {
     super({ table: "candidate" });
   }
 
-  // Méthode pour créer un nouvel utilisateur
+  // Méthode pour créer un nouveau candidat
   async create(candidate) {
     const [result] = await this.database.query(
       `
-      INSERT INTO ${this.table} ( lastname, firstname, birthday)
-      VALUES (?, ?, ?)
+      INSERT INTO ${this.table} ( lastname, firstname, birthday, user_id)
+      VALUES (?, ?, ?, ?)
     `,
-      [candidate.lastname, candidate.firstname, candidate.birthday]
+      [
+        candidate.lastname,
+        candidate.firstname,
+        candidate.birthday,
+        candidate.user_id,
+      ]
     );
 
     // Execute the query and return the result
