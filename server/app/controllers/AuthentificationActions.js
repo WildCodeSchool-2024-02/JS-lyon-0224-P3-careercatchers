@@ -6,7 +6,6 @@ const login = async (req, res, next) => {
   try {
     // Fetch a specific user from the database based on the provided email
     const user = await tables.user.readByEmailWithPassword(req.body.email);
-    console.info(req.body.email);
 
     if (user == null) {
       res.sendStatus(422);
@@ -47,7 +46,6 @@ const login = async (req, res, next) => {
       res.sendStatus(422);
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };

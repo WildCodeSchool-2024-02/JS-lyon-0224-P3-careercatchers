@@ -5,7 +5,8 @@ export default function AvatarUser({ user }) {
   return (
     <div className="flex flex-col items-center pt-24">
       <img src={avatarUser} alt="Avatar utilisateur" />
-      <p>{user.email}</p>
+      <p>{user.firstname}</p>
+      <p>{user.lastname}</p>
     </div>
   );
 }
@@ -13,5 +14,7 @@ export default function AvatarUser({ user }) {
 AvatarUser.propTypes = {
   user: PropTypes.shape({
     email: PropTypes.string.isRequired,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
   }).isRequired,
 };
