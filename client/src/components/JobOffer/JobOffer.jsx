@@ -39,7 +39,9 @@ JobOffer.propTypes = {
   jobTitle: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  minSalary: PropTypes.number.isRequired,
-  maxSalary: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  minSalary: PropTypes.number,
+  // eslint-disable-next-line react/require-default-props
+  maxSalary: PropTypes.number,
   jobType: PropTypes.string.isRequired,
 };

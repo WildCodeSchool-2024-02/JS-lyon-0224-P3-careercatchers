@@ -19,9 +19,8 @@ export default function OfferPageCompany() {
       <div>
         <AvatarCompany />
         {offers.map((offer) => (
-          <>
+          <div key={offer.id}>
             <JobOffer
-              key={offer.id}
               jobTitle={offer.job_title}
               name={offer.name}
               location={offer.location}
@@ -29,8 +28,8 @@ export default function OfferPageCompany() {
               maxSalary={offer.max_salary}
               jobType={offer.job_type}
             />
-            <ButtonsDeleteAdd />
-          </>
+            <ButtonsDeleteAdd id={offer.id} />
+          </div>
         ))}
       </div>
     </div>
