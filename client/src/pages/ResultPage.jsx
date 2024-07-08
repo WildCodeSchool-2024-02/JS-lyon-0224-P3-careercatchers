@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 
 import JobOffer from "../components/JobOffer/JobOffer";
-import NavBarMobile from "../components/NavBar/NavBarMobile";
 import SearchBar from "../components/SearchBar/Searchbar";
 
 export default function ResultPage() {
@@ -9,7 +8,6 @@ export default function ResultPage() {
 
   return (
     <>
-      <NavBarMobile />
       <SearchBar />
       {offers.map((offer) => (
         <JobOffer

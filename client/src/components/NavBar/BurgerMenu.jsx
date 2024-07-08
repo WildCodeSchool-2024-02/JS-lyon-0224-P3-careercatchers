@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Burger from "../../assets/logo/burger.svg";
 import Cross from "../../assets/logo/x.svg";
 import styles from "./BurgerMenu.module.css";
 import { useUserContext } from "../../contexts/UserContext";
 
 export default function BurgerMenu() {
+  const location = useLocation().pathname;
   const { user } = useUserContext();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -22,12 +23,14 @@ export default function BurgerMenu() {
     }
   };
 
+  const homePage = "/";
+
   const renderSwitch = () => {
     if (user === null) {
       return (
         <ul className={styles.ul}>
-          <li>
-            <Link to="/" className={styles.link} aria-label="HomePage">
+          <li className={`${homePage === location ? styles.actualPage : ""}`}>
+            <Link to={homePage} className={styles.link} aria-label="HomePage">
               Accueil
             </Link>
             <p>&#62;</p>
@@ -84,22 +87,30 @@ export default function BurgerMenu() {
     return (
       <ul className={styles.ul}>
         <li>
-          <Link to="/" className={styles.link}>
+          <Link to="/" className={styles.link} onClick={handleClick}>
             Accueil
           </Link>
         </li>
         <li>
-          <Link to="/profil-page-company" className={styles.link}>
+          <Link
+            to="/profil-page-company"
+            className={styles.link}
+            onClick={handleClick}
+          >
             Mon profil
           </Link>
         </li>
         <li>
-          <Link to="/offer-page-company" className={styles.link}>
+          <Link
+            to="/offer-page-company"
+            className={styles.link}
+            onClick={handleClick}
+          >
             Mes offres
           </Link>
         </li>
         <li>
-          <Link to="/mes-infos" className={styles.link}>
+          <Link to="/mes-infos" className={styles.link} onClick={handleClick}>
             Mes informations
           </Link>
         </li>
@@ -121,7 +132,7 @@ export default function BurgerMenu() {
         </button>
       )}
       <nav
-        className={`${styles.menuOpen} ${isOpen === true ? styles.active : ""} ${isVisible === true ? "" : styles.hidden}`}
+        className={`z-10 ${styles.menuOpen} ${isOpen === true ? styles.active : ""} ${isVisible === true ? "" : styles.hidden}`}
         role="navigation"
         aria-label="Main Menu"
         id="burger-menu"
