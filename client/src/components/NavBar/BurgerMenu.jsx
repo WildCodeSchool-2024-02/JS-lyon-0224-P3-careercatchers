@@ -25,31 +25,49 @@ export default function BurgerMenu() {
 
   const homePage = "/";
 
+  const loginPage = "/login-page";
+  const signupPage = "/sign-up-page";
+
+  const profilPageCandidate = "/profil-page-candidate";
+  const myApplications = "/page-my-application";
+
+  const profilPageCompany = "/profil-page-company";
+  const companyOffers = "/offer-page-company";
+
+  const verifyLocation = (path) => (path === location ? styles.actualPage : "");
+
   const renderSwitch = () => {
-    if (user === null) {
+    if (user === null || user === "null") {
       return (
         <ul className={styles.ul}>
-          <li className={`${homePage === location ? styles.actualPage : ""}`}>
-            <Link to={homePage} className={styles.link} aria-label="HomePage">
+          <li className={verifyLocation(homePage)}>
+            <Link
+              to={homePage}
+              className={styles.link}
+              aria-label="HomePage"
+              onClick={handleClick}
+            >
               Accueil
             </Link>
             <p>&#62;</p>
           </li>
-          <li>
+          <li className={verifyLocation(loginPage)}>
             <Link
               to="/login-page"
               className={styles.link}
               aria-label="Log in to your account"
+              onClick={handleClick}
             >
               Se connecter
             </Link>
             <p>&#62;</p>
           </li>
-          <li>
+          <li className={verifyLocation(signupPage)}>
             <Link
               to="/sign-up-page"
               className={styles.link}
               aria-label="Create a new account"
+              onClick={handleClick}
             >
               S'inscrire
             </Link>
@@ -61,23 +79,31 @@ export default function BurgerMenu() {
     if (user.role === "candidate") {
       return (
         <ul className={styles.ul}>
-          <li>
+          <li className={verifyLocation(homePage)}>
             <Link to="/" className={styles.link}>
               Accueil
             </Link>
           </li>
-          <li>
-            <Link to="/profil-page-candidate" className={styles.link}>
+          <li className={verifyLocation(profilPageCandidate)}>
+            <Link
+              to="/profil-page-candidate"
+              className={styles.link}
+              onClick={handleClick}
+            >
               Mon profil
             </Link>
           </li>
-          <li>
-            <Link to="/page-my-application" className={styles.link}>
+          <li className={verifyLocation(myApplications)}>
+            <Link
+              to="/page-my-application"
+              className={styles.link}
+              onClick={handleClick}
+            >
               Mes candidatures
             </Link>
           </li>
           <li>
-            <Link to="/mes-infos" className={styles.link}>
+            <Link to="/mes-infos" className={styles.link} onClick={handleClick}>
               Mes informations
             </Link>
           </li>
@@ -86,12 +112,12 @@ export default function BurgerMenu() {
     }
     return (
       <ul className={styles.ul}>
-        <li>
+        <li className={verifyLocation(homePage)}>
           <Link to="/" className={styles.link} onClick={handleClick}>
             Accueil
           </Link>
         </li>
-        <li>
+        <li className={verifyLocation(profilPageCompany)}>
           <Link
             to="/profil-page-company"
             className={styles.link}
@@ -100,7 +126,7 @@ export default function BurgerMenu() {
             Mon profil
           </Link>
         </li>
-        <li>
+        <li className={verifyLocation(companyOffers)}>
           <Link
             to="/offer-page-company"
             className={styles.link}
