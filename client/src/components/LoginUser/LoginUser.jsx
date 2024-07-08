@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useUserContext } from "../../contexts/UserContext";
 
 export default function LoginUser() {
+  const ApiUrl = import.meta.env.VITE_API_URL;
+  const notifySuccess = (text) => toast.success(text);
+  const notifyFail = (text) => toast.error(text);
   const navigate = useNavigate();
   const [errors, setErrors] = useState(null);
+  const { login } = useUserContext();
+
   const [loginInfos, setLoginInfos] = useState({
     email: "",
     password: "",
@@ -13,22 +20,27 @@ export default function LoginUser() {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3310/api/users/login", {
+      const response = await fetch(`${ApiUrl}/api/users/login`, {
         method: "POST",
+
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(loginInfos),
+        credentials: "include",
       });
+      if (response.status === 200) {
+        const user = await response.json();
 
-      if (response.ok !== true) {
-        const errorText = await response.text();
-        throw new Error(`Error: ${errorText}`);
+        login(user.user);
+        navigate("/profil-page-candidate");
+        notifySuccess(`Bienvenue ${user.user.email}`);
+      } else {
+        // Log des détails de la réponse en cas d'échec
+        const errorResponse = await response.json();
+        setErrors(errorResponse.message || "Erreur de connexion.");
+        notifyFail("Une erreur s'est produite");
       }
-      const data = await response.json();
-      console.info("Login successful:", data);
-      // Redirection vers la page d'accueil après la connexion réussie
-      navigate("/result-page");
     } catch (error) {
       console.error("Login failed:", error);
       setErrors("Connexion échouée. Vérifiez vos identifiants.");
