@@ -23,6 +23,38 @@ export default function BurgerMenu() {
   };
 
   const renderSwitch = () => {
+    if (user === null) {
+      return (
+        <ul className={styles.ul}>
+          <li>
+            <Link to="/" className={styles.link} aria-label="HomePage">
+              Accueil
+            </Link>
+            <p>&#62;</p>
+          </li>
+          <li>
+            <Link
+              to="/login-page"
+              className={styles.link}
+              aria-label="Log in to your account"
+            >
+              Se connecter
+            </Link>
+            <p>&#62;</p>
+          </li>
+          <li>
+            <Link
+              to="/sign-up-page"
+              className={styles.link}
+              aria-label="Create a new account"
+            >
+              S'inscrire
+            </Link>
+            <p>&#62;</p>
+          </li>
+        </ul>
+      );
+    }
     if (user.role === "candidate") {
       return (
         <ul className={styles.ul}>
@@ -49,59 +81,27 @@ export default function BurgerMenu() {
         </ul>
       );
     }
-    if (user.role === "company") {
-      return (
-        <ul className={styles.ul}>
-          <li>
-            <Link to="/" className={styles.link}>
-              Accueil
-            </Link>
-          </li>
-          <li>
-            <Link to="/profil-page-company" className={styles.link}>
-              Mon profil
-            </Link>
-          </li>
-          <li>
-            <Link to="/offer-page-company" className={styles.link}>
-              Mes offres
-            </Link>
-          </li>
-          <li>
-            <Link to="/mes-infos" className={styles.link}>
-              Mes informations
-            </Link>
-          </li>
-        </ul>
-      );
-    }
     return (
       <ul className={styles.ul}>
         <li>
-          <Link to="/" className={styles.link} aria-label="HomePage">
+          <Link to="/" className={styles.link}>
             Accueil
           </Link>
-          <p>&#62;</p>
         </li>
         <li>
-          <Link
-            to="/login-page"
-            className={styles.link}
-            aria-label="Log in to your account"
-          >
-            Se connecter
+          <Link to="/profil-page-company" className={styles.link}>
+            Mon profil
           </Link>
-          <p>&#62;</p>
         </li>
         <li>
-          <Link
-            to="/sign-up-page"
-            className={styles.link}
-            aria-label="Create a new account"
-          >
-            S'inscrire
+          <Link to="/offer-page-company" className={styles.link}>
+            Mes offres
           </Link>
-          <p>&#62;</p>
+        </li>
+        <li>
+          <Link to="/mes-infos" className={styles.link}>
+            Mes informations
+          </Link>
         </li>
       </ul>
     );
