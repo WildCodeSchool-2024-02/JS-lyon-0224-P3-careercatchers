@@ -8,6 +8,7 @@
   max-width: 384px;
   min-width: 96px;
   width: 90%;
+  margin-bottom: 20px;
 }
 
 .logoHeart {
@@ -40,6 +41,8 @@
   padding: 0.5vh;
   color: var(--font-color-white);
   margin-left: 3vh;
+  padding-left: 1vh;
+  padding-right: 1vh;
 }
 
 .head {
@@ -55,6 +58,8 @@
   margin-left: 3vh;
   width: fit-content;
   color: var(--font-color-white);
+  padding-left: 1vh;
+  padding-right: 1vh;
 }
 
 .date {

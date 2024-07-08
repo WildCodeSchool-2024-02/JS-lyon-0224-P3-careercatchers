@@ -13,6 +13,7 @@ import ProfilPageCompany from "./pages/ProfilPageCompany";
 import ResultPage from "./pages/ResultPage";
 import SignUpPage from "./pages/SignUpPage";
 import FavoritePage from "./pages/FavoritePage";
+import OfferPageCompany from "./pages/OfferPageCompany";
 
 const ApiUrl = import.meta.env.VITE_API_URL;
 
@@ -68,6 +69,12 @@ const router = createBrowserRouter([
         path: "/profil-page-company",
         id: "profil-page-company",
         element: <ProfilPageCompany />,
+      },
+      {
+        path: "/offer-page-company",
+        id: "offer-page-company",
+        element: <OfferPageCompany />,
+        loader: async () => fetch(`${ApiUrl}/api/offers/with-companies`),
       },
     ],
   },
