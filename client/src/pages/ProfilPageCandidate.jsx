@@ -59,7 +59,7 @@ export default function ProfilPageCandidate() {
       </div>
       {userData ? (
         <>
-          <AvatarUser userData={userData} />
+          <AvatarUser user={userData} />
           <ButtonsProfileCandidate />
 
           <button type="button" onClick={handleLogout}>
