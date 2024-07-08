@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
-import { useNavigate, PropTypes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function ButtonsDeleteAdd({ id }) {
   const ApiUrl = import.meta.env.VITE_API_URL;
