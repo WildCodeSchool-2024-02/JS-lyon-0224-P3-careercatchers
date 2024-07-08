@@ -63,6 +63,16 @@ class OfferRepository extends AbstractRepository {
 
     return rows;
   }
+
+  // The D of CRUD - Delete operation
+  async delete(id) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+
+    return result;
+  }
 }
 
 module.exports = OfferRepository;

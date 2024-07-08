@@ -36,7 +36,7 @@ export default function LoginUser() {
         navigate("/profil-page-candidate");
         notifySuccess(`Bienvenue ${user.user.email}`);
       } else {
-        // Log des détails de la réponse en cas d'échec
+        // Log des détails de la réponse en cas d'éche
         const errorResponse = await response.json();
         setErrors(errorResponse.message || "Erreur de connexion.");
         notifyFail("Une erreur s'est produite");
