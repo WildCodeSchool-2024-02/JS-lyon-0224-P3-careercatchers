@@ -27,9 +27,16 @@ class CandidateRepository extends AbstractRepository {
     // Execute the query and return the result
     return result.insertId;
   }
-}
 
-// Ajoutez d'autres méthodes CRUD selon vos besoins
+  // Méthode pour lire les informations spécifiques d'un candidat
+  async getCandidateInfo(userId) {
+    const [rows] = await this.database.query(
+      `SELECT lastname, firstname FROM ${this.table} WHERE user_id = ?`,
+      [userId]
+    );
+    return rows.length > 0 ? rows[0] : null;
+  }
+}
 
 // Exporte une instance unique du UserRepository
 module.exports = CandidateRepository;
