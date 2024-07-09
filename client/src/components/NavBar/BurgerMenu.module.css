@@ -67,6 +67,6 @@
 }
 
 .actualPage > a {
-  /*  text-decoration: underline; */
-  color: rgb(190, 190, 190);
+  text-decoration: underline;
+  text-underline-offset: 10px;
 }
