@@ -1,4 +1,4 @@
-export default function ButtonsDelete() {
+export default function ButtonsUpDate() {
   return (
     <div className="flex flex-col mt-5 mb-5">
       <button
