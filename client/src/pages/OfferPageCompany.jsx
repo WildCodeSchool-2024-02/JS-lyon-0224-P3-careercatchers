@@ -4,7 +4,8 @@ import BurgerMenu from "../components/NavBar/BurgerMenu";
 import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
 import AvatarCompany from "../components/AvatarCompany/AvatarCompany";
 import JobOffer from "../components/JobOffer/JobOffer";
-import ButtonsDeleteAdd from "../components/ButtonsDeleteAdd/ButtonsDeleteAdd";
+import ButtonsDelete from "../components/ButtonsDelete/ButtonsDelete";
+import ButtonsUpDate from "../components/ButtonsUpDate/ButtonsUpDate";
 
 export default function OfferPageCompany() {
   const offers = useLoaderData();
@@ -28,7 +29,8 @@ export default function OfferPageCompany() {
               maxSalary={offer.max_salary}
               jobType={offer.job_type}
             />
-            <ButtonsDeleteAdd id={offer.id} />
+            <ButtonsDelete id={offer.id} />
+            <ButtonsUpDate />
           </div>
         ))}
       </div>

@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export default function ButtonsDeleteAdd({ id }) {
+export default function ButtonsDelete({ id }) {
   const ApiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const notifySuccess = (text) => toast.success(text);
@@ -37,16 +37,10 @@ export default function ButtonsDeleteAdd({ id }) {
       >
         Supprimer
       </button>
-      <button
-        className="flex bg-primary justify-center font-custom text-white rounded-md mx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border"
-        type="button"
-      >
-        Modifier
-      </button>
     </div>
   );
 }
 
-ButtonsDeleteAdd.propTypes = {
+ButtonsDelete.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
