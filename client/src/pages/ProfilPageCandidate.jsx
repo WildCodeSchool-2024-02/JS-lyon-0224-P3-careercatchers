@@ -4,8 +4,6 @@ import { toast } from "react-toastify";
 import AvatarUser from "../components/AvatarUser/AvatarUser";
 import ButtonsProfileCandidate from "../components/ButtonsProfileCandidate/ButtonsProfileCandidate";
 import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
-import BurgerMenu from "../components/NavBar/BurgerMenu";
-import NavBarButtons from "../components/NavBar/NavBarButtons";
 import { useUserContext } from "../contexts/UserContext";
 
 export default function ProfilPageCandidate() {
@@ -53,16 +51,16 @@ export default function ProfilPageCandidate() {
 
   return (
     <div>
-      <div className="flex justify-between">
-        <BurgerMenu />
-        <NavBarButtons />
-      </div>
       {userData ? (
         <>
-          <AvatarUser userData={userData} />
+          <AvatarUser user={userData} />
           <ButtonsProfileCandidate />
 
-          <button type="button" onClick={handleLogout}>
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="flex justify-center mx-auto"
+          >
             Se déconnecter
           </button>
         </>

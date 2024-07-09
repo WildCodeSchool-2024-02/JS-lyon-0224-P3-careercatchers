@@ -27,7 +27,7 @@ export default function ExternaticDescription() {
             Entreprises recrutent
           </p>
         </div>
-        <div className={`${styles.logo} relative left-7`}>
+        <div className={`${styles.logo} relative left-7 z-0`}>
           <p className="text-xl">
             <span className={styles.spanPart}>+ de 600</span>
             <br />
