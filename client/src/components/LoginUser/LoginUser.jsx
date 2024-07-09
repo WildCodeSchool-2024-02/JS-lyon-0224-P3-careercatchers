@@ -31,10 +31,16 @@ export default function LoginUser() {
       });
       if (response.status === 200) {
         const user = await response.json();
-
         login(user.user);
-        navigate("/profil-page-candidate");
-        notifySuccess(`Bienvenue ${user.user.email}`);
+
+        if (user.user.role === "candidate") {
+          navigate("/profil-page-candidate");
+          notifySuccess(`Bienvenue ${user.user.firstname}`);
+        }
+        if (user.user.role === "company") {
+          navigate("/profil-page-company");
+          notifySuccess(`Bienvenue ${user.user.name}`);
+        }
       } else {
         // Log des détails de la réponse en cas d'éche
         const errorResponse = await response.json();

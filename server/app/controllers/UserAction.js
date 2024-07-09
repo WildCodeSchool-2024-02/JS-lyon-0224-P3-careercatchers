@@ -39,50 +39,6 @@ const add = async (req, res, next) => {
   }
 };
 
-// eslint-disable-next-line consistent-return
-const getProfile = async (req, res, next) => {
-  try {
-    const { sub } = req.auth;
-    const user = await tables.user.read(sub);
-
-    if (user === null) {
-      return res.sendStatus(404);
-    }
-
-    if (user.role === "candidate") {
-      // console.log(user.role);
-      const candidate = await tables.candidate.getCandidateInfo(sub);
-      // console.log(candidate);
-      delete user.hashed_password;
-
-      return res.json({
-        // user,
-        // candidate,
-        id: user.id,
-        email: user.email,
-        role: user.role,
-        lastname: candidate.lastname,
-        firstname: candidate.firstname,
-      });
-    }
-
-    if (user.role === "company") {
-      const company = await tables.company.getCompanyInfo(sub);
-
-      return res.json({
-        id: user.id,
-        email: user.email,
-        role: user.role,
-        name: company.name,
-      });
-    }
-
-    return res.json(user);
-  } catch (err) {
-    next(err);
-  }
-};
-
 // const findIfConnectedUser = async (req, res, next) => {
 //   try {
 //     const { sub } = req.auth;
@@ -106,5 +62,4 @@ module.exports = {
   browse,
   add,
   read,
-  getProfile,
 };

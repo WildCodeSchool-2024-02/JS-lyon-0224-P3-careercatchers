@@ -5,7 +5,7 @@ const tables = require("../../database/tables");
 const login = async (req, res, next) => {
   try {
     // Fetch a specific user from the database based on the provided email
-    const user = await tables.user.readByEmailWithPassword(req.body.email);
+    let user = await tables.user.readByEmailWithPassword(req.body.email);
 
     if (user == null) {
       res.sendStatus(422);
@@ -22,17 +22,35 @@ const login = async (req, res, next) => {
       delete user.hashed_password;
 
       const token = await jwt.sign(
-        { sub: user.id, role: user.role },
+        { sub: user.id, email: user.email, role: user.role },
         process.env.APP_SECRET,
         {
           expiresIn: "1h",
         }
       );
 
-      // res.json({
-      //   token,
-      //   user,
-      // });
+      if (user.role === "candidate") {
+        const candidate = await tables.candidate.getCandidateInfo(user.id);
+
+        user = {
+          id: user.id,
+          email: user.email,
+          role: user.role,
+          lastname: candidate.lastname,
+          firstname: candidate.firstname,
+        };
+      }
+
+      if (user.role === "company") {
+        const company = await tables.company.getCompanyInfo(user.id);
+
+        user = {
+          id: user.id,
+          email: user.email,
+          role: user.role,
+          name: company.name,
+        };
+      }
 
       res
         .cookie("access_token", token, {

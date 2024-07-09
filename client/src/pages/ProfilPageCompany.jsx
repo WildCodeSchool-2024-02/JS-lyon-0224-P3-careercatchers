@@ -5,7 +5,7 @@ import ButtonsProfileCompany from "../components/ButtonsProfileCompany/ButtonsPr
 import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
 
 export default function ProfilPageCandidate() {
-  const { logout } = useUserContext();
+  const { user, logout } = useUserContext();
   const notifyInfo = (text) => toast.info(text);
   const handleLogout = () => {
     logout(false);
@@ -18,7 +18,7 @@ export default function ProfilPageCandidate() {
         <LogoExternatic />
       </div>
       <div className="mt-20">
-        <AvatarCompany />
+        <AvatarCompany user={user} />
         <ButtonsProfileCompany />
         <button
           type="button"
