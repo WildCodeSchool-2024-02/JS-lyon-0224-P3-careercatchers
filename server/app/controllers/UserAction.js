@@ -50,14 +50,10 @@ const getProfile = async (req, res, next) => {
     }
 
     if (user.role === "candidate") {
-      // console.log(user.role);
       const candidate = await tables.candidate.getCandidateInfo(sub);
-      // console.log(candidate);
       delete user.hashed_password;
 
       return res.json({
-        // user,
-        // candidate,
         id: user.id,
         email: user.email,
         role: user.role,
@@ -99,25 +95,6 @@ const destroyUser = async (req, res, next) => {
     next(err);
   }
 };
-
-// const findIfConnectedUser = async (req, res, next) => {
-//   try {
-//     const { sub } = req.auth;
-//     // Fetch a specific user from the database based on the provided ID
-//     const user = await tables.user.findConnectedUser(sub);
-
-//     // If the user is not found, respond with HTTP 404 (Not Found)
-//     // Otherwise, respond with the user in JSON format
-//     if (user == null) {
-//       res.sendStatus(404);
-//     } else {
-//       res.json(user).sendStatus(200);
-//     }
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
 
 module.exports = {
   browse,
