@@ -15,10 +15,15 @@ const {
   destroy,
 } = require("../../../controllers/OfferActions");
 
+const verifyRole = require("../../../services/verifyRole");
+
 // Route to get a list of offers
 router.get("/", browse);
 router.get("/with-companies", browseOffersWithCompanies);
 router.get("/:id", read);
+
+router.use(verifyRole("company"));
+
 router.post("/", add);
 router.delete("/delete", destroy);
 /* ************************************************************************* */

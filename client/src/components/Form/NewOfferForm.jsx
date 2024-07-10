@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useUserContext } from "../../contexts/UserContext";
 
 import PostOfferAction from "../../actions/PostOfferAction";
 import styles from "./NewOfferForm.module.css";
 
 export default function NewOfferForm() {
+  const { user } = useUserContext();
   const navigate = useNavigate();
-  const companies = useLoaderData();
   const [errors, setErrors] = useState({});
   const [offerForm, setOfferForm] = useState({
     job_title: "",
@@ -17,7 +18,7 @@ export default function NewOfferForm() {
     salary_rate: "mensuel",
     min_salary: "",
     max_salary: "",
-    company_id: "",
+    company_id: user.company_id,
   });
   const regularPattern = /^[a-zA-ZÀ-ÿ0-9\s,'-]*$/;
   const [isChosen, setIsChosen] = useState(null);
@@ -99,7 +100,7 @@ export default function NewOfferForm() {
       }));
     }
     if (validateForm() === true) {
-      await PostOfferAction(offerForm);
+      await PostOfferAction(offerForm, user);
       navigate("/result-page");
       notifySuccess("Offre postée avec succès");
     } else {
@@ -134,24 +135,6 @@ export default function NewOfferForm() {
         className={`px-9 ${styles.form}`}
         onSubmit={handleSubmit}
       >
-        <label htmlFor="company">Vous êtes :</label>
-        <br />
-        <select
-          name="company_id"
-          id="company"
-          aria-required="true"
-          onChange={handleUpdateForm}
-        >
-          <option value="">---</option>
-          {companies.map((company) => (
-            <option value={company.id} key={company.id}>
-              {company.name}
-            </option>
-          ))}
-        </select>
-        <br />
-        <br />
-
         <label htmlFor="job-title">Intitulé du poste</label>
         <br />
         <input

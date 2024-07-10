@@ -38,6 +38,7 @@ const login = async (req, res, next) => {
           role: user.role,
           lastname: candidate.lastname,
           firstname: candidate.firstname,
+          candidate_id: candidate.id,
         };
       }
 
@@ -49,6 +50,7 @@ const login = async (req, res, next) => {
           email: user.email,
           role: user.role,
           name: company.name,
+          company_id: company.id,
         };
       }
 

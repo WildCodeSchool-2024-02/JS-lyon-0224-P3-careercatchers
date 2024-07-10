@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export default function ButtonsDelete({ id }) {
+export default function ButtonsDelete({ id, user }) {
   const ApiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const notifySuccess = (text) => toast.success(text);
@@ -14,7 +14,10 @@ export default function ButtonsDelete({ id }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id }),
+        body: JSON.stringify({
+          id,
+          user,
+        }),
       });
 
       if (response.ok) {
@@ -43,4 +46,5 @@ export default function ButtonsDelete({ id }) {
 
 ButtonsDelete.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  user: PropTypes.shape.isRequired,
 };
