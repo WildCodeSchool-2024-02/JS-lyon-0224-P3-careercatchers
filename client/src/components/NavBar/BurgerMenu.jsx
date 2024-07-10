@@ -44,6 +44,7 @@ export default function BurgerMenu() {
   const myApplications = "/page-my-application";
 
   const profilPageCompany = "/profil-page-company";
+  const postOffer = "/post-offer";
   const companyOffers = "/offer-page-company";
 
   const verifyLocation = (path) => (path === location ? styles.actualPage : "");
@@ -179,6 +180,12 @@ export default function BurgerMenu() {
             onClick={handleClick}
           >
             Mes offres
+          </Link>
+          <p>&#62;</p>
+        </li>
+        <li className={verifyLocation(postOffer)}>
+          <Link to={postOffer} className={styles.link} onClick={handleClick}>
+            Nouvelle offre
           </Link>
           <p>&#62;</p>
         </li>
