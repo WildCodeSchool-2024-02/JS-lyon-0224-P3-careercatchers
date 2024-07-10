@@ -9,7 +9,11 @@ const router = express.Router();
 // Import offer-related actions
 
 // Route to get a list of offers
-const { add, getProfile } = require("../../../controllers/UserAction");
+const {
+  add,
+  getProfile,
+  destroyUser,
+} = require("../../../controllers/UserAction");
 const {
   login,
   logout,
@@ -20,7 +24,7 @@ const { hashPassword, verifyCookie } = require("../../../services/auth");
 router.post("/login", login);
 router.get("/logout", logout);
 router.post("/register", hashPassword, add);
-
+router.delete("/delete-user", destroyUser);
 /* ***********************Route Protégé ************************************************** */
 router.get("/profil-connected", verifyCookie, getProfile);
 

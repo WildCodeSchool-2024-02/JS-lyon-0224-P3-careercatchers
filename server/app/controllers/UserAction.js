@@ -83,6 +83,23 @@ const getProfile = async (req, res, next) => {
   }
 };
 
+// The D of BREAD - Destroy (Delete) operation
+const destroyUser = async (req, res, next) => {
+  // Extract the item id from the request body
+  const { id } = req.body;
+  // console.log({ id });
+  try {
+    // Delete the news from the database
+    const deletedUser = await tables.user.delete(id);
+
+    // Respond with HTTP 200 (OK) and the response data
+    res.status(200).json({ deletedUser });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // const findIfConnectedUser = async (req, res, next) => {
 //   try {
 //     const { sub } = req.auth;
@@ -107,4 +124,5 @@ module.exports = {
   add,
   read,
   getProfile,
+  destroyUser,
 };
