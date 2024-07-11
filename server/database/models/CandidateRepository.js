@@ -28,13 +28,15 @@ class CandidateRepository extends AbstractRepository {
     return result.insertId;
   }
 
-  // Méthode pour lire les informations spécifiques d'un candidat
-  async getCandidateInfo(userId) {
-    const [rows] = await this.database.query(
-      `SELECT id,lastname, firstname FROM ${this.table} WHERE user_id = ?`,
-      [userId]
+  async read(id) {
+    // Execute the SQL SELECT query to retrieve a specific candidate
+    const [row] = await this.database.query(
+      `select * from ${this.table} where user_id = ?`,
+      [id]
     );
-    return rows.length > 0 ? rows[0] : null;
+
+    // Return the candidate
+    return row[0];
   }
 }
 

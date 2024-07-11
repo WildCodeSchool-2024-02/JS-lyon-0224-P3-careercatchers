@@ -20,39 +20,36 @@ const login = async (req, res, next) => {
     if (verified === true) {
       // Respond with the user and a signed token in JSON format (but without the hashed password)
       delete user.hashed_password;
+      let roleId = null;
+
+      if (user.role === "candidate") {
+        const candidate = await tables.candidate.read(user.id);
+        roleId = candidate.id;
+        user = {
+          role: user.role,
+          firstname: candidate.firstname,
+          lastname: candidate.lastname,
+          roleId,
+        };
+      }
+
+      if (user.role === "company") {
+        const company = await tables.company.read(user.id);
+        roleId = company.id;
+        user = {
+          role: user.role,
+          name: company.name,
+          roleId,
+        };
+      }
 
       const token = await jwt.sign(
-        { sub: user.id, email: user.email, role: user.role },
+        { sub: user.id, role: user.role, roleId },
         process.env.APP_SECRET,
         {
           expiresIn: "1h",
         }
       );
-
-      if (user.role === "candidate") {
-        const candidate = await tables.candidate.getCandidateInfo(user.id);
-
-        user = {
-          id: user.id,
-          email: user.email,
-          role: user.role,
-          lastname: candidate.lastname,
-          firstname: candidate.firstname,
-          candidate_id: candidate.id,
-        };
-      }
-
-      if (user.role === "company") {
-        const company = await tables.company.getCompanyInfo(user.id);
-
-        user = {
-          id: user.id,
-          email: user.email,
-          role: user.role,
-          name: company.name,
-          company_id: company.id,
-        };
-      }
 
       res
         .cookie("access_token", token, {

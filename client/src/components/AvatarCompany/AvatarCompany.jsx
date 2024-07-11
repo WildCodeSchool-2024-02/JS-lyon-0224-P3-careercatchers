@@ -12,5 +12,7 @@ export default function AvatarCompany({ user }) {
 }
 
 AvatarCompany.propTypes = {
-  user: PropTypes.shape.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };

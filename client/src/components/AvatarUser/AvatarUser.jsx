@@ -13,7 +13,6 @@ export default function AvatarUser({ user }) {
 
 AvatarUser.propTypes = {
   user: PropTypes.shape({
-    email: PropTypes.string.isRequired,
     firstname: PropTypes.string.isRequired,
     lastname: PropTypes.string.isRequired,
   }).isRequired,

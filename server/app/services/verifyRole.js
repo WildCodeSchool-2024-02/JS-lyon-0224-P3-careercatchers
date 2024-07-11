@@ -1,12 +1,12 @@
 const verifyRole = (requiredRole) => (req, res, next) => {
   try {
-    const { user } = req.body;
-    if (user === false || user.role !== requiredRole) {
+    const { role } = req.auth;
+    if (role === false || role !== requiredRole) {
       return res.status(403).json({ message: "Forbidden" });
     }
     return next();
   } catch (err) {
-    return res.sendStatus(401);
+    return res.sendStatus(403);
   }
 };
 
