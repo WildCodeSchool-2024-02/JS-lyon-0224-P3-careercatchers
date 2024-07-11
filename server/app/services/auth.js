@@ -31,7 +31,8 @@ const hashPassword = async (req, res, next) => {
 const verifyCookie = (req, res, next) => {
   try {
     const token = req.cookies.access_token;
-    if (!token) {
+    if (token === undefined) {
+      console.info("token not ok", token);
       return res.sendStatus(403);
     }
     req.auth = jwt.verify(token, process.env.APP_SECRET);

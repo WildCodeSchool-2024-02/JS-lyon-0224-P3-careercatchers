@@ -12,6 +12,7 @@ export default async function PostOfferAction(offerForm, user) {
         offerForm,
         user,
       }),
+      credentials: "include",
     });
     if (response.ok !== true) {
       // response.status !== 201

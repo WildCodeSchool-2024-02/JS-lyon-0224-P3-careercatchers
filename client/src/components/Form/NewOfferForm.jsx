@@ -18,7 +18,7 @@ export default function NewOfferForm() {
     salary_rate: "mensuel",
     min_salary: "",
     max_salary: "",
-    company_id: user.company_id,
+    company_id: user.roleId,
   });
   const regularPattern = /^[a-zA-ZÀ-ÿ0-9\s,'-]*$/;
   const [isChosen, setIsChosen] = useState(null);
