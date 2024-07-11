@@ -15,7 +15,6 @@ export function UserProvider({ children }) {
 
   const login = (userData) => {
     setUser(userData);
-    console.info(userData);
   };
 
   const logout = async (sessionExpired) => {
@@ -29,10 +28,10 @@ export function UserProvider({ children }) {
 
       if (response.status === 200) {
         setUser(null);
-        navigate(sessionExpired === true ? "/connexion" : "/");
-        if (sessionExpired === true) {
-          notifyFail("Votre session a expiré. Veuillez vous reconnecter.");
-        }
+        navigate(sessionExpired === true ? "/sign-up-page" : "/");
+        // if (sessionExpired === true) {
+        //   notifyFail("Votre session a expiré. Veuillez vous reconnecter.");
+        // }
       }
     } catch (err) {
       // Log des erreurs possibles

@@ -83,7 +83,7 @@ const getProfile = async (req, res, next) => {
 const destroyUser = async (req, res, next) => {
   // Extract the item id from the request body
   const { id } = req.body;
-  // console.log({ id });
+
   try {
     // Delete the news from the database
     const deletedUser = await tables.user.delete(id);

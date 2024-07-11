@@ -16,7 +16,8 @@ export default function ProfilPageCandidate() {
 
   const handleLogout = () => {
     logout(false);
-    notifyInfo("À bientôt :)");
+    // notifyInfo(`À bientôt ${userData.name})`);
+    notifyInfo(`A bientôt ${userData.firstname}`);
   };
 
   const notifySuccess = (text) => toast.success(text);
@@ -32,10 +33,9 @@ export default function ProfilPageCandidate() {
         body: JSON.stringify({ id: user.id }),
       });
 
-      if (response.ok) {
+      if (response.ok === true) {
         logout(true);
-        notifySuccess("L'opération a réussie");
-        navigate("/");
+        notifySuccess("Votre profil est supprimé");
       } else {
         notifyFail("L'opération a échouée");
       }
@@ -56,13 +56,15 @@ export default function ProfilPageCandidate() {
       if (response.status === 200) {
         const data = await response.json();
         setUserData(data);
+        notifySuccess(`Bienvenue ${data.firstname} ${data.lastname}`);
+        // notifySuccess(`Bienvenue ${data.lastname} ${data.firstname}`);
       } else if (response.status === 401) {
         logout(true);
       }
     } catch (err) {
       // Log des erreurs possibles
       console.error(err);
-      notifyInfo("pas accès)");
+      notifyInfo("Vous ne pouvez accéder à cette page");
     }
   };
 
