@@ -40,7 +40,7 @@ const read = async (req, res, next) => {
 
 const add = async (req, res, next) => {
   try {
-    const offer = req.body;
+    const offer = req.body.offerForm;
     const insertId = await tables.offer.create(offer);
     res.status(201).json(insertId);
   } catch (err) {

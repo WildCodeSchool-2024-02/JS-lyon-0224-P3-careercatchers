@@ -15,6 +15,20 @@ const browse = async (req, res, next) => {
   }
 };
 
+const read = async (req, res, next) => {
+  try {
+    const { sub } = req.auth;
+    // Fetch the candidate from the DB
+    const candidate = await tables.company.read(sub);
+
+    // Respond with the candidate in JSON format
+    res.json(candidate);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
   try {
     const candidate = req.body;
@@ -31,5 +45,6 @@ const add = async (req, res, next) => {
 // Ready to export the controller functions
 module.exports = {
   browse,
+  read,
   add,
 };

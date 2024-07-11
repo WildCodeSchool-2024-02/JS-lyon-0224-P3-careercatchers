@@ -17,6 +17,17 @@ class CompanyRepository extends AbstractRepository {
     return rows;
   }
 
+  async read(id) {
+    // Execute the SQL SELECT query to retrieve a specific company
+    const [row] = await this.database.query(
+      `select * from ${this.table} where user_id = ?`,
+      [id]
+    );
+
+    // Return the company
+    return row[0];
+  }
+
   async create(company) {
     const [result] = await this.database.query(
       `
@@ -28,15 +39,6 @@ class CompanyRepository extends AbstractRepository {
 
     // Execute the query and return the result
     return result.insertId;
-  }
-
-  // Méthode pour lire les informations spécifiques d'une entreprise
-  async getCompanyInfo(userId) {
-    const [rows] = await this.database.query(
-      `SELECT name FROM ${this.table} WHERE user_id = ?`,
-      [userId]
-    );
-    return rows.length > 0 ? rows[0] : null;
   }
 }
 

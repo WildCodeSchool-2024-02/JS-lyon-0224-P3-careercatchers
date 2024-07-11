@@ -6,6 +6,7 @@ import { useUserContext } from "../../contexts/UserContext";
 export default function LoginUser() {
   const ApiUrl = import.meta.env.VITE_API_URL;
   const notifyFail = (text) => toast.error(text);
+  const notifySuccess = (text) => toast.success(text);
   const navigate = useNavigate();
   const [errors, setErrors] = useState(null);
   const { login } = useUserContext();
@@ -34,9 +35,11 @@ export default function LoginUser() {
 
         if (user.user.role === "candidate") {
           navigate("/profil-page-candidate");
+          notifySuccess(`Bienvenue ${user.user.firstname}`);
         }
         if (user.user.role === "company") {
           navigate("/profil-page-company");
+          notifySuccess(`Bienvenue ${user.user.name}`);
         }
       } else {
         // Log des détails de la réponse en cas d'éche

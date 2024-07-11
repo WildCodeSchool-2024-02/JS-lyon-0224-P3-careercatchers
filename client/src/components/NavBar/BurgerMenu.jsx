@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import Burger from "../../assets/logo/burger.svg";
 import Cross from "../../assets/logo/x.svg";
 import styles from "./BurgerMenu.module.css";
@@ -7,7 +8,7 @@ import { useUserContext } from "../../contexts/UserContext";
 
 export default function BurgerMenu() {
   const location = useLocation().pathname;
-  const { user } = useUserContext();
+  const { user, logout } = useUserContext();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -23,7 +24,18 @@ export default function BurgerMenu() {
     }
   };
 
+  const notifyInfo = (text) => toast.info(text);
+  const handleLogout = () => {
+    logout(false);
+    setIsOpen(false);
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 300);
+    notifyInfo("À bientôt :)");
+  };
+
   const homePage = "/";
+  const resultPage = "/result-page";
 
   const loginPage = "/login-page";
   const signupPage = "/sign-up-page";
@@ -32,6 +44,7 @@ export default function BurgerMenu() {
   const myApplications = "/page-my-application";
 
   const profilPageCompany = "/profil-page-company";
+  const postOffer = "/post-offer";
   const companyOffers = "/offer-page-company";
 
   const verifyLocation = (path) => (path === location ? styles.actualPage : "");
@@ -48,6 +61,12 @@ export default function BurgerMenu() {
               onClick={handleClick}
             >
               Accueil
+            </Link>
+            <p>&#62;</p>
+          </li>
+          <li className={verifyLocation(resultPage)}>
+            <Link to={resultPage} className={styles.link} onClick={handleClick}>
+              Les Offres
             </Link>
             <p>&#62;</p>
           </li>
@@ -83,6 +102,13 @@ export default function BurgerMenu() {
             <Link to="/" className={styles.link}>
               Accueil
             </Link>
+            <p>&#62;</p>
+          </li>
+          <li className={verifyLocation(resultPage)}>
+            <Link to={resultPage} className={styles.link} onClick={handleClick}>
+              Les Offres
+            </Link>
+            <p>&#62;</p>
           </li>
           <li className={verifyLocation(profilPageCandidate)}>
             <Link
@@ -92,6 +118,7 @@ export default function BurgerMenu() {
             >
               Mon profil
             </Link>
+            <p>&#62;</p>
           </li>
           <li className={verifyLocation(myApplications)}>
             <Link
@@ -101,11 +128,23 @@ export default function BurgerMenu() {
             >
               Mes candidatures
             </Link>
+            <p>&#62;</p>
           </li>
           <li>
             <Link to="/mes-infos" className={styles.link} onClick={handleClick}>
               Mes informations
             </Link>
+            <p>&#62;</p>
+          </li>
+          <li>
+            <button
+              type="button"
+              className={styles.link}
+              onClick={handleLogout}
+            >
+              Se déconnecter
+            </button>
+            <p>&#62;</p>
           </li>
         </ul>
       );
@@ -116,6 +155,13 @@ export default function BurgerMenu() {
           <Link to="/" className={styles.link} onClick={handleClick}>
             Accueil
           </Link>
+          <p>&#62;</p>
+        </li>
+        <li className={verifyLocation(resultPage)}>
+          <Link to={resultPage} className={styles.link} onClick={handleClick}>
+            Les Offres
+          </Link>
+          <p>&#62;</p>
         </li>
         <li className={verifyLocation(profilPageCompany)}>
           <Link
@@ -125,6 +171,7 @@ export default function BurgerMenu() {
           >
             Mon profil
           </Link>
+          <p>&#62;</p>
         </li>
         <li className={verifyLocation(companyOffers)}>
           <Link
@@ -134,11 +181,25 @@ export default function BurgerMenu() {
           >
             Mes offres
           </Link>
+          <p>&#62;</p>
+        </li>
+        <li className={verifyLocation(postOffer)}>
+          <Link to={postOffer} className={styles.link} onClick={handleClick}>
+            Nouvelle offre
+          </Link>
+          <p>&#62;</p>
         </li>
         <li>
           <Link to="/mes-infos" className={styles.link} onClick={handleClick}>
             Mes informations
           </Link>
+          <p>&#62;</p>
+        </li>
+        <li>
+          <button type="button" className={styles.link} onClick={handleLogout}>
+            Se déconnecter
+          </button>
+          <p>&#62;</p>
         </li>
       </ul>
     );

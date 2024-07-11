@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
+
 import avatarCompany from "../../assets/logo/avatarCompany.png";
 
-export default function AvatarUser({ user }) {
+export default function AvatarCompany({ user }) {
   return (
     <div className="flex flex-col items-center pt-24">
       <img src={avatarCompany} alt="" />
@@ -10,7 +11,7 @@ export default function AvatarUser({ user }) {
   );
 }
 
-AvatarUser.propTypes = {
+AvatarCompany.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string.isRequired,
   }).isRequired,

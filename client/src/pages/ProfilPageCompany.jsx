@@ -58,21 +58,15 @@ export default function ProfilPageCandidate() {
         <LogoExternatic />
       </div>
       <div className="mt-20">
-        {userData ? (
-          <>
-            <AvatarCompany user={userData} />
-            <ButtonsProfileCompany />
-            <button
-              type="button"
-              onClick={handleLogout}
-              className="flex justify-center mx-auto"
-            >
-              Se déconnecter
-            </button>
-          </>
-        ) : (
-          <div>Chargement...</div>
-        )}
+        <AvatarCompany user={user} />
+        <ButtonsProfileCompany />
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="flex justify-center mx-auto"
+        >
+          Se déconnecter
+        </button>
       </div>
     </div>
   );

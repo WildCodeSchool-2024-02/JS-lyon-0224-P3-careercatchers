@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import AvatarUser from "../components/AvatarUser/AvatarUser";
 import ButtonsProfileCandidate from "../components/ButtonsProfileCandidate/ButtonsProfileCandidate";
 import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
 import { useUserContext } from "../contexts/UserContext";
+import useVerifyContext from "../contexts/useVerifyContext";
+
+const ApiUrl = import.meta.env.VITE_API_URL;
 
 export default function ProfilPageCandidate() {
-  const ApiUrl = import.meta.env.VITE_API_URL;
+  const { isAuthorised, fetchData } = useVerifyContext();
   const { user, logout } = useUserContext();
-  // console.log(user.id);
   const notifyInfo = (text) => toast.info(text);
-  const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout(false);
-    // notifyInfo(`À bientôt ${userData.name})`);
-    notifyInfo(`A bientôt ${userData.firstname}`);
+    notifyInfo(`A bientôt ${user.firstname}`);
   };
 
   const notifySuccess = (text) => toast.success(text);
@@ -44,70 +44,41 @@ export default function ProfilPageCandidate() {
     }
   };
 
-  const getProfile = async () => {
-    try {
-      const response = await fetch(`${ApiUrl}/api/users/profil-connected`, {
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.status === 200) {
-        const data = await response.json();
-        setUserData(data);
-        notifySuccess(`Bienvenue ${data.firstname} ${data.lastname}`);
-        // notifySuccess(`Bienvenue ${data.lastname} ${data.firstname}`);
-      } else if (response.status === 401) {
-        logout(true);
-      }
-    } catch (err) {
-      // Log des erreurs possibles
-      console.error(err);
-      notifyInfo("Vous ne pouvez accéder à cette page");
-    }
-  };
-
   useEffect(() => {
-    if (user !== "null" && user !== null) {
-      getProfile();
-    } else {
-      navigate("/login-page");
+    async function verifyAuth() {
+      await fetchData("candidates");
+
+      if (isAuthorised === false) {
+        navigate("/login-page");
+      }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, navigate, logout]);
+    verifyAuth();
+  }, [fetchData, isAuthorised, navigate, user.roleId]);
 
   return (
-    <div>
-      {userData ? (
-        <>
-          <AvatarUser user={userData} />
-          <ButtonsProfileCandidate />
-
-          <button
-            type="button"
-            onClick={handleLogout}
-            className="flex justify-center mx-auto"
-          >
-            Se déconnecter
-          </button>
-          <div className="flex justify-center font-custom text-sm ml-9">
-            <p className="pr-1">Supprimer mon profil: </p>
-            <button
-              type="button"
-              className="text-primary underline"
-              onClick={() => handleDelete(user.id)}
-            >
-              Suppimer
-            </button>
-          </div>
-        </>
-      ) : (
-        <p>Chargement...</p>
-      )}
+    <>
+      <AvatarUser user={user} />
+      <ButtonsProfileCandidate />
+      <button
+        type="button"
+        onClick={handleLogout}
+        className="flex justify-center mx-auto"
+      >
+        Se déconnecter
+      </button>
+      <div className="flex justify-center font-custom text-sm ml-9">
+        <p className="pr-1">Supprimer mon profil: </p>
+        <button
+          type="button"
+          className="text-primary underline"
+          onClick={() => handleDelete(user.id)}
+        >
+          Suppimer
+        </button>
+      </div>
       <div className="flex w-24 mx-auto pt-16 ml-2 ">
         <LogoExternatic />
       </div>
-    </div>
+    </>
   );
 }
