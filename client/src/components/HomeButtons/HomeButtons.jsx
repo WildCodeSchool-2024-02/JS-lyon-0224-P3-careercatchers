@@ -7,14 +7,14 @@ export default function HomeButtons() {
   const { user } = useUserContext();
   return user === null || user === "null" ? (
     <div className={styles.homeButtons}>
-      <div className="flex justify-around w-3/6">
+      <div className="flex justify-around">
         <Link to="/result-page" tabIndex="-1">
           <button className={styles.buttons} type="button">
             Commencer
           </button>
         </Link>
         <Link to="/login-page" tabIndex="-1">
-          <button className={styles.buttons} type="button">
+          <button className={styles.buttons} id={styles.login} type="button">
             Me connecter
           </button>
         </Link>
