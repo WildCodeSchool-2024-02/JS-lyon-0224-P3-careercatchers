@@ -14,7 +14,7 @@
 .logoDiv {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .spanPart {
@@ -53,6 +53,7 @@
   }
   .divP {
     width: 50%;
+    margin-right: 10vw;
   }
   .logoDiv {
     width: 50%;
