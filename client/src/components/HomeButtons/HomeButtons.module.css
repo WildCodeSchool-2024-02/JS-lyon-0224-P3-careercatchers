@@ -3,11 +3,13 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding-bottom: 0.75rem;
+  width: 100%;
 }
 
 .divSignUp {
   padding-top: 1rem;
   width: 80%;
+  text-align: center;
 }
 
 .buttons {
@@ -21,4 +23,10 @@
   padding-bottom: 0.5rem;
   height: 44px;
   font-size: 1.2rem;
+  display: inline;
+}
+
+#login {
+  min-width: 144px;
+  margin-left: 10vw;
 }

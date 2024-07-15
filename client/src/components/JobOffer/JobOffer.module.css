@@ -9,6 +9,8 @@
   min-width: 96px;
   width: 90%;
   margin-bottom: 20px;
+  height: 250px;
+  min-width: 384px;
 }
 
 .logoHeart {
@@ -62,4 +64,10 @@
   display: flex;
   justify-content: center;
   margin-bottom: 1vh;
+}
+
+@media (min-width: 768px) {
+  .divJobOffer {
+    width: 40vw;
+  }
 }

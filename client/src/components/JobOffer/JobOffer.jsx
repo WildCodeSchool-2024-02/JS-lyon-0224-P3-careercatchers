@@ -11,7 +11,7 @@ export default function JobOffer({
   jobType,
 }) {
   return (
-    <div className="flex flex-col items-center mt-20">
+    <div className="flex flex-col items-center ">
       <div className={styles.divJobOffer}>
         <div className={styles.head}>
           <h2 className={styles.title}>{jobTitle}</h2>
