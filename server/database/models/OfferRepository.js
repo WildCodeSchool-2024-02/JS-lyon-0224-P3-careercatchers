@@ -64,6 +64,18 @@ class OfferRepository extends AbstractRepository {
     return rows;
   }
 
+  async readByCompanyId(id) {
+    const [companyId] = await this.database.query(
+      `select id from company where user_id = ?`,
+      [id]
+    );
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where company_id = ?`,
+      [companyId[0].id]
+    );
+    return rows;
+  }
+
   // The D of CRUD - Delete operation
   async delete(id) {
     const [result] = await this.database.query(

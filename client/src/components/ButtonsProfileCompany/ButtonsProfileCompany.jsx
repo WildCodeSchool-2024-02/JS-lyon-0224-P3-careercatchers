@@ -17,17 +17,6 @@ export default function ProfilPageCandidate() {
           </span>
         </button>
       </Link>
-      <Link to="/mes-candidats" tabIndex="-1">
-        <button
-          className="flex items-center bg-primary font-custom text-white rounded-md mx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border relative"
-          type="button"
-        >
-          <img className="w-6 mr-3" src={Briefcase} alt="Attaché-case" />
-          <span className="absolute left-1/2 transform -translate-x-1/2">
-            Mes candidatures
-          </span>
-        </button>
-      </Link>
       <Link to="/post-offer" tabIndex="-1">
         <button
           className="flex items-center bg-primary font-custom text-white rounded-md mx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border relative"
