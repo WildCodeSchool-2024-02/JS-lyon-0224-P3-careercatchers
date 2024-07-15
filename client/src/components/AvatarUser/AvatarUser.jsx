@@ -3,7 +3,7 @@ import avatarUser from "../../assets/logo/avatarUser.png";
 
 export default function AvatarUser({ user }) {
   return (
-    <div className="flex flex-col items-center pt-24">
+    <div className="flex flex-col items-center pt-24 md:pt-1">
       <img src={avatarUser} alt="Avatar utilisateur" />
       <p>{user.firstname}</p>
       <p>{user.lastname}</p>
