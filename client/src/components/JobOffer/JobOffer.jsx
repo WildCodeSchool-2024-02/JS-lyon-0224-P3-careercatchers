@@ -5,7 +5,6 @@ import styles from "./JobOffer.module.css";
 
 export default function JobOffer({
   jobTitle,
-  name,
   location,
   minSalary,
   maxSalary,
@@ -22,7 +21,6 @@ export default function JobOffer({
             alt="Ajouter l'offre aux favoris"
           />
         </div>
-        <p className={styles.name}>{name}</p>
         <p className={styles.adress}>{location}</p>
         {(minSalary !== null || maxSalary !== null) && (
           <p className={styles.jobSalary}>
@@ -37,7 +35,6 @@ export default function JobOffer({
 
 JobOffer.propTypes = {
   jobTitle: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   // eslint-disable-next-line react/require-default-props
   minSalary: PropTypes.number,
