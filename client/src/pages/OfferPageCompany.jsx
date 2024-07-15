@@ -5,8 +5,10 @@ import AvatarCompany from "../components/AvatarCompany/AvatarCompany";
 import JobOffer from "../components/JobOffer/JobOffer";
 import ButtonsDelete from "../components/ButtonsDelete/ButtonsDelete";
 import ButtonsUpDate from "../components/ButtonsUpDate/ButtonsUpDate";
+import { useUserContext } from "../contexts/UserContext";
 
 export default function OfferPageCompany() {
+  const { user } = useUserContext();
   const offers = useLoaderData();
   return (
     <div>
@@ -16,7 +18,7 @@ export default function OfferPageCompany() {
         </div>
       </div>
       <div>
-        <AvatarCompany />
+        <AvatarCompany user={user} />
         {offers.map((offer) => (
           <div key={offer.id}>
             <JobOffer
