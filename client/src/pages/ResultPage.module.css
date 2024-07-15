@@ -1,6 +1,13 @@
+.jobOfferContainer {
+  margin-top: 5vw;
+}
+
 @media (min-width: 768px) {
   .jobOfferContainer {
     display: flex;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7vw;
+    width: 100vw;
   }
 }
