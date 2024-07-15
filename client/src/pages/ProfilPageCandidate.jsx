@@ -25,6 +25,8 @@ export default function ProfilPageCandidate() {
     try {
       const response = await fetch(`${ApiUrl}/api/users/delete-user`, {
         method: "DELETE",
+
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -55,6 +57,9 @@ export default function ProfilPageCandidate() {
         const data = await response.json();
         setUserData(data);
         notifySuccess(`Bienvenue ${data.firstname} ${data.lastname}`);
+        if (data.role !== "candidate") {
+          navigate("/profil-page-company");
+        }
         // notifySuccess(`Bienvenue ${data.lastname} ${data.firstname}`);
       } else if (response.status === 401) {
         logout(true);

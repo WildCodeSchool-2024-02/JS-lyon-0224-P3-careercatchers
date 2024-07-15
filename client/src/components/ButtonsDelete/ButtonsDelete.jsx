@@ -9,6 +9,7 @@ export default function ButtonsDelete({ id }) {
     try {
       const response = await fetch(`${ApiUrl}/api/offers/delete`, {
         method: "DELETE",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },

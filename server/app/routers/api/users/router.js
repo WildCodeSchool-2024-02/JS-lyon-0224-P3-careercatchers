@@ -24,8 +24,10 @@ const { hashPassword, verifyCookie } = require("../../../services/auth");
 router.post("/login", login);
 router.get("/logout", logout);
 router.post("/register", hashPassword, add);
-router.delete("/delete-user", destroyUser);
+
+router.delete("/delete-user", verifyCookie, destroyUser);
 /* ***********************Route Protégé ************************************************** */
+
 router.get("/profil-connected", verifyCookie, getProfile);
 
 // router.use(verifyToken);

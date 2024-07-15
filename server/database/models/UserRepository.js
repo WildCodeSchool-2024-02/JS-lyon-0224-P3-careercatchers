@@ -61,24 +61,16 @@ class UserRepository extends AbstractRepository {
 
     return result;
   }
-  // async readByEmail(email) {
-  //   console.log(email);
-  //   // Execute the SQL SELECT query to retrieve a specific user by its email
-  //   const [user] = await this.database.query(
-  //     `select * from ${this.table} where mail = ?`,
-  //     [email]
-  //   );
-  //   console.log([user]);
-  //   const [name] = await this.database.query(
-  //     `select ${
-  //       user.role === "candidate" ? "firstname" : "name"
-  //     } from ? where user_id = ?`,
-  //     [user.role, user.id]
-  //   );
-  //   console.log(name);
-  //   // Return the first row of the result, which represents the user
-  //   return name[0];
-  // }
+
+  async findUserRole(id) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
+    const [rows] = await this.database.query(
+      `select role from ${this.table} where id = ?`,
+      [id]
+    );
+    // Return the first row of the result, which represents the user
+    return rows[0];
+  }
 }
 
 // Exporte une instance unique du UserRepository

@@ -25,6 +25,10 @@ export default function ProfilPageCompany() {
 
       if (response.status === 200) {
         const data = await response.json();
+        if (data.role !== "company") {
+          navigate("/profil-page-candidate");
+        }
+
         setUserData(data);
         notifySuccess(`Bienvenue ${data.name}`);
       } else if (response.status === 401) {
