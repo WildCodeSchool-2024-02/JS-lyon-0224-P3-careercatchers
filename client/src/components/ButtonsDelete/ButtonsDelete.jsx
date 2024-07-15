@@ -1,10 +1,8 @@
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 export default function ButtonsDelete({ id }) {
   const ApiUrl = import.meta.env.VITE_API_URL;
-  const navigate = useNavigate();
   const notifySuccess = (text) => toast.success(text);
   const notifyFail = (text) => toast.error(text);
   const handleDelete = async () => {
@@ -19,7 +17,7 @@ export default function ButtonsDelete({ id }) {
 
       if (response.ok) {
         notifySuccess("L'opération a réussie");
-        navigate("/offer-page-company");
+        window.location.reload();
       } else {
         notifyFail("L'opération a échouée");
       }
@@ -33,7 +31,7 @@ export default function ButtonsDelete({ id }) {
       <button
         className="flex justify-center bg-primary font-custom text-white rounded-md mx-auto max-w-sm min-w-60 px-3 py-2 mb-1 border"
         type="button"
-        onClick={() => handleDelete(id)}
+        onClick={handleDelete}
       >
         Supprimer
       </button>
