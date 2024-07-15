@@ -38,6 +38,16 @@ const read = async (req, res, next) => {
   }
 };
 
+const readByCompanyId = async (req, res, next) => {
+  try {
+    const offers = await tables.offer.readByCompanyId(req.body.user.id);
+
+    res.json(offers);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
   try {
     const offer = req.body;
@@ -71,4 +81,5 @@ module.exports = {
   read,
   add,
   destroy,
+  readByCompanyId,
 };

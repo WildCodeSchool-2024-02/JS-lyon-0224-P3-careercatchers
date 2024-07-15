@@ -74,7 +74,6 @@ const router = createBrowserRouter([
         path: "/offer-page-company",
         id: "offer-page-company",
         element: <OfferPageCompany />,
-        loader: async () => fetch(`${ApiUrl}/api/offers/with-companies`),
       },
     ],
   },
