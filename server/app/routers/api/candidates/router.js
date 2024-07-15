@@ -13,6 +13,7 @@ const { browse, add } = require("../../../controllers/CandidateActions");
 router.get("/", browse);
 
 router.post("/register", add);
+
 /* ************************************************************************* */
 
 module.exports = router;

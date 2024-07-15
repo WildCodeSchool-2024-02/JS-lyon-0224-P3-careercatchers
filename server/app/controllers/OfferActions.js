@@ -67,6 +67,7 @@ const destroy = async (req, res, next) => {
     const deletedOffer = await tables.offer.delete(id);
 
     // Respond with HTTP 200 (OK) and the response data
+
     res.status(200).json({ deletedOffer });
   } catch (err) {
     // Pass any errors to the error-handling middleware
