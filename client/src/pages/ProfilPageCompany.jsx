@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import AvatarCompany from "../components/AvatarCompany/AvatarCompany";
 import ButtonsProfileCompany from "../components/ButtonsProfileCompany/ButtonsProfileCompany";
-import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
 import { useUserContext } from "../contexts/UserContext";
 
-export default function ProfilPageCandidate() {
+export default function ProfilPageCompany() {
   const ApiUrl = import.meta.env.VITE_API_URL;
   const { user, logout } = useUserContext();
   const navigate = useNavigate();
@@ -54,22 +53,23 @@ export default function ProfilPageCandidate() {
 
   return (
     <div>
-      <div className="flex justify-center w-32 mx-auto ">
-        <LogoExternatic />
-      </div>
       <div className="mt-20">
         {userData ? (
-          <>
-            <AvatarCompany user={userData} />
-            <ButtonsProfileCompany />
-            <button
-              type="button"
-              onClick={handleLogout}
-              className="flex justify-center mx-auto"
-            >
-              Se déconnecter
-            </button>
-          </>
+          <div className="md:flex justify-center items-center flex-row gap-24 mt-40">
+            <div>
+              <AvatarCompany user={userData} />
+            </div>
+            <div>
+              <ButtonsProfileCompany />
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="flex justify-center mx-auto"
+              >
+                Se déconnecter
+              </button>
+            </div>
+          </div>
         ) : (
           <div>Chargement...</div>
         )}

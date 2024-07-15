@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import AvatarUser from "../components/AvatarUser/AvatarUser";
 import ButtonsProfileCandidate from "../components/ButtonsProfileCandidate/ButtonsProfileCandidate";
-import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
 import { useUserContext } from "../contexts/UserContext";
 
 export default function ProfilPageCandidate() {
@@ -16,7 +15,6 @@ export default function ProfilPageCandidate() {
 
   const handleLogout = () => {
     logout(false);
-    // notifyInfo(`À bientôt ${userData.name})`);
     notifyInfo(`A bientôt ${userData.firstname}`);
   };
 
@@ -80,34 +78,35 @@ export default function ProfilPageCandidate() {
   return (
     <div>
       {userData ? (
-        <>
-          <AvatarUser user={userData} />
-          <ButtonsProfileCandidate />
+        <div className="md:flex justify-center items-center flex-row gap-24 mt-40">
+          <div>
+            <AvatarUser user={userData} />
+          </div>
+          <div>
+            <ButtonsProfileCandidate />
 
-          <button
-            type="button"
-            onClick={handleLogout}
-            className="flex justify-center mx-auto"
-          >
-            Se déconnecter
-          </button>
-          <div className="flex justify-center font-custom text-sm ml-9">
-            <p className="pr-1">Supprimer mon profil: </p>
             <button
               type="button"
-              className="text-primary underline"
-              onClick={() => handleDelete(user.id)}
+              onClick={handleLogout}
+              className="flex justify-center mx-auto"
             >
-              Suppimer
+              Se déconnecter
             </button>
+            <div className="flex justify-center font-custom text-sm ml-9">
+              <p className="pr-1">Supprimer mon profil: </p>
+              <button
+                type="button"
+                className="text-primary underline"
+                onClick={() => handleDelete(user.id)}
+              >
+                Suppimer
+              </button>
+            </div>
           </div>
-        </>
+        </div>
       ) : (
         <p>Chargement...</p>
       )}
-      <div className="flex w-24 mx-auto pt-16 ml-2 ">
-        <LogoExternatic />
-      </div>
     </div>
   );
 }
