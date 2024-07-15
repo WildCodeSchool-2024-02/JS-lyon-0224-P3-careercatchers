@@ -4,8 +4,8 @@ import NewOfferForm from "../components/Form/NewOfferForm";
 export default function PostNewOffer() {
   return (
     <>
-      <div className="flex justify-between items-center">
-        <div className="w-24 m-5">
+      <div className="flex justify-center">
+        <div className="flex justify-center w-24 m-5">
           <LogoExternatic />
         </div>
       </div>
