@@ -1,69 +1,59 @@
 .divJobOffer {
   border: solid rgba(174, 172, 172, 0.88) 1px;
   border-radius: 0.5rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 15% 15% 1fr 20% 10%;
+  grid-template-columns: 50% 50%;
   box-shadow: 5px 6px 10px -8px rgba(160, 160, 160, 0.95);
   max-width: 384px;
-  min-width: 96px;
   width: 90%;
   margin-bottom: 20px;
   height: 250px;
   min-width: 384px;
+  padding: 1vh 2vh;
 }
-
-.logoHeart {
-  height: 1.2rem;
-  margin: 2vh;
-  margin-right: 1rem;
+.divJobOffer > * {
+  align-self: center;
 }
 
 .title {
   font-weight: bold;
-  margin-left: 3vh;
-  margin-top: 2vh;
   font-size: larger;
-  margin-left: 3vh;
+  grid-column: 1/3;
 }
+
 .adress {
-  margin: 1vh;
-  margin-left: 3vh;
+  grid-row: 2;
 }
 
-.jobSalary {
-  background-color: var(--primary-color);
-  border-radius: 1vh;
-  margin: 1vh;
-  width: fit-content;
-  padding: 0.5vh;
-  color: var(--font-color-white);
-  margin-left: 3vh;
-  padding-left: 1vh;
-  padding-right: 1vh;
+.content {
+  font-size: 14px;
+  grid-row: 3;
+  grid-column: 1/3;
 }
 
-.head {
+.bubbles {
   display: flex;
-  justify-content: space-between;
+  gap: 2vh;
+  grid-row: 4;
+  grid-column: 1/3;
 }
 
+.jobSalary,
 .contract {
-  margin: 1vh;
   background-color: var(--primary-color);
   border-radius: 1vh;
   padding: 0.5vh;
-  margin-left: 3vh;
-  width: fit-content;
   color: var(--font-color-white);
   padding-left: 1vh;
   padding-right: 1vh;
+  width: fit-content;
 }
 
 .date {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1vh;
+  grid-row: 5;
+  grid-column: 1/3;
+  justify-self: center;
 }
 
 @media (min-width: 768px) {

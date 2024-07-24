@@ -28,12 +28,6 @@ const login = async (req, res, next) => {
           expiresIn: "1h",
         }
       );
-
-      // res.json({
-      //   token,
-      //   user,
-      // });
-
       res
         .cookie("access_token", token, {
           httpOnly: true,

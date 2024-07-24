@@ -15,7 +15,10 @@ const {
   destroy,
   readByCompanyId,
 } = require("../../../controllers/OfferActions");
-const { verifyCookie, checkIfRoleIsCompany } = require("../../../services/auth");
+const {
+  verifyCookie,
+  checkIfRoleIsCompany,
+} = require("../../../services/auth");
 
 // Route to get a list of offers
 

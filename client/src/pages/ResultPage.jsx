@@ -17,10 +17,13 @@ export default function ResultPage() {
             key={offer.id}
             jobTitle={offer.job_title}
             name={offer.name}
+            content={offer.content}
             location={offer.location}
+            salaryRate={offer.salary_rate}
             minSalary={offer.min_salary}
             maxSalary={offer.max_salary}
             jobType={offer.job_type}
+            publishDate={offer.publish_date}
             className={styles.jobOffer}
           />
         ))}

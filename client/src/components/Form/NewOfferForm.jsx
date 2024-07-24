@@ -275,7 +275,7 @@ export default function NewOfferForm() {
           name="content"
           aria-required="true"
           placeholder="Décrire les missions, les prérequis, avantages sociaux, etc"
-          maxLength="500"
+          maxLength="200"
           onChange={handleUpdateForm}
         />
         {errors.content !== undefined ? (
