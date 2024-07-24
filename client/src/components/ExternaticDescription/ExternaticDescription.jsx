@@ -21,14 +21,14 @@ export default function ExternaticDescription() {
             <img src={building} alt="Logo builiding" className={styles.img} />
           </div>
           <p className={styles.p}>
-            <span className={styles.spanPart}>56 </span>
-            <span>Entreprises recrutent</span>
+            <span className={styles.spanPart}>13 </span>
+            <span>Ans de professionnalisme</span>
           </p>
         </div>
         <div className={`${styles.logo} relative left-7 z-0`}>
           <p className={styles.p}>
-            <span className={styles.spanPart}>+ de 600 </span>
-            <span>Postulants</span>
+            <span className={styles.spanPart}>33</span>
+            <span>Consultants</span>
           </p>
           <div className={styles.imgBlock}>
             <img src={handShake} alt="Logo hand shake" className={styles.img} />
@@ -39,7 +39,7 @@ export default function ExternaticDescription() {
             <img src={note} alt="Logo note" className={styles.img} />
           </div>
           <p className={styles.p}>
-            <span className={styles.spanPart}>+ de 2000 </span>
+            <span className={styles.spanPart}>+ de 700 </span>
             <span>Offres d'emploi</span>
           </p>
         </div>
