@@ -1,0 +1,9 @@
+.avatarUser {
+  width: 140px;
+}
+
+@media (min-width: 768px) {
+  .avatarUser {
+    width: 180px;
+  }
+}
