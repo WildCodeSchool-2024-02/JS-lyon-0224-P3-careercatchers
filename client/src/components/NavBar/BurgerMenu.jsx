@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import Burger from "../../assets/logo/burger.svg";
 import Cross from "../../assets/logo/x.svg";
-import styles from "./BurgerMenu.module.css";
 import { useUserContext } from "../../contexts/UserContext";
+import styles from "./BurgerMenu.module.css";
 
 export default function BurgerMenu() {
   const location = useLocation().pathname;
@@ -118,12 +118,18 @@ export default function BurgerMenu() {
               to="/page-my-application"
               className={styles.link}
               onClick={handleClick}
+              style={{ pointerEvents: "none" }}
             >
               Mes candidatures
             </Link>
           </li>
           <li>
-            <Link to="/mes-infos" className={styles.link} onClick={handleClick}>
+            <Link
+              to="/mes-infos"
+              className={styles.link}
+              onClick={handleClick}
+              style={{ pointerEvents: "none" }}
+            >
               Mes informations
             </Link>
           </li>

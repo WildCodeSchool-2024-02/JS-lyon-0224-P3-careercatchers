@@ -1,0 +1,11 @@
+@media (min-width: 768px) {
+  .buttonFavorite {
+    width: 300px;
+  }
+  .buttonInfo {
+    width: 300px;
+  }
+  .buttonApplication {
+    width: 300px;
+  }
+}
