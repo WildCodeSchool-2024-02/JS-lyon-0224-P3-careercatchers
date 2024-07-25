@@ -10,9 +10,10 @@ export default function ProfilPageCompany() {
   const { user, logout } = useUserContext();
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
-  const notifySuccess = (text) => toast.success(text);
-  const notifyFail = (text) => toast.error(text);
-  const notifyInfo = (text) => toast.info(text);
+  const customId = "custom-id-yes";
+  const notifySuccess = (text) => toast.success(text, { toastId: customId });
+  const notifyFail = (text) => toast.error(text, { toastId: customId });
+  const notifyInfo = (text) => toast.info(text, { toastId: customId });
 
   const getProfile = async () => {
     try {

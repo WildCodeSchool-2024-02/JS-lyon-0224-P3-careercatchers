@@ -21,6 +21,7 @@ function App() {
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          limit={2}
         />
       </main>
     </UserProvider>

@@ -8,8 +8,10 @@ import { useUserContext } from "../contexts/UserContext";
 export default function ProfilPageCandidate() {
   const ApiUrl = import.meta.env.VITE_API_URL;
   const { user, logout } = useUserContext();
-  // console.log(user.id);
-  const notifyInfo = (text) => toast.info(text);
+  const customId = "custom-id-yes";
+  const notifyInfo = (text) => toast.info(text, { toastId: customId });
+  const notifySuccess = (text) => toast.success(text, { toastId: customId });
+  const notifyFail = (text) => toast.error(text, { toastId: customId });
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
 
@@ -17,9 +19,6 @@ export default function ProfilPageCandidate() {
     logout(false);
     notifyInfo(`A bientôt ${userData.firstname}`);
   };
-
-  const notifySuccess = (text) => toast.success(text);
-  const notifyFail = (text) => toast.error(text);
 
   const handleDelete = async () => {
     try {
