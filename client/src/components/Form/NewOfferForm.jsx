@@ -17,7 +17,7 @@ export default function NewOfferForm() {
     salary_rate: "mensuel",
     min_salary: "",
     max_salary: "",
-    company_id: "",
+    company_id: 1,
   });
   const regularPattern = /^[a-zA-ZÀ-ÿ0-9\s,'-]*$/;
   const [isChosen, setIsChosen] = useState(null);
@@ -138,6 +138,7 @@ export default function NewOfferForm() {
         <label htmlFor="company">Vous êtes :</label>
         <br />
         <select
+          type="hidden"
           name="company_id"
           id="company"
           aria-required="true"
