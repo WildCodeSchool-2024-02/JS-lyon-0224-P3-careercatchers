@@ -8,8 +8,8 @@ import { useUserContext } from "../contexts/UserContext";
 export default function ProfilPageCandidate() {
   const ApiUrl = import.meta.env.VITE_API_URL;
   const { user, logout } = useUserContext();
-  // console.log(user.id);
-  const notifyInfo = (text) => toast.info(text);
+  const customId = "custom-id-yes";
+  const notifyInfo = (text) => toast.info(text, { toastId: customId });
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
 
