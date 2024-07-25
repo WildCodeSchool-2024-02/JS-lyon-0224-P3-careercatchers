@@ -52,9 +52,12 @@ export default function OfferPageCompany() {
               <JobOffer
                 jobTitle={offer.job_title}
                 location={offer.location}
+                salaryRate={offer.salary_rate}
                 minSalary={offer.min_salary}
                 maxSalary={offer.max_salary}
                 jobType={offer.job_type}
+                publishDate={offer.publish_date}
+                content={offer.content}
               />
               <ButtonsDelete id={offer.id} />
               <ButtonsUpDate />

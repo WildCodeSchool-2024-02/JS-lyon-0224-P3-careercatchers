@@ -28,10 +28,10 @@ export default function JobOffer({
     month: "mois",
   };
   const regex = new RegExp(Object.keys(replacements).join("|"), "gi");
-  /*   const frenchDate = formatDistanceToNow(createdAt).replace(
+  const frenchDate = formatDistanceToNow(createdAt).replace(
     regex,
     (matched) => replacements[matched]
-  ); */
+  );
   const rate = (salaryRate = "annuel"
     ? "an"
     : (salaryRate = "mensuel" ? "mois" : "heure"));
@@ -54,7 +54,7 @@ export default function JobOffer({
           )}
           <p className={styles.contract}>{jobType}</p>
         </div>
-        {/* <p className={styles.date}>{`Offre postée il y a ${frenchDate}`}</p> */}
+        <p className={styles.date}>{`Offre postée il y a ${frenchDate}`}</p>
       </div>
     </div>
   );
