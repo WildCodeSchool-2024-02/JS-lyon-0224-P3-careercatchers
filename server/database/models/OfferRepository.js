@@ -58,7 +58,7 @@ class OfferRepository extends AbstractRepository {
 
   async getOffersWithCompanies() {
     const [rows] = await this.database.query(
-      `select o.id, job_title, job_type, location, min_salary, max_salary, name, email from ${this.table} as o inner join company as c on company_id = c.id inner join user as u on user_id=u.id`
+      `select o.id, job_title, job_type, content, location, salary_rate, min_salary, max_salary, publish_date, name, email from ${this.table} as o inner join company as c on company_id = c.id inner join user as u on user_id=u.id`
     );
 
     return rows;
