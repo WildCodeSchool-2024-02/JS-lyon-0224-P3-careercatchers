@@ -3,7 +3,8 @@ const AbstractSeeder = require("./AbstractSeeder");
 const users = [
   {
     email: "wildcodeschool@gmail.com",
-    hashed_password: "eznd$zdcjé",
+    hashed_password:
+      "$argon2id$v=19$m=19456,t=2,p=1$glyThY/f82w6BmzwSU07ig$YPWkB+g+0dOtTBR37duv+SEZ7vFcUapiufljeiKnD3w", // 'demo'
     role: "company",
   },
   {
@@ -13,7 +14,8 @@ const users = [
   },
   {
     email: "johndoe@yahoo.com",
-    hashed_password: "iieze_ezkje",
+    hashed_password:
+      "$argon2id$v=19$m=19456,t=2,p=1$glyThY/f82w6BmzwSU07ig$YPWkB+g+0dOtTBR37duv+SEZ7vFcUapiufljeiKnD3w", // 'demo'
     role: "candidate",
   },
 ];

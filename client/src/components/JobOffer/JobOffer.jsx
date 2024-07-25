@@ -24,6 +24,8 @@ export default function JobOffer({
     ago: "",
     about: "environ",
     "less than a": "moins d'une",
+    months: "mois",
+    month: "mois",
   };
   const regex = new RegExp(Object.keys(replacements).join("|"), "gi");
   const frenchDate = formatDistanceToNow(createdAt).replace(
