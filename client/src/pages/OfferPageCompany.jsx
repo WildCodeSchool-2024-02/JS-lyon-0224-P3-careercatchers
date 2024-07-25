@@ -27,6 +27,7 @@ export default function OfferPageCompany() {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
         const data = await res.json();
+
         setOffers(data);
       } catch (error) {
         console.error("Error fetching offers:", error);
@@ -55,6 +56,7 @@ export default function OfferPageCompany() {
                 minSalary={offer.min_salary}
                 maxSalary={offer.max_salary}
                 jobType={offer.job_type}
+                publishDate={offer.publish_date}
               />
               <ButtonsDelete id={offer.id} />
               <ButtonsUpDate />

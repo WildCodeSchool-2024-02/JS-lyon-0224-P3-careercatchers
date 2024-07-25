@@ -28,6 +28,7 @@ export default function JobOffer({
     month: "mois",
   };
   const regex = new RegExp(Object.keys(replacements).join("|"), "gi");
+
   const frenchDate = formatDistanceToNow(createdAt).replace(
     regex,
     (matched) => replacements[matched]
