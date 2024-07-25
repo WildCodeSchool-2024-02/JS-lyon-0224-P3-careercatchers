@@ -23,7 +23,7 @@ export default function JobOffer({
     hour: "heure",
     ago: "",
     about: "environ",
-    "less than a": "moins d'une minute",
+    "less than a": "moins d'une",
   };
   const regex = new RegExp(Object.keys(replacements).join("|"), "gi");
   const frenchDate = formatDistanceToNow(createdAt).replace(
