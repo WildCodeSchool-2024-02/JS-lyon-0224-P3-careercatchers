@@ -10,8 +10,9 @@ export default function AvatarUser({ user }) {
         alt="Avatar utilisateur"
         className={styles.avatarUser}
       />
-      <p>{user.firstname}</p>
-      <p>{user.lastname}</p>
+      <p>
+        {user.firstname} {user.lastname}
+      </p>
     </div>
   );
 }

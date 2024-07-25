@@ -8,7 +8,7 @@ const offers = [
     job_title: "Data Analyst (H/F)",
     job_type: "Apprentissage",
     content:
-      "En tant que Data Analyst, vous contribuez au développement de l’activité autour de la gestion des données et de la transformation numérique en accompagnant les clients sur leurs projets, sur des prestations de conseil et d’expertise.",
+      "En tant que Data Analyst, vous contribuez au développement de l’activité autour de la gestion des données et de la transformation numérique en accompagnant les clients sur leurs projets.", // , sur des prestations de conseil et d’expertise.
     location: "Lyon",
     salary_rate: "mensuel",
     min_salary: "1000",
@@ -30,14 +30,16 @@ const offers = [
     job_title: "Chef(fe) de Projet Digital (H/F)",
     job_type: "CDD",
     content:
-      "Vous aurez pour objectif de mener à terme plusieurs projets de l’idéation jusqu’à l’aboutissement et le suivi de ces derniers. Doté d’une très bonne culture du web et d’une grande polyvalence, le chef de projet digital devra être rigoureux et créatif.",
+      "Vous aurez pour objectif de mener à terme plusieurs projets de l’idéation jusqu’à l’aboutissement et le suivi de ces derniers. Le chef de projet digital devra être rigoureux et créatif.", // Doté d’une très bonne culture du web et d’une grande polyvalence, l
     location: "Paris",
-    salary_rate: null,
+    salary_rate: "horaire",
     min_salary: null,
     max_salary: null,
     company_id: "2",
   },
 ];
+
+// En intégrant la Direction WCS, vous avez pour rôle, dans votre position de Business analyst, de bien comprendre les enjeux des métiers et les besoins qu’ils expriment afin de proposer des solutions.
 
 class OfferSeeder extends AbstractSeeder {
   constructor() {
