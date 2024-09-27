@@ -58,10 +58,32 @@ class OfferRepository extends AbstractRepository {
 
   async getOffersWithCompanies() {
     const [rows] = await this.database.query(
-      `select o.id, job_title, job_type, location, min_salary, max_salary, name, email from ${this.table} as o inner join company as c on company_id = c.id inner join user as u on user_id=u.id`
+      `select o.id, job_title, job_type, content, location, salary_rate, min_salary, max_salary, publish_date, name, email from ${this.table} as o inner join company as c on company_id = c.id inner join user as u on user_id=u.id`
     );
 
     return rows;
+  }
+
+  async readByCompanyId(id) {
+    const [companyId] = await this.database.query(
+      `select id from company where user_id = ?`,
+      [id]
+    );
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where company_id = ?`,
+      [companyId[0].id]
+    );
+    return rows;
+  }
+
+  // The D of CRUD - Delete operation
+  async delete(id) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+
+    return result;
   }
 }
 

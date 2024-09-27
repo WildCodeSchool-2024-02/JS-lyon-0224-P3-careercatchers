@@ -9,17 +9,27 @@ const router = express.Router();
 // Import offer-related actions
 
 // Route to get a list of offers
-const { browse, add } = require("../../../controllers/UserAction");
-// const { login } = require("../../../controllers/AuthAction");
-const { hashPassword } = require("../../../services/auth");
+const {
+  add,
+  getProfile,
+  destroyUser,
+} = require("../../../controllers/UserAction");
+const {
+  login,
+  logout,
+} = require("../../../controllers/AuthentificationActions");
+const { hashPassword, verifyCookie } = require("../../../services/auth");
+// const verifyCookie = require("../../../services/verifyCookie");
 // Route to get a list of offers
-router.get("/", browse);
+router.post("/login", login);
+router.get("/logout", logout);
+router.post("/register", hashPassword, add);
 
-router.post("/", hashPassword, add);
-/* ************************************************************************* */
+router.delete("/delete-user", verifyCookie, destroyUser);
+/* ***********************Route Protégé ************************************************** */
 
-// router.post("/login", login);
+router.get("/profil-connected", verifyCookie, getProfile);
 
-// router.get("/:id", read);
+// router.use(verifyToken);
 
 module.exports = router;

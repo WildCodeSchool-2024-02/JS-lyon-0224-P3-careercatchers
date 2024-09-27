@@ -9,22 +9,34 @@ class CandidateRepository extends AbstractRepository {
     super({ table: "candidate" });
   }
 
-  // Méthode pour créer un nouvel utilisateur
+  // Méthode pour créer un nouveau candidat
   async create(candidate) {
     const [result] = await this.database.query(
       `
-      INSERT INTO ${this.table} ( lastname, firstname, birthday)
-      VALUES (?, ?, ?)
+      INSERT INTO ${this.table} ( lastname, firstname, birthday, user_id)
+      VALUES (?, ?, ?, ?)
     `,
-      [candidate.lastname, candidate.firstname, candidate.birthday]
+      [
+        candidate.lastname,
+        candidate.firstname,
+        candidate.birthday,
+        candidate.user_id,
+      ]
     );
 
     // Execute the query and return the result
     return result.insertId;
   }
-}
 
-// Ajoutez d'autres méthodes CRUD selon vos besoins
+  // Méthode pour lire les informations spécifiques d'un candidat
+  async getCandidateInfo(userId) {
+    const [rows] = await this.database.query(
+      `SELECT lastname, firstname FROM ${this.table} WHERE user_id = ?`,
+      [userId]
+    );
+    return rows.length > 0 ? rows[0] : null;
+  }
+}
 
 // Exporte une instance unique du UserRepository
 module.exports = CandidateRepository;

@@ -15,7 +15,21 @@ const browse = async (req, res, next) => {
   }
 };
 
+const add = async (req, res, next) => {
+  try {
+    const company = req.body;
+
+    // Créer une nouvelle entreprise
+    const insertId = await tables.company.create(company);
+
+    res.status(201).json(insertId); // Répondre avec l'id de l'entreprise créé
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
+  add,
 };

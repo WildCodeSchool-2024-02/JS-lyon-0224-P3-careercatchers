@@ -13,10 +13,10 @@ class UserRepository extends AbstractRepository {
   async create(user) {
     const [result] = await this.database.query(
       `
-      INSERT INTO ${this.table} (email, hashed_password)
-      VALUES (?, ?)
+      INSERT INTO ${this.table} (email, hashed_password, role)
+      VALUES (?, ?, ?)
     `,
-      [user.email, user.hashedPassword]
+      [user.email, user.hashedPassword, user.role]
     );
 
     // Execute the query and return the result
@@ -28,6 +28,48 @@ class UserRepository extends AbstractRepository {
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
     return rows;
+  }
+
+  async read(id) {
+    // Execute the SQL SELECT query to retrieve a specific user by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where id = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the user
+    return rows[0];
+  }
+
+  async readByEmailWithPassword(email) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [email]
+    );
+
+    // Return the first row of the result, which represents the user
+    return rows[0];
+  }
+
+  // The D of CRUD - Delete operation
+  async delete(id) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+
+    return result;
+  }
+
+  async findUserRole(id) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
+    const [rows] = await this.database.query(
+      `select role from ${this.table} where id = ?`,
+      [id]
+    );
+    // Return the first row of the result, which represents the user
+    return rows[0];
   }
 }
 

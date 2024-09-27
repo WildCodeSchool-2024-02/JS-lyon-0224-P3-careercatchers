@@ -121,6 +121,7 @@ export default function NewOfferForm() {
     offerForm.salary_rate === "mensuel" ? "Ex: 2500" : "Ex: 12";
   const maxSalaryTernary =
     offerForm.salary_rate === "mensuel" ? "Ex: 3000" : "Ex: 16";
+  const stepTernary = offerForm.salary_rate === "mensuel" ? "500" : "1000";
   const inputClassTernary = (input) => {
     if (errors[input] === null) return valid;
     if (errors[input] === undefined) return "";
@@ -275,7 +276,7 @@ export default function NewOfferForm() {
           name="content"
           aria-required="true"
           placeholder="Décrire les missions, les prérequis, avantages sociaux, etc"
-          maxLength="500"
+          maxLength="200"
           onChange={handleUpdateForm}
         />
         {errors.content !== undefined ? (
@@ -314,7 +315,7 @@ export default function NewOfferForm() {
                 name="min_salary"
                 min="0"
                 max="999 999"
-                step="1000"
+                step={offerForm.salary_rate === "horaire" ? "1" : stepTernary}
                 placeholder={
                   offerForm.salary_rate === "annuel"
                     ? "Ex: 30000"
@@ -335,7 +336,7 @@ export default function NewOfferForm() {
                 name="max_salary"
                 min="0"
                 max="999 999"
-                step="1000"
+                step={offerForm.salary_rate === "horaire" ? "1" : stepTernary}
                 placeholder={
                   offerForm.salary_rate === "annuel"
                     ? "Ex: 40000"

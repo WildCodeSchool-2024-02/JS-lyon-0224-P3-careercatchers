@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0.8rem 3rem 2rem;
+  margin: 3rem 3rem 4rem;
   font-family: var(--font-family-text);
 }
 
@@ -14,6 +14,7 @@
 .logoDiv {
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 
 .spanPart {
@@ -26,7 +27,6 @@
   display: flex;
   margin-top: 2rem;
   align-items: center;
-  justify-content: space-between;
 }
 
 .imgBlock {
@@ -36,4 +36,35 @@
 
 .img {
   width: 80px;
+}
+
+.p {
+  display: flex;
+  font-size: 1.25rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .divClass {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .divP {
+    width: 50%;
+    margin-right: 10vw;
+  }
+  .logoDiv {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .spanPart {
+    margin-right: 10px;
+  }
+  .p {
+    flex-direction: row;
+  }
 }
