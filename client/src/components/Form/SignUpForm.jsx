@@ -24,6 +24,12 @@ function SignUpForm() {
     setErrors({ ...errors, [name]: "" });
   };
 
+  const validatePassword = (password) => {
+    const strongPasswordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+    return strongPasswordRegex.test(password);
+  };
+
   const validateFormCandidate = () => {
     const newErrors = {};
     if (register.firstname === "")
@@ -32,8 +38,13 @@ function SignUpForm() {
     if (register.email === "") newErrors.email = "L'e-mail est requis.";
     if (register.birthday === "")
       newErrors.birthday = "La date de naissance est requise.";
+
     if (register.password === "")
       newErrors.password = "Le mot de passe est requis.";
+    else if (!validatePassword(register.password))
+      newErrors.password =
+        "Le mot de passe doit contenir au moins 8 caractères, avec une majuscule, une minuscule, un chiffre et un caractère spécial.";
+
     if (register.password !== register.confirmPassword)
       newErrors.confirmPassword = "Les mots de passe ne correspondent pas.";
 
@@ -51,6 +62,9 @@ function SignUpForm() {
     if (register.email === "") newErrors.email = "L'e-mail est requis.";
     if (register.password === "")
       newErrors.password = "Le mot de passe est requis.";
+    else if (!validatePassword(register.password))
+      newErrors.password =
+        "Le mot de passe doit contenir au moins 8 caractères, avec une majuscule, une minuscule, un chiffre et un caractère spécial.";
     if (register.password !== register.confirmPassword)
       newErrors.confirmPassword = "Les mots de passe ne correspondent pas.";
 
@@ -62,30 +76,49 @@ function SignUpForm() {
     return false;
   };
 
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   if (register.role === "candidate") {
+  //     const validation = validateFormCandidate();
+  //     if (validation === true) {
+  //       const formData = new FormData(event.target);
+  //       const request = {
+  //         formData: async () => formData,
+  //       };
+
+  //       await signUpAction({ request });
+  //       navigate("/login-page");
+  //     }
+  //   } else {
+  //     const validation = validateFormCompany();
+  //     if (validation === true) {
+  //       const formData = new FormData(event.target);
+  //       const request = {
+  //         formData: async () => formData,
+  //       };
+
+  //       await signUpAction({ request });
+  //       navigate("/login-page");
+  //     }
+  //   }
+  // };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (register.role === "candidate") {
-      const validation = validateFormCandidate();
-      if (validation === true) {
-        const formData = new FormData(event.target);
-        const request = {
-          formData: async () => formData,
-        };
 
-        await signUpAction({ request });
-        navigate("/login-page");
-      }
-    } else {
-      const validation = validateFormCompany();
-      if (validation === true) {
-        const formData = new FormData(event.target);
-        const request = {
-          formData: async () => formData,
-        };
+    const isCandidate = register.role === "candidate";
+    const isValid = isCandidate
+      ? validateFormCandidate()
+      : validateFormCompany();
 
-        await signUpAction({ request });
-        navigate("/login-page");
-      }
+    if (isValid) {
+      const formData = new FormData(event.target);
+      const request = {
+        formData: async () => formData,
+      };
+
+      await signUpAction({ request });
+      navigate("/login-page");
     }
   };
 

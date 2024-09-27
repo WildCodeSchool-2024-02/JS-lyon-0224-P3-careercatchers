@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.module.css";
-import { UserProvider } from "./contexts/UserContext";
 import NavBarMobile from "./components/NavBar/NavBarMobile";
+import { UserProvider } from "./contexts/UserContext";
 import "./index.css";
 
 function App() {

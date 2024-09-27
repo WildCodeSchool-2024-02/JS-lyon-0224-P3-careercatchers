@@ -103,7 +103,7 @@ export default function ProfilPageCandidate() {
                 className="text-primary underline"
                 onClick={() => handleDelete(user.id)}
               >
-                Suppimer
+                Supprimer
               </button>
             </div>
           </div>

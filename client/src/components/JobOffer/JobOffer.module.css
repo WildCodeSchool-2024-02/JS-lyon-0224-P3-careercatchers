@@ -8,7 +8,7 @@
   max-width: 384px;
   width: 90%;
   margin-bottom: 20px;
-  height: 250px;
+  height: 280px;
   min-width: 384px;
   padding: 1vh 2vh;
 }
@@ -48,6 +48,7 @@
   padding-left: 1vh;
   padding-right: 1vh;
   width: fit-content;
+  font-size: small;
 }
 
 .date {

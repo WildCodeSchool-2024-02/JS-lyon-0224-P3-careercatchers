@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 
-import LogoExternatic from "../components/LogoExternatic/LogoExternatic";
 import AvatarCompany from "../components/AvatarCompany/AvatarCompany";
-import JobOffer from "../components/JobOffer/JobOffer";
 import ButtonsDelete from "../components/ButtonsDelete/ButtonsDelete";
 import ButtonsUpDate from "../components/ButtonsUpDate/ButtonsUpDate";
+import JobOffer from "../components/JobOffer/JobOffer";
 import { useUserContext } from "../contexts/UserContext";
 
 export default function OfferPageCompany() {
@@ -41,9 +40,7 @@ export default function OfferPageCompany() {
   return (
     <div>
       <div className="flex justify-between items-center w-full  top-0 left-0 right-0 z-50">
-        <div className="w-24 m-5">
-          <LogoExternatic />
-        </div>
+        <div className="w-24 m-5">{/* <LogoExternatic /> */}</div>
       </div>
       <div>
         <AvatarCompany user={user} />
@@ -53,6 +50,7 @@ export default function OfferPageCompany() {
               <JobOffer
                 jobTitle={offer.job_title}
                 location={offer.location}
+                content={offer.content}
                 minSalary={offer.min_salary}
                 maxSalary={offer.max_salary}
                 jobType={offer.job_type}
